@@ -1,0 +1,9 @@
+\select@language {english}
+\contentsline {section}{List of Tables}{1}{section*.2}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Theory}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}Kangaroo Combat }{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Human Combat }{1}{subsection.2.2}
+\contentsline {section}{\numberline {3}Results}{3}{section.3}
+\contentsline {section}{\numberline {4}Discussion}{7}{section.4}
+\contentsline {section}{\numberline {5}Conclusion}{8}{section.5}
