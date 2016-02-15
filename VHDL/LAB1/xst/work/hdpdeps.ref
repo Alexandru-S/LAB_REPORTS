@@ -1,0 +1,33 @@
+V3 19
+FL C:/Users/owner/Desktop/VHDL/LAB1/decoder_3to8.vhd 2016/02/14.14:15:33 P.20131013
+EN work/decoder_3to8 1455475886 \
+      FL C:/Users/owner/Desktop/VHDL/LAB1/decoder_3to8.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/std_logic_arith 1381692177 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/decoder_3to8/Behavioral 1455475887 \
+      FL C:/Users/owner/Desktop/VHDL/LAB1/decoder_3to8.vhd EN work/decoder_3to8 1455475886
+FL C:/Users/owner/Desktop/VHDL/LAB1/mux3_16bit.vhd 2016/02/14.14:18:56 P.20131013
+EN work/mux3_16bit 1455475888 FL C:/Users/owner/Desktop/VHDL/LAB1/mux3_16bit.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/mux3_16bit/Behavioral 1455475889 \
+      FL C:/Users/owner/Desktop/VHDL/LAB1/mux3_16bit.vhd EN work/mux3_16bit 1455475888
+FL C:/Users/owner/Desktop/VHDL/LAB1/mux8_16bit.vhd 2016/02/14.14:28:50 P.20131013
+EN work/mux8_16bit 1455475890 FL C:/Users/owner/Desktop/VHDL/LAB1/mux8_16bit.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/mux8_16bit/Behavioral 1455475891 \
+      FL C:/Users/owner/Desktop/VHDL/LAB1/mux8_16bit.vhd EN work/mux8_16bit 1455475890
+FL C:/Users/owner/Desktop/VHDL/LAB1/reg8.vhd 2016/02/14.17:26:01 P.20131013
+EN work/reg8 1455475892 FL C:/Users/owner/Desktop/VHDL/LAB1/reg8.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/reg8/Behavioral 1455475893 \
+      FL C:/Users/owner/Desktop/VHDL/LAB1/reg8.vhd EN work/reg8 1455475892
+FL C:/Users/owner/Desktop/VHDL/LAB1/register_file.vhd 2016/02/14.17:26:01 P.20131013
+EN work/register_file 1455475894 \
+      FL C:/Users/owner/Desktop/VHDL/LAB1/register_file.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/register_file/Behavioral 1455475895 \
+      FL C:/Users/owner/Desktop/VHDL/LAB1/register_file.vhd EN work/register_file 1455475894 \
+      CP decoder_3to8 CP mux3_16bit CP mux8_16bit CP reg8
