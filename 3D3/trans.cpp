@@ -13,6 +13,7 @@
 #include <cstring>
 #include <fstream>
 #include <time.h>
+#include <sys/uio.h>
 
 #define BUFLEN 1024
 #define PORT 5555
@@ -127,7 +128,7 @@ void server_main()
 	/*ip adress*/
 	server_socket.sin_addr.s_addr = htonl(INADDR_ANY);
 	/*port*/
-	server_socket.sin_port = htons(5558);
+	server_socket.sin_port = htons(PORT);
 	
 	if (bind(sock, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
 		exit(0);
@@ -137,7 +138,7 @@ void server_main()
 	while (1) 
 	{	
 	/*******************************************************/
-		/** Initialize received */
+		/*Receives test.txt contents from the client */
 	/*******************************************************/
 		socklen_t client_len = sizeof(client_socket);
 		if ((received = recvfrom(sock, buffer, 255, 0, (struct sockaddr *) &client_socket, &client_len)) < 0) 
@@ -147,6 +148,8 @@ void server_main()
 		buffer[received] = '\0';
 		cout <<"CLIENT CONNECTION: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
 		//cout <<"PORT: "<< server_socket.sin_port<<endl;
+		cout<<"header"<<&client_len<<endl;
+		cout<<"SERVER SOCKET: "<<PORT<<endl;
 		cout <<"RECEIVED DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
 	/*******************************************************/
 	
@@ -240,7 +243,7 @@ void client_main()
 	/*Ip adress*/
 	server_socket.sin_addr.s_addr = inet_addr("127.0.0.1");
 	/*port*/
-	server_socket.sin_port = htons(5558);
+	server_socket.sin_port = htons(PORT);
 	rc= bind(sock, (struct sockaddr *) &client_socket, sizeof(client_socket));
 	if (rc < 0) 
 	{
@@ -269,20 +272,35 @@ void client_main()
 	myfile.close();*/
 	filesize  = GetFileSize("test.txt");
       	cout<<"************************"<<endl;
-      	cout<<"FILESIZE: "<<filesize<<" other thing: " <<endl;
+      	cout<<"FILESIZE: "<<filesize <<endl;
       	cout<<"NUMBER OF CHARACTERS: "<<num_characters<<endl;
       	cout<<"************************"<<endl;
+      	int frameid=1;
+      	int frameid2=1;
 	while(1)
 	{	
 	/*******************************************************/
 		/*sends test.txt contents to the server */
 	/*******************************************************/
-		if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
+		/*splits packet into 8 bytes*/
+		for(int i=1;i<=filesize/4;i++)
 		{
-			cout<<"error here";
-			exit(0);
+				
+			if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
+			{
+				cout<<"error in sendto()";
+				exit(0);
+			}
+			frameid++;
+			sleep(3);
+			if(i>256)
+			{
+				cout<<"Protocol Ending";
+				exit(0);
+			
+			}
 		}
-		sleep(3);
+		
 	/*******************************************************/
 		/*resets the memory*/
 		memset(buf, '\0', BUFLEN);
@@ -291,17 +309,23 @@ void client_main()
 	/*******************************************************/
 		/*receives test.txt contents from the server */
 	/*******************************************************/
-		if(recvfrom(sock, buf, strlen(buffer), 0, (struct sockaddr *) &server_socket,  &server_len) <0)
+		/*splits packet into bytes*/
+		for(int i=0;i<=filesize/8;i++)
 		{
-			cerr<<"recvfrom() failed...";
-			exit(0);
+			if(recvfrom(sock, buf, strlen(buffer), 0, (struct sockaddr *) &server_socket,  &server_len) <0)
+			{
+				cerr<<"recvfrom() failed...";
+				exit(0);
+			}	
+			cout<<endl;
+			cout<<"SERVER CONNECTION: "<< inet_ntoa(server_socket.sin_addr)<<endl;
+			cout<<"SERVER SOCKET: "<<PORT<<endl;
+			cout<<"FILESIZE: "<<filesize<<endl;
+			/*cout <<"size2: " << (end-begin) << " bytes." << endl;*/
+			cout<<"RECEIVED DATA SENT BACK FROM SERVER: "<< buf<<endl;
+			frameid2++;
+			sleep(2);
 		}
-		cout<<endl;
-		cout<<"SERVER CONNECTION: "<< inet_ntoa(server_socket.sin_addr)<<endl;
-		cout<<"SERVER SOCKET: "<<sock<<endl;
-		cout<<"FILESIZE: "<<filesize<<endl;
-		/*cout <<"size2: " << (end-begin) << " bytes." << endl;*/
-		cout<<"RECEIVED DATA SENT BACK FROM SERVER: "<< buf<<endl;
 	/*******************************************************/
 	}
 }
