@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.45 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.45 secs
  
 --> Reading design: register_file.prj
 
@@ -68,7 +68,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -111,11 +111,9 @@ Architecture behavioral of Entity mux3_16bit is up to date.
 Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB1/mux8_16bit.vhd" in Library work.
 Architecture behavioral of Entity mux8_16bit is up to date.
 Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB1/reg8.vhd" in Library work.
-Entity <reg8> compiled.
-Entity <reg8> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity reg8 is up to date.
 Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB1/register_file.vhd" in Library work.
-Entity <register_file> compiled.
-Entity <register_file> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity register_file is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -387,12 +385,12 @@ Offset:              5.558ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.66 secs
+Total REAL time to Xst completion: 19.00 secs
+Total CPU time to Xst completion: 18.95 secs
  
 --> 
 
-Total memory usage is 261972 kilobytes
+Total memory usage is 258652 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
