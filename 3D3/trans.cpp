@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <cstdlib>
+#include <cstring>
 #include <netdb.h>
 #include <stdio.h>
 #include <sys/socket.h>
@@ -16,7 +17,7 @@
 #include <sys/uio.h>
 
 #define BUFLEN 1024
-#define PORT 5555
+#define PORT 5561
 using namespace std;
 
 /*8 bytes*/
@@ -112,8 +113,15 @@ void server_main()
 	struct sockaddr_in server_socket;
 	struct sockaddr_in client_socket;
 	int one=1;
+	long filesize;
 	// declare the 'out' stream
 	ofstream out;    
+	filesize  = GetFileSize("test.txt");
+	
+	std::ofstream ofs;
+	ofs.open("out.txt", std::ofstream::out | std::ofstream::trunc);
+	ofs.close();
+	
 	
 	/*******************************************************/
     	/*SOCKET CREATION*/
@@ -135,32 +143,45 @@ void server_main()
 	/*******************************************************/
 	char buffer[BUFLEN];
 	int received;
+	int servHeader1=1;
+	int servHeader2=1;
 	while (1) 
 	{	
 	/*******************************************************/
 		/*Receives test.txt contents from the client */
 	/*******************************************************/
-		socklen_t client_len = sizeof(client_socket);
-		if ((received = recvfrom(sock, buffer, 255, 0, (struct sockaddr *) &client_socket, &client_len)) < 0) 
+		for(int i=1;i<=filesize/4;i+=4)
 		{
-			exit(0);
-		}
-		buffer[received] = '\0';
-		cout <<"CLIENT CONNECTION: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
-		//cout <<"PORT: "<< server_socket.sin_port<<endl;
-		cout<<"header"<<&client_len<<endl;
-		cout<<"SERVER SOCKET: "<<PORT<<endl;
-		cout <<"RECEIVED DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
+			socklen_t client_len = sizeof(client_socket);
+			if ((received = recvfrom(sock, buffer, 255, 0, (struct sockaddr *) &client_socket, &client_len)) < 0) 
+			{
+				exit(0);
+			}
+			buffer[received] = '\0';
+			cout <<"SERVER CONNECTION ON RECEIVING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
+			cout<<"SERVER PORT: "<<PORT<<endl;
+			cout<<"RECEIVED DATA HEADER: "<<servHeader1<<endl;
+			cout <<"RECEIVED DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
+			servHeader1++;
+			
+			sleep(2);
 	/*******************************************************/
 	
 	/*******************************************************/
 		/**SEND A PACKET BACK TO THE CLIENT*/
 	/*******************************************************/
-		if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &client_socket, sizeof(client_socket)) < 0)
-		{
-			cout<<"error here";
-			exit(0);
-		}
+			if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &client_socket, sizeof(client_socket)) < 0)
+			{
+				cout<<"error here";
+				exit(0);
+			}
+			cout <<"SERVER CONNECTION ON SENDING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
+			cout<<"SERVER PORT: "<<PORT<<endl;
+			cout<<"RESEND DATA HEADER: "<<servHeader2<<endl;
+			cout <<"RESEND DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
+			servHeader2++;
+		
+			sleep(3);
 	/*******************************************************/
 	
 	/*******************************************************/
@@ -168,11 +189,12 @@ void server_main()
     		/*delete contents of file
     		and add new contents*/
     	/*******************************************************/
-    		std::ofstream ofs;
-		ofs.open("out.txt", std::ofstream::out | std::ofstream::trunc);
-		ofs<<buffer;
-		ofs.close();
-		sleep(3);
+    			std::ofstream ofs;
+			ofs.open("out.txt", std::ofstream::out | std::ofstream::app);
+			ofs<<buffer;
+			ofs.close();
+			sleep(1);
+		}
 	/*******************************************************/
 	}
 }
@@ -260,16 +282,15 @@ void client_main()
 	/*while loop to read the number of characters in the file*/
 	while (!myfile.eof())
       	{
+      	
+      		
             myfile.get(buffer[i]);
             i++;
             num_characters ++;
+            
       	}  
       	
-      	/* TO REMOVE ?
-      	begin = myfile.tellg();
-	myfile.seekg (0, ios::end);
-	end = myfile.tellg();
-	myfile.close();*/
+      	
 	filesize  = GetFileSize("test.txt");
       	cout<<"************************"<<endl;
       	cout<<"FILESIZE: "<<filesize <<endl;
@@ -277,54 +298,91 @@ void client_main()
       	cout<<"************************"<<endl;
       	int frameid=1;
       	int frameid2=1;
-	while(1)
-	{	
+      	
+      	
+        /*******************************************************/
+		/*loads .txt into a string */
 	/*******************************************************/
+      	ifstream ifstrfile("test.txt");
+      	string stringfile;
+      	ifstrfile.seekg(0, std::ios::end);
+      	stringfile.reserve(ifstrfile.tellg());
+      	ifstrfile.seekg(0, std::ios::beg);
+      	stringfile. assign((istreambuf_iterator<char>(ifstrfile)),istreambuf_iterator<char>());
+      	/*******************************************************/
+      	
+       /*******************************************************/
 		/*sends test.txt contents to the server */
 	/*******************************************************/
-		/*splits packet into 8 bytes*/
-		for(int i=1;i<=filesize/4;i++)
+		/*splits packet into 4 bits
+		thus there will be 256 frames*/
+	while(1)
+	{	
+		for(int i=1;i<=filesize/4;i+=4)
 		{
-				
-			if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
-			{
-				cout<<"error in sendto()";
-				exit(0);
-			}
-			frameid++;
-			sleep(3);
 			if(i>256)
 			{
 				cout<<"Protocol Ending";
 				exit(0);
 			
 			}
-		}
-		
+			/*increments through string 
+			and copies it to the buffer*/	
+			string substr1 = stringfile.substr(i,4);
+			string tmp = substr1;
+			strcpy(buffer, tmp.c_str());
+			if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
+			{
+				cout<<"error in sendto()";
+				exit(0);
+			}	
+			cout<<endl;
+			cout<<"CLIENT CONNECTION ON SENDING: "<< inet_ntoa(server_socket.sin_addr)<<endl;
+			cout<<"CLIENT SOCKET: "<<PORT<<endl;
+			cout<<"FILESIZE: "<<filesize<<endl;
+			/*cout <<"size2: " << (end-begin) << " bytes." << endl;*/		
+			cout<<"SENDING PACKET HEADER: "<<frameid<<endl;
+			cout<<"DATA TO BE SENT TO SERVER: "<< buffer<<endl;
+			frameid++;
+			sleep(4);
+			
+			
 	/*******************************************************/
 		/*resets the memory*/
-		memset(buf, '\0', BUFLEN);
+			memset(buf, '\0', BUFLEN);
 		/*converts from char to unsigned char*/
-		socklen_t server_len = sizeof(server_socket);
+			socklen_t server_len = sizeof(server_socket);
+			
 	/*******************************************************/
 		/*receives test.txt contents from the server */
 	/*******************************************************/
-		/*splits packet into bytes*/
-		for(int i=0;i<=filesize/8;i++)
-		{
 			if(recvfrom(sock, buf, strlen(buffer), 0, (struct sockaddr *) &server_socket,  &server_len) <0)
 			{
 				cerr<<"recvfrom() failed...";
 				exit(0);
-			}	
+			}
+			
 			cout<<endl;
-			cout<<"SERVER CONNECTION: "<< inet_ntoa(server_socket.sin_addr)<<endl;
-			cout<<"SERVER SOCKET: "<<PORT<<endl;
+			cout<<"CLIENT CONNECTION ON RECEIVING: "<< inet_ntoa(server_socket.sin_addr)<<endl;
+			cout<<"CLIENT SOCKET: "<<PORT<<endl;
 			cout<<"FILESIZE: "<<filesize<<endl;
-			/*cout <<"size2: " << (end-begin) << " bytes." << endl;*/
+			cout<<"RECEIVED PACKET HEADER: "<<frameid2<<endl;
 			cout<<"RECEIVED DATA SENT BACK FROM SERVER: "<< buf<<endl;
+		
 			frameid2++;
-			sleep(2);
+			if(std::strcmp(buffer,buf)==0)
+			{
+				cout<<"+++DATA OK+++"<<endl;
+			}
+			else
+			{
+				cout<<endl;
+				cout<<"CORUPTION ENCOUNTERED "<<end;
+				cout<<"RESENDING..."<<endl;
+				i-=4;
+			}
+			memset(buffer, '\0', BUFLEN);
+			sleep(4);
 		}
 	/*******************************************************/
 	}
