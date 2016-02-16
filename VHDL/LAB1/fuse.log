@@ -1,0 +1,29 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/owner/Desktop/VHDL/LAB1/test_register_file_2_isim_beh.exe -prj C:/Users/owner/Desktop/VHDL/LAB1/test_register_file_2_beh.prj work.test_register_file_2 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/owner/Desktop/VHDL/LAB1/reg8.vhd" into library work
+Parsing VHDL file "C:/Users/owner/Desktop/VHDL/LAB1/mux8_16bit.vhd" into library work
+Parsing VHDL file "C:/Users/owner/Desktop/VHDL/LAB1/mux3_16bit.vhd" into library work
+Parsing VHDL file "C:/Users/owner/Desktop/VHDL/LAB1/decoder_3to8.vhd" into library work
+Parsing VHDL file "C:/Users/owner/Desktop/VHDL/LAB1/register_file.vhd" into library work
+Parsing VHDL file "C:/Users/owner/Desktop/VHDL/LAB1/test_register_file_2.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity decoder_3to8 [decoder_3to8_default]
+Compiling architecture behavioral of entity mux3_16bit [mux3_16bit_default]
+Compiling architecture behavioral of entity mux8_16bit [mux8_16bit_default]
+Compiling architecture behavioral of entity reg8 [reg8_default]
+Compiling architecture behavioral of entity register_file [register_file_default]
+Compiling architecture behavior of entity test_register_file_2
+Time Resolution for simulation is 1ps.
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 15 VHDL Units
+Built simulation executable C:/Users/owner/Desktop/VHDL/LAB1/test_register_file_2_isim_beh.exe
+Fuse Memory Usage: 33136 KB
+Fuse CPU Usage: 795 ms
