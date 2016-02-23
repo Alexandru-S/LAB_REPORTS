@@ -60,7 +60,16 @@ char Gremlin(char data)
 	}
 	return data;   
 }
-
+/*converts the string to binary*/
+/*std::string to_binary(const std::string& input)
+{
+    std::ostringstream oss;
+    for(auto c : input) 
+    {
+        oss << std::bitset<8>(c);
+    }
+    return oss.str();
+}*/
 
 /*counts bytes in a file*/
 long GetFileSize(const char* filename)
