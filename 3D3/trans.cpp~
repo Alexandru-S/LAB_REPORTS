@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <algorithm>
 #include <stdlib.h>
 #include <string.h>
 #include <bitset>
@@ -17,9 +18,10 @@
 #include <fstream>
 #include <time.h>
 #include <sys/uio.h>
+#include <zlib.h>
 
 #define BUFLEN 1024
-#define PORT 5561
+#define PORT 5555
 using namespace std;
 
 /*8 bytes*/
@@ -28,48 +30,63 @@ using namespace std;
 /*2 bytes for trailer - crc*/ 
 
 
-/* taken from the internet - src2
- the alorithm of calculating the 'checksum'*/
+/* alorithm of calculating the 'checksum'*/
  /* polynomial*/
-unsigned short crc16(unsigned char* data_p, unsigned char length){
-    unsigned char x;
-    unsigned short crc = 0xFFFF;
 
-    while (length--)
+/* converts int from binary text*/
+
+
+/*******************************************************/
+    	/*CRC*/
+/*******************************************************/
+int getIntFromBinaryText(const char* text)
+{
+    int value = 0;
+    while(*text)
     {
-        x = crc >> 8 ^ *data_p++;
-        x ^= x>>4;
-        crc = (crc << 8) ^ ((unsigned short)(x << 12)) ^ ((unsigned short)(x <<5)) ^ ((unsigned short)x);
+        value <<= 1;
+             if(*text == '1')    value |= 1;
+        else if(*text == '0')    ;          // do nothing
+        else                     return -1; // invalid input... return a negative number to indicate error
+        ++text;
     }
-    return crc;
+ 
+    return value;
 }
+/*converts the text back to binary string*/
+std::string getBinaryTextFromInt(int value)
+{
+    std::string text;
+    // note I'm assuming 'value' is positive here
+ 
+    while(value > 0)
+    {
+        if(value & 1)       text += '1';
+        else                text += '0';
+        value >>= 1;
+    }
+ 
+    if(text.empty())        return "0";
+    std::reverse( text.begin(), text.end() );       // #include <algorithm>
+    return text;
+}
+/*******************************************************/
 
 /* wipes out control sum with the probability of 5%*/
 /* corrupt treiler*/
 char Gremlin(char data) 
 {
 	int num = 0;
-	/*spliting it in 20 parts*/
-	num = rand()%20; 
+	/*spliting it in 50 parts*/
+	num = rand()%50; 
 	if (num == 1)
 	{
 		data = ' ';
-		cout<<"\n****************************"<< endl;
-		cout<<" GREMLIN FUNCTION ACTIVATED"<<endl; 
-	 	cout  <<"****************************"<< endl;
+		cout<<" GREMLIN ACTIVATED"<<endl; 
 	}
 	return data;   
 }
-/*converts the string to binary*/
-/*std::string to_binary(const std::string& input)
-{
-    std::ostringstream oss;
-    for(auto c : input) 
-    {
-        oss << std::bitset<8>(c);
-    }
-    return oss.str();
-}*/
+
 
 /*counts bytes in a file*/
 long GetFileSize(const char* filename)
@@ -172,7 +189,7 @@ void server_main()
 			buffer[received] = '\0';
 			cout <<"SERVER CONNECTION ON RECEIVING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
 			cout<<"SERVER PORT: "<<PORT<<endl;
-			cout<<"RECEIVED DATA HEADER: "<<servHeader1<<endl;
+			cout<<"RECEIVED DATA FRAME: "<<servHeader1<<endl;
 			cout <<"RECEIVED DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
 			
 			servHeader1++;
@@ -198,7 +215,7 @@ void server_main()
 				}
 				cout <<"SERVER CONNECTION ON SENDING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
 				cout<<"SERVER PORT: "<<PORT<<endl;
-				cout<<"RESEND DATA HEADER: "<<servHeader2<<endl;
+				cout<<"RESEND DATA FRAME: "<<servHeader2<<endl;
 				cout <<"RESEND DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
 				servHeader2++;
 		
@@ -232,7 +249,7 @@ void client_main()
 	struct sockaddr_in client_socket;
 	/*text file being accessed for proj*/
 	ifstream myfile ("test.txt");	
-	
+	char crc2char;
 	cout<<"***************************************"<<endl;
 	cout<<"***************UDP_CLIENT**************"<<endl;
 	cout<<"***************************************"<<endl;
@@ -336,10 +353,12 @@ void client_main()
        /*******************************************************/
 		/*sends test.txt contents to the server */
 	/*******************************************************/
-		/*splits packet into 4 bits
-		thus there will be 256 frames*/
+		
 	while(1)
 	{	
+	
+		/*splits packet into 4 bits
+		thus there will be 256 frames*/
 		for(int i=1;i<=filesize/4;i+=4)
 		{
 			if(i>256)
@@ -348,20 +367,41 @@ void client_main()
 				exit(0);
 			
 			}
+			
 			/*increments through string 
 			and copies it to the buffer*/	
 			string substr1 = stringfile.substr(i,4);
 			string tmp = substr1;
 			string tmp2;
-			/*converts the string to binary*/
+			string tmp3;
+			string tmp4;
+			
+			int dividend;
+			/*32*/
+			int divisor = 000100000;
+			int result;
+			int rest;
+			
+		
+			/*converts the string characters to binary string*/
    			for (std::size_t s = 0; s < tmp.size(); ++s)
   			{
+  				/*header conv to binary*/
+  				string binary_header = std::bitset<8>(frameid).to_string(); 
+  				/*packet conv to binary*/
       			 	bitset<8> b(tmp.c_str()[s]);
       			 	tmp2+=b.to_string();
+      			 	
+      			 	/*extract crc from packet**/
+      			 	int divident = getIntFromBinaryText(tmp2.c_str());
+      			 	/*remainder*/
+      			 	int remainder = dividend % divisor;
+      			 	tmp4 = getBinaryTextFromInt(remainder);
+      			 	/*tmp3=header+packet*/
+      			 	tmp3= binary_header+tmp2+tmp4;
   			}
-  			
-			strcpy(buffer,tmp2.c_str());
-			
+  			/*coppies binary string to char array*/
+			strcpy(buffer,tmp3.c_str());
 			
 			if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
 			{
@@ -373,7 +413,7 @@ void client_main()
 			cout<<"CLIENT SOCKET: "<<PORT<<endl;
 			cout<<"FILESIZE: "<<filesize<<endl;
 			/*cout <<"size2: " << (end-begin) << " bytes." << endl;*/		
-			cout<<"SENDING PACKET HEADER: "<<frameid<<endl;
+			cout<<"SENDING PACKET FRAME: "<<frameid<<endl;
 			cout<<"DATA TO BE SENT TO SERVER: "<< buffer<<endl;
 			frameid++;
 			sleep(4);
@@ -398,7 +438,7 @@ void client_main()
 			cout<<"CLIENT CONNECTION ON RECEIVING: "<< inet_ntoa(server_socket.sin_addr)<<endl;
 			cout<<"CLIENT SOCKET: "<<PORT<<endl;
 			cout<<"FILESIZE: "<<filesize<<endl;
-			cout<<"RECEIVED PACKET HEADER: "<<frameid2<<endl;
+			cout<<"RECEIVED PACKET FRAME: "<<frameid2<<endl;
 			cout<<"RECEIVED DATA SENT BACK FROM SERVER: "<< buf<<endl;
 		
 			frameid2++;
