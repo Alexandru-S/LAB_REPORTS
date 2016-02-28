@@ -21,8 +21,9 @@
 #include <zlib.h>
 
 #define BUFLEN 1024
-#define PORT 5555
+#define PORT 5562
 using namespace std;
+static const string compar="011111";
 
 /*8 bytes*/
 /*2 bytes for header - sequence number*/
@@ -45,9 +46,14 @@ int getIntFromBinaryText(const char* text)
     while(*text)
     {
         value <<= 1;
-             if(*text == '1')    value |= 1;
-        else if(*text == '0')    ;          // do nothing
-        else                     return -1; // invalid input... return a negative number to indicate error
+             if(*text == '1')
+             {   
+              	value |= 1;
+              }
+        else if(*text == '0');          
+        else                     
+        	return -1; /* invalid input*/
+        	/*return a negative number to indicate error*/
         ++text;
     }
  
@@ -57,36 +63,29 @@ int getIntFromBinaryText(const char* text)
 std::string getBinaryTextFromInt(int value)
 {
     std::string text;
-    // note I'm assuming 'value' is positive here
- 
+    
+ 	/*assume unsigned*/
     while(value > 0)
     {
-        if(value & 1)       text += '1';
-        else                text += '0';
+        if(value & 1)       
+        {
+        	text += '1';
+        }
+        else                
+        {
+        	text += '0';
+        }
         value >>= 1;
     }
  
-    if(text.empty())        return "0";
-    std::reverse( text.begin(), text.end() );       // #include <algorithm>
+    if(text.empty())        
+    {
+    	return "0";
+    }
+    std::reverse( text.begin(), text.end() );       
     return text;
 }
 /*******************************************************/
-
-/* wipes out control sum with the probability of 5%*/
-/* corrupt treiler*/
-char Gremlin(char data) 
-{
-	int num = 0;
-	/*spliting it in 50 parts*/
-	num = rand()%50; 
-	if (num == 1)
-	{
-		data = ' ';
-		cout<<" GREMLIN ACTIVATED"<<endl; 
-	}
-	return data;   
-}
-
 
 /*counts bytes in a file*/
 long GetFileSize(const char* filename)
@@ -132,6 +131,11 @@ int RandGen()
 	}
 }
 
+bool bitsize(string const &tmp, string const &compar)
+{
+	return tmp.size() >=compar.size() && tmp.compare(tmp.size() - compar.size(), compar.size(), compar)==0;
+}
+
 
 void server_main()
 {	
@@ -141,6 +145,7 @@ void server_main()
 	int sock;
 	struct sockaddr_in server_socket;
 	struct sockaddr_in client_socket;
+	
 	int one=1;
 	long filesize;
 	// declare the 'out' stream
@@ -187,21 +192,77 @@ void server_main()
 				exit(0);
 			}
 			buffer[received] = '\0';
-			cout <<"SERVER CONNECTION ON RECEIVING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
+			cout <<"SERVER CONNECTION ON RECEIVING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<endl;
 			cout<<"SERVER PORT: "<<PORT<<endl;
 			cout<<"RECEIVED DATA FRAME: "<<servHeader1<<endl;
-			cout <<"RECEIVED DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
+			cout <<"RECEIVED DATA SENT FROM CLIENT: "<< buffer<<endl;
+			/*converts char to string*/
+			string s_buffer(buffer);
+			/*unstuff bits*/
+  			/*char sa2[s_buffer.length()];
+  			s_buffer.copy(sa2, s_buffer.length());
+  			string s2one="";
+  			string s2two="";
+  			/*bitstuffing 
+  			for(int i =0 ; i<s_buffer.length();i++)
+  			{
+  				s2one+= s2two[i];
+  				s2two+=s2two[i];
+  			
+  			
+  				if(bitsize(s2one , compar))
+  				{
+  					s2one ="";
+  					i++;
+  				}
+  			}*/
+  			string s2=s_buffer;
 			
+			cout<<"++++++++++"<<endl;
+			string header = s2.substr( 0, 8);
+			cout<<"HEADER: "<<header<<endl;
+			string packet = s2.substr( 8, 32);
+			cout<<"PACKET: "<<packet<<endl;
+			string crc = s2.substr(40, 8);
+			
+			string text=crc;
+			int divisor = getIntFromBinaryText("01111111");
+			int dividend = getIntFromBinaryText(text.c_str());
+  			int remainder = dividend % divisor;
+  			string tmp4 = getBinaryTextFromInt(remainder);
+  			
+  			
+  			
+  			
+  			
+  			cout<<"ReCEIVED CRC: "<<crc<<endl;
+  			cout<<"CALCULATED CRC: "<<tmp4<<endl;
+			cout<<"++++++++++"<<endl<<endl;
 			servHeader1++;
-			if(buffer=="!!!!")
+			if(crc.compare(tmp4) != 0)
 			{
+				
+				
+				cout<<"!!!! DATA NOT  OK !!!!"<<endl<<endl;
+			
+				cout<<"----------------------"<<endl;
 				cout<<"DATA HAS BEEN CORRUPED"<<endl;
 				cout<<"RESETTING FRAME INSTANCE"<<endl;
+				cout<<"----------------------"<<endl;
+				char buffer[BUFLEN]="!!!!";
+				socklen_t client_len = sizeof(client_socket);
+				if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &client_socket, sizeof(client_socket)) < 0)
+				{
+					cout<<"error here";
+					exit(0);
+				}
+				buffer[received] = '\0';
+				
 				servHeader1--;
 			}
 			else
 			{
-			
+				cout<<"+++ DATA OK +++"<<endl;
 				sleep(2);
 				
 				/***
@@ -213,26 +274,37 @@ void server_main()
 					cout<<"error here";
 					exit(0);
 				}
-				cout <<"SERVER CONNECTION ON SENDING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<ntohs(client_socket.sin_port)<<endl;
+				cout <<"SERVER CONNECTION ON SENDING: "<< inet_ntoa(client_socket.sin_addr)<<"\t"<<endl;
 				cout<<"SERVER PORT: "<<PORT<<endl;
 				cout<<"RESEND DATA FRAME: "<<servHeader2<<endl;
-				cout <<"RESEND DATA SENT FROM CLIENT: "<< buffer<<endl<<endl;
+				cout <<"RESEND DATA SENT FROM CLIENT: "<< buffer<<endl;
+				cout<<"-------------"<<endl<<endl<<endl;
 				servHeader2++;
-		
 				sleep(3);
-				}
+				
 	/*******************************************************/
-	
 	/*******************************************************/
 		/* open data file*/
     		/*delete contents of file
     		and add new contents*/
     	/*******************************************************/
-    			std::ofstream ofs;
-			ofs.open("out.txt", std::ofstream::out | std::ofstream::app);
-			ofs<<buffer;
-			ofs.close();
-			sleep(1);
+    				std::ofstream ofs;
+				ofs.open("out.txt", std::ofstream::out | std::ofstream::app);
+				 
+    				std::stringstream sstream(packet);
+    				string output;
+    				while(sstream.good())
+    				{
+        				std::bitset<8> bits;
+        				sstream >> bits;
+        				char c = char(bits.to_ulong());
+        				output += c;
+    				}
+				ofs<<output;
+				ofs.close();
+				sleep(1);
+				
+			}
 		}
 	/*******************************************************/
 	}
@@ -309,14 +381,12 @@ void client_main()
 	if (rc < 0) 
 	{
 		cout<<"Cannot bind port\n";
-		//return EXIT_FAILURE;
 	}
 	/*******************************************************/
 	
 	
 	char buffer[BUFLEN];
 	char buf[BUFLEN];
-	char resend[BUFLEN]="!!!!";
 	int num_characters = 0;
 	/*while loop to read the number of characters in the file*/
 	while (!myfile.eof())
@@ -373,35 +443,62 @@ void client_main()
 			string substr1 = stringfile.substr(i,4);
 			string tmp = substr1;
 			string tmp2;
-			string tmp3;
-			string tmp4;
-			
-			int dividend;
-			/*32*/
-			int divisor = 000100000;
-			int result;
-			int rest;
-			
+			/*127*/
+			int divisor = getIntFromBinaryText("01111111");
+			string binary_header; 
 		
 			/*converts the string characters to binary string*/
    			for (std::size_t s = 0; s < tmp.size(); ++s)
   			{
   				/*header conv to binary*/
-  				string binary_header = std::bitset<8>(frameid).to_string(); 
+  				binary_header = std::bitset<8>(frameid).to_string(); 
   				/*packet conv to binary*/
       			 	bitset<8> b(tmp.c_str()[s]);
       			 	tmp2+=b.to_string();
       			 	
-      			 	/*extract crc from packet**/
-      			 	int divident = getIntFromBinaryText(tmp2.c_str());
-      			 	/*remainder*/
-      			 	int remainder = dividend % divisor;
-      			 	tmp4 = getBinaryTextFromInt(remainder);
-      			 	/*tmp3=header+packet*/
-      			 	tmp3= binary_header+tmp2+tmp4;
   			}
+  			
+  			
+  			string text =tmp2;
+  			int dividend = getIntFromBinaryText(text.c_str());
+  			int remainder = dividend % divisor;
+  			/*crc*/
+  			string tmp4 = getBinaryTextFromInt(remainder);
+  			/*bitstuffing 
+  			char sa[tmp2.length()];
+  			tmp4.copy(sa, tmp2.length());
+  			string sone="";
+  			string stwo="";
+  			
+  			for(int i =0 ; i<tmp2.length();i++)
+  			{
+  				sone+= stwo[i];
+  				stwo+=stwo[i];
+  			
+  			
+  				if(bitsize(sone , compar))
+  				{
+  					sone = "";
+  					stwo +="0";
+  				}
+  			}
+  			string tmp10=stwo;*/
+  			/*tmp3=header+packet*/
+  			string tmp3= binary_header+tmp2;
+  			/*gremlin*/
+  			int v1 = rand() % 4+1;
+  			int grm=0;
+  			if(v1 <2 )
+  			{
+  				tmp4 =string ( tmp4.rbegin(), tmp4.rend());
+  			grm++;
+  			} 
+  			
+  			
+  			/*frame=(header+packet)+crc*/
+  			string tmp5 = tmp3+tmp4;
   			/*coppies binary string to char array*/
-			strcpy(buffer,tmp3.c_str());
+			strcpy(buffer,tmp5.c_str());
 			
 			if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
 			{
@@ -415,6 +512,16 @@ void client_main()
 			/*cout <<"size2: " << (end-begin) << " bytes." << endl;*/		
 			cout<<"SENDING PACKET FRAME: "<<frameid<<endl;
 			cout<<"DATA TO BE SENT TO SERVER: "<< buffer<<endl;
+			cout<<"+++++++++"<<endl;
+			cout<<"HEADER: " << binary_header<<endl;
+			cout<<"PACKET: "<<tmp2<<endl;
+			cout<<"CRC: "<< tmp4<<endl;
+			if(grm>0)
+			{
+				cout<<"GREMLIN ACTIVATED:"<<endl;
+			}
+			grm--;
+			cout<<"+++++++++"<<endl;
 			frameid++;
 			sleep(4);
 			
@@ -434,39 +541,60 @@ void client_main()
 				exit(0);
 			}
 			
-			cout<<endl;
-			cout<<"CLIENT CONNECTION ON RECEIVING: "<< inet_ntoa(server_socket.sin_addr)<<endl;
-			cout<<"CLIENT SOCKET: "<<PORT<<endl;
-			cout<<"FILESIZE: "<<filesize<<endl;
-			cout<<"RECEIVED PACKET FRAME: "<<frameid2<<endl;
-			cout<<"RECEIVED DATA SENT BACK FROM SERVER: "<< buf<<endl;
 		
-			frameid2++;
 			if(std::strcmp(buffer,buf)==0)
 			{
 				cout<<"+++DATA OK+++"<<endl;
+				
+				cout<<endl;
+				cout<<"CLIENT CONNECTION ON RECEIVING: "<< inet_ntoa(server_socket.sin_addr)<<endl;
+				cout<<"CLIENT SOCKET: "<<PORT<<endl;
+				cout<<"FILESIZE: "<<filesize<<endl;
+				cout<<"RECEIVED PACKET FRAME: "<<frameid2<<endl;
+				cout<<"RECEIVED DATA SENT BACK FROM SERVER: "<< buf<<endl;
+		
+				frameid2++;
 			}
 			else
 			{
 				cout<<endl;
 				cout<<"CORUPTION ENCOUNTERED "<<end;
+				cout<<"RECEIVED BUFFER"<<buffer<<endl;
 				cout<<"RESENDING..."<<endl;
+				/*reverse the reversed packet*/
+				if(v1 <2 )
+  				{
+  					tmp4 =string ( tmp4.rbegin(), tmp4.rend());
+  				} 
+  			
+  			
+  				/*frame=(header+packet)+crc*/
+  				string tmp5 = tmp3+tmp4;
+  				/*coppies binary string to char array*/
+				strcpy(buffer,tmp5.c_str());
 				
-				
-				if (sendto(sock, resend, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
-			{
+				if (sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr *) &server_socket, sizeof(server_socket)) < 0)
+				{
 				cout<<"error in sendto()";
 				exit(0);
-			}	
+				}	
 				cout<<endl;
+				cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
 				cout<<"CLIENT CONNECTION ON RE-SENDING: "<< inet_ntoa(server_socket.sin_addr)<<endl;
 				cout<<"CLIENT SOCKET: "<<PORT<<endl;
 				cout<<"FILESIZE: "<<filesize<<endl;
-			
+				
+				cout<<"SENDING PACKET FRAME: "<<frameid<<endl;
+				cout<<"DATA TO BE SENT TO SERVER: "<< buffer<<endl;
+				cout<<"+++++++++"<<endl;
+				cout<<"HEADER: " << binary_header<<endl;
+				cout<<"PACKET: "<<tmp2<<endl;
+				cout<<"CRC: "<< tmp4<<endl;
+				cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl<<endl;
 					
-				i-=4;
+				//i-=4;
 				frameid--;
-				frameid2--;
+				//frameid2--;
 			}
 			memset(buffer, '\0', BUFLEN);
 			sleep(4);
