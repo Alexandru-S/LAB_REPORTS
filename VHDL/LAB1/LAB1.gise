@@ -64,11 +64,11 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mux3_16bit_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_mux8_16bit_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mux8_16bit_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_reg8_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_reg8_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="test_reg8_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_reg8_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_register_file_2_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_register_file_2_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="test_register_file_2_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_register_file_2_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_register_file_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_register_file_stx_beh.prj"/>
@@ -83,7 +83,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1455617596" xil_pn:in_ck="7739920641890814955" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1455617596">
+    <transform xil_pn:end_ts="1455620890" xil_pn:in_ck="7739920641890814955" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1455620890">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="decoder_3to8.vhd"/>
@@ -98,11 +98,11 @@
       <outfile xil_pn:name="test_register_file.vhd"/>
       <outfile xil_pn:name="test_register_file_2.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1455620503" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8217421017317921654" xil_pn:start_ts="1455620503">
+    <transform xil_pn:end_ts="1455620893" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8365023154482464437" xil_pn:start_ts="1455620893">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1455620503" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-358637334311278190" xil_pn:start_ts="1455620503">
+    <transform xil_pn:end_ts="1455620893" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4426871143487778189" xil_pn:start_ts="1455620893">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -110,7 +110,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1455617601" xil_pn:in_ck="7739920641890814955" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1455617601">
+    <transform xil_pn:end_ts="1455620893" xil_pn:in_ck="7739920641890814955" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1455620893">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="decoder_3to8.vhd"/>
@@ -125,22 +125,26 @@
       <outfile xil_pn:name="test_register_file.vhd"/>
       <outfile xil_pn:name="test_register_file_2.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1455620508" xil_pn:in_ck="7739920641890814955" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-3028574634879384014" xil_pn:start_ts="1455620503">
+    <transform xil_pn:end_ts="1455620898" xil_pn:in_ck="7739920641890814955" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7650039736327984564" xil_pn:start_ts="1455620893">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="test_register_file_2_beh.prj"/>
-      <outfile xil_pn:name="test_register_file_2_isim_beh.exe"/>
+      <outfile xil_pn:name="test_reg8_beh.prj"/>
+      <outfile xil_pn:name="test_reg8_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1455620509" xil_pn:in_ck="8332311456938587481" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3750484092232807169" xil_pn:start_ts="1455620508">
+    <transform xil_pn:end_ts="1455620898" xil_pn:in_ck="8332311456938587481" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8904746965193643329" xil_pn:start_ts="1455620898">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="test_register_file_2_isim_beh.wdb"/>
+      <outfile xil_pn:name="test_reg8_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1455469989" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1455469989">
       <status xil_pn:value="SuccessfullyRun"/>

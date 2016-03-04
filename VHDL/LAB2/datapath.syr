@@ -1,0 +1,611 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: datapath.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "datapath.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "datapath"
+Output Format                      : NGC
+Target Device                      : xc3s700a-4-fg484
+
+---- Source Options
+Top Module Name                    : datapath
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/mux2_1bit.vhd" in Library work.
+Architecture behavioral of Entity mux2_1bit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/full_adder.vhd" in Library work.
+Architecture behavioral of Entity full_adder is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/mux3_1bit.vhd" in Library work.
+Architecture behavioral of Entity mux3_1bit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/ripple_adder.vhd" in Library work.
+Architecture behavioral of Entity ripple_adder is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/mux3_16bit.vhd" in Library work.
+Architecture behavioral of Entity mux3_16bit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/B_input_logic.vhd" in Library work.
+Architecture behavioral of Entity b_input_logic is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/logic_circuit.vhd" in Library work.
+Architecture behavioral of Entity logic_circuit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/decoder_3to8.vhd" in Library work.
+Architecture behavioral of Entity decoder_3to8 is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/mux8_16bit.vhd" in Library work.
+Architecture behavioral of Entity mux8_16bit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/reg8.vhd" in Library work.
+Architecture behavioral of Entity reg8 is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/arithmetic_logic_unit.vhd" in Library work.
+Architecture behavioral of Entity arithmetic_logic_unit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/shifter.vhd" in Library work.
+Architecture behavioral of Entity shifter is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/function_unit.vhd" in Library work.
+Architecture behavioral of Entity function_unit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/register_file.vhd" in Library work.
+Architecture behavioral of Entity register_file is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/datapath.vhd" in Library work.
+Architecture behavioral of Entity datapath is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <datapath> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux3_16bit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <function_unit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <register_file> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <arithmetic_logic_unit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <shifter> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux3_16bit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <decoder_3to8> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux8_16bit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <reg8> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <ripple_adder> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <B_input_logic> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <logic_circuit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux3_1bit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <full_adder> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux2_1bit> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <datapath> in library <work> (Architecture <behavioral>).
+Entity <datapath> analyzed. Unit <datapath> generated.
+
+Analyzing Entity <mux3_16bit> in library <work> (Architecture <behavioral>).
+Entity <mux3_16bit> analyzed. Unit <mux3_16bit> generated.
+
+Analyzing Entity <function_unit> in library <work> (Architecture <behavioral>).
+Entity <function_unit> analyzed. Unit <function_unit> generated.
+
+Analyzing Entity <arithmetic_logic_unit> in library <work> (Architecture <behavioral>).
+Entity <arithmetic_logic_unit> analyzed. Unit <arithmetic_logic_unit> generated.
+
+Analyzing Entity <ripple_adder> in library <work> (Architecture <behavioral>).
+Entity <ripple_adder> analyzed. Unit <ripple_adder> generated.
+
+Analyzing Entity <full_adder> in library <work> (Architecture <behavioral>).
+Entity <full_adder> analyzed. Unit <full_adder> generated.
+
+Analyzing Entity <B_input_logic> in library <work> (Architecture <behavioral>).
+Entity <B_input_logic> analyzed. Unit <B_input_logic> generated.
+
+Analyzing Entity <mux2_1bit> in library <work> (Architecture <behavioral>).
+Entity <mux2_1bit> analyzed. Unit <mux2_1bit> generated.
+
+Analyzing Entity <logic_circuit> in library <work> (Architecture <behavioral>).
+Entity <logic_circuit> analyzed. Unit <logic_circuit> generated.
+
+Analyzing Entity <shifter> in library <work> (Architecture <behavioral>).
+Entity <shifter> analyzed. Unit <shifter> generated.
+
+Analyzing Entity <mux3_1bit> in library <work> (Architecture <behavioral>).
+Entity <mux3_1bit> analyzed. Unit <mux3_1bit> generated.
+
+Analyzing Entity <register_file> in library <work> (Architecture <behavioral>).
+Entity <register_file> analyzed. Unit <register_file> generated.
+
+Analyzing Entity <decoder_3to8> in library <work> (Architecture <behavioral>).
+Entity <decoder_3to8> analyzed. Unit <decoder_3to8> generated.
+
+Analyzing Entity <mux8_16bit> in library <work> (Architecture <behavioral>).
+Entity <mux8_16bit> analyzed. Unit <mux8_16bit> generated.
+
+Analyzing Entity <reg8> in library <work> (Architecture <behavioral>).
+Entity <reg8> analyzed. Unit <reg8> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <mux3_16bit>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/mux3_16bit.vhd".
+Unit <mux3_16bit> synthesized.
+
+
+Synthesizing Unit <logic_circuit>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/logic_circuit.vhd".
+    Found 16-bit 4-to-1 multiplexer for signal <Cout>.
+    Found 16-bit xor2 for signal <Cout$xor0000> created at line 17.
+    Summary:
+	inferred  16 Multiplexer(s).
+Unit <logic_circuit> synthesized.
+
+
+Synthesizing Unit <full_adder>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/full_adder.vhd".
+    Found 1-bit xor2 for signal <S>.
+    Found 1-bit xor2 for signal <S1>.
+Unit <full_adder> synthesized.
+
+
+Synthesizing Unit <mux2_1bit>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/mux2_1bit.vhd".
+WARNING:Xst:647 - Input <S1> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <mux2_1bit> synthesized.
+
+
+Synthesizing Unit <mux3_1bit>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/mux3_1bit.vhd".
+Unit <mux3_1bit> synthesized.
+
+
+Synthesizing Unit <decoder_3to8>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/decoder_3to8.vhd".
+Unit <decoder_3to8> synthesized.
+
+
+Synthesizing Unit <mux8_16bit>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/mux8_16bit.vhd".
+Unit <mux8_16bit> synthesized.
+
+
+Synthesizing Unit <reg8>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/reg8.vhd".
+    Found 16-bit register for signal <Q>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <reg8> synthesized.
+
+
+Synthesizing Unit <register_file>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/register_file.vhd".
+WARNING:Xst:1780 - Signal <src_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <d_mux> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <register_file> synthesized.
+
+
+Synthesizing Unit <shifter>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/shifter.vhd".
+Unit <shifter> synthesized.
+
+
+Synthesizing Unit <ripple_adder>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/ripple_adder.vhd".
+WARNING:Xst:1305 - Output <Cout> is never assigned. Tied to value 0.
+WARNING:Xst:1305 - Output <Vout> is never assigned. Tied to value 0.
+WARNING:Xst:646 - Signal <src_sig9> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig8> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig7> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig6> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig5> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig4> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig15> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig14> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig13> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig12> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig11> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig10> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <src_sig0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <src_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <ripple_adder> synthesized.
+
+
+Synthesizing Unit <B_input_logic>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/B_input_logic.vhd".
+Unit <B_input_logic> synthesized.
+
+
+Synthesizing Unit <arithmetic_logic_unit>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/arithmetic_logic_unit.vhd".
+Unit <arithmetic_logic_unit> synthesized.
+
+
+Synthesizing Unit <function_unit>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/function_unit.vhd".
+Unit <function_unit> synthesized.
+
+
+Synthesizing Unit <datapath>.
+    Related source file is "C:/Users/owner/Desktop/VHDL/LAB2/datapath.vhd".
+Unit <datapath> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 8
+ 16-bit register                                       : 8
+# Multiplexers                                         : 1
+ 16-bit 4-to-1 multiplexer                             : 1
+# Xors                                                 : 33
+ 1-bit xor2                                            : 32
+ 16-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 128
+ Flip-Flops                                            : 128
+# Multiplexers                                         : 1
+ 16-bit 4-to-1 multiplexer                             : 1
+# Xors                                                 : 33
+ 1-bit xor2                                            : 32
+ 16-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <datapath> ...
+
+Optimizing unit <logic_circuit> ...
+
+Optimizing unit <register_file> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block datapath, actual ratio is 3.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 128
+ Flip-Flops                                            : 128
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : datapath.ngr
+Top Level Output File Name         : datapath
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 86
+
+Cell Usage :
+# BELS                             : 314
+#      GND                         : 1
+#      LUT2                        : 1
+#      LUT3                        : 34
+#      LUT4                        : 182
+#      LUT4_D                      : 12
+#      LUT4_L                      : 31
+#      MUXF5                       : 52
+#      VCC                         : 1
+# FlipFlops/Latches                : 128
+#      FDE                         : 128
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 85
+#      IBUF                        : 49
+#      OBUF                        : 36
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700afg484-4 
+
+ Number of Slices:                      181  out of   5888     3%  
+ Number of Slice Flip Flops:            128  out of  11776     1%  
+ Number of 4 input LUTs:                260  out of  11776     2%  
+ Number of IOs:                          86
+ Number of bonded IOBs:                  86  out of    372    23%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+D_Clk                              | BUFGP                  | 128   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 7.169ns (Maximum Frequency: 139.489MHz)
+   Minimum input arrival time before clock: 8.363ns
+   Maximum output required time after clock: 14.117ns
+   Maximum combinational path delay: 15.311ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'D_Clk'
+  Clock period: 7.169ns (frequency: 139.489MHz)
+  Total number of paths / destination ports: 6080 / 128
+-------------------------------------------------------------------------
+Delay:               7.169ns (Levels of Logic = 7)
+  Source:            reg_register_file/reg04/Q_15 (FF)
+  Destination:       reg_register_file/reg00/Q_15 (FF)
+  Source Clock:      D_Clk rising
+  Destination Clock: D_Clk rising
+
+  Data Path: reg_register_file/reg04/Q_15 to reg_register_file/reg00/Q_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.591   0.479  reg_register_file/reg04/Q_15 (reg_register_file/reg04/Q_15)
+     LUT4:I2->O            1   0.648   0.000  Breg_mux3_16bit/Z<15>44_F (N39)
+     MUXF5:I0->O           2   0.276   0.479  Breg_mux3_16bit/Z<15>44 (Breg_mux3_16bit/Z<15>44)
+     LUT4:I2->O            4   0.648   0.590  Breg_mux3_16bit/Z<15>141 (data_out_15_OBUF)
+     LUT4:I3->O            1   0.648   0.423  reg_function_unit/reg_arithmetic_logic_unit/reg_logic_circuit/Mmux_Cout_2_f5_5 (reg_function_unit/reg_arithmetic_logic_unit/src_B_input_logic<15>)
+     LUT4:I3->O            1   0.648   0.000  reg_function_unit/reg_mux3_16bit/Z<15>_f5_F (N105)
+     MUXF5:I0->O           3   0.276   0.563  reg_function_unit/reg_mux3_16bit/Z<15>_f5 (D_Nout_OBUF)
+     LUT3:I2->O            8   0.648   0.000  Dreg_mux3_16bit/Z<15>1 (src_muxD<15>)
+     FDE:D                     0.252          reg_register_file/reg07/Q_15
+    ----------------------------------------
+    Total                      7.169ns (4.635ns logic, 2.534ns route)
+                                       (64.7% logic, 35.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'D_Clk'
+  Total number of paths / destination ports: 10040 / 256
+-------------------------------------------------------------------------
+Offset:              8.363ns (Levels of Logic = 8)
+  Source:            D_select<8> (PAD)
+  Destination:       reg_register_file/reg00/Q_15 (FF)
+  Destination Clock: D_Clk rising
+
+  Data Path: D_select<8> to reg_register_file/reg00/Q_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            64   0.849   1.415  D_select_8_IBUF (D_select_8_IBUF)
+     LUT4:I0->O            1   0.648   0.000  Breg_mux3_16bit/Z<15>44_F (N39)
+     MUXF5:I0->O           2   0.276   0.479  Breg_mux3_16bit/Z<15>44 (Breg_mux3_16bit/Z<15>44)
+     LUT4:I2->O            4   0.648   0.590  Breg_mux3_16bit/Z<15>141 (data_out_15_OBUF)
+     LUT4:I3->O            1   0.648   0.423  reg_function_unit/reg_arithmetic_logic_unit/reg_logic_circuit/Mmux_Cout_2_f5_5 (reg_function_unit/reg_arithmetic_logic_unit/src_B_input_logic<15>)
+     LUT4:I3->O            1   0.648   0.000  reg_function_unit/reg_mux3_16bit/Z<15>_f5_F (N105)
+     MUXF5:I0->O           3   0.276   0.563  reg_function_unit/reg_mux3_16bit/Z<15>_f5 (D_Nout_OBUF)
+     LUT3:I2->O            8   0.648   0.000  Dreg_mux3_16bit/Z<15>1 (src_muxD<15>)
+     FDE:D                     0.252          reg_register_file/reg07/Q_15
+    ----------------------------------------
+    Total                      8.363ns (4.893ns logic, 3.470ns route)
+                                       (58.5% logic, 41.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'D_Clk'
+  Total number of paths / destination ports: 1056 / 34
+-------------------------------------------------------------------------
+Offset:              14.117ns (Levels of Logic = 10)
+  Source:            reg_register_file/reg04/Q_13 (FF)
+  Destination:       D_Zout (PAD)
+  Source Clock:      D_Clk rising
+
+  Data Path: reg_register_file/reg04/Q_13 to D_Zout
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.591   0.479  reg_register_file/reg04/Q_13 (reg_register_file/reg04/Q_13)
+     LUT4:I2->O            1   0.648   0.000  Breg_mux3_16bit/Z<13>44_F (N29)
+     MUXF5:I0->O           1   0.276   0.452  Breg_mux3_16bit/Z<13>44 (Breg_mux3_16bit/Z<13>44)
+     LUT4:I2->O            5   0.648   0.636  Breg_mux3_16bit/Z<13>141 (data_out_13_OBUF)
+     LUT4:I3->O            1   0.648   0.423  reg_function_unit/reg_mux3_16bit/Z<13>89 (reg_function_unit/reg_mux3_16bit/Z<13>89)
+     LUT4:I3->O            2   0.648   0.527  reg_function_unit/reg_mux3_16bit/Z<13>126 (reg_function_unit/reg_mux3_16bit/Z<13>126)
+     LUT4:I1->O            1   0.643   0.000  reg_function_unit/F_Zout4_SW01 (reg_function_unit/F_Zout4_SW0)
+     MUXF5:I0->O           1   0.276   0.423  reg_function_unit/F_Zout4_SW0_f5 (N107)
+     LUT4:I3->O            1   0.648   0.563  reg_function_unit/F_Zout4 (reg_function_unit/F_Zout4)
+     LUT4:I0->O            1   0.648   0.420  reg_function_unit/F_Zout36 (D_Zout_OBUF)
+     OBUF:I->O                 4.520          D_Zout_OBUF (D_Zout)
+    ----------------------------------------
+    Total                     14.117ns (10.194ns logic, 3.923ns route)
+                                       (72.2% logic, 27.8% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1543 / 34
+-------------------------------------------------------------------------
+Delay:               15.311ns (Levels of Logic = 11)
+  Source:            D_select<8> (PAD)
+  Destination:       D_Zout (PAD)
+
+  Data Path: D_select<8> to D_Zout
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            64   0.849   1.415  D_select_8_IBUF (D_select_8_IBUF)
+     LUT4:I0->O            1   0.648   0.000  Breg_mux3_16bit/Z<13>44_F (N29)
+     MUXF5:I0->O           1   0.276   0.452  Breg_mux3_16bit/Z<13>44 (Breg_mux3_16bit/Z<13>44)
+     LUT4:I2->O            5   0.648   0.636  Breg_mux3_16bit/Z<13>141 (data_out_13_OBUF)
+     LUT4:I3->O            1   0.648   0.423  reg_function_unit/reg_mux3_16bit/Z<13>89 (reg_function_unit/reg_mux3_16bit/Z<13>89)
+     LUT4:I3->O            2   0.648   0.527  reg_function_unit/reg_mux3_16bit/Z<13>126 (reg_function_unit/reg_mux3_16bit/Z<13>126)
+     LUT4:I1->O            1   0.643   0.000  reg_function_unit/F_Zout4_SW01 (reg_function_unit/F_Zout4_SW0)
+     MUXF5:I0->O           1   0.276   0.423  reg_function_unit/F_Zout4_SW0_f5 (N107)
+     LUT4:I3->O            1   0.648   0.563  reg_function_unit/F_Zout4 (reg_function_unit/F_Zout4)
+     LUT4:I0->O            1   0.648   0.420  reg_function_unit/F_Zout36 (D_Zout_OBUF)
+     OBUF:I->O                 4.520          D_Zout_OBUF (D_Zout)
+    ----------------------------------------
+    Total                     15.311ns (10.452ns logic, 4.859ns route)
+                                       (68.3% logic, 31.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.09 secs
+ 
+--> 
+
+Total memory usage is 273112 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   22 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

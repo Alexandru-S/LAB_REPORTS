@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/owner/Desktop/VHDL/LAB2/reg8_isim_beh.exe" -prj "C:/Users/owner/Desktop/VHDL/LAB2/reg8_beh.prj" "work.reg8" 
