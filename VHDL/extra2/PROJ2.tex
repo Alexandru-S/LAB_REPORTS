@@ -1259,7 +1259,99 @@ end Behavioral;
 \subsection{DATA PATH}\label{sec:result}
 
 \begin{lstlisting}
+------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
 
+ 
+ENTITY test_datapath IS
+END test_datapath;
+ 
+ARCHITECTURE behavior OF test_datapath IS 
+ 
+    COMPONENT datapath
+    PORT(
+         data_in : IN  std_logic_vector(15 downto 0);
+         constant_in : IN  std_logic_vector(15 downto 0);
+         D_select : IN  std_logic_vector(16 downto 0);
+         D_Clk : IN  std_logic;
+         D_Vout : OUT  std_logic;
+         D_Cout : OUT  std_logic;
+         D_Nout : OUT  std_logic;
+         D_Zout : OUT  std_logic;
+         address_out : OUT  std_logic_vector(15 downto 0);
+         data_out : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal data_in : std_logic_vector(15 downto 0) := (others => '0');
+   signal constant_in : std_logic_vector(15 downto 0) := (others => '0');
+   signal D_select : std_logic_vector(16 downto 0) := (others => '0');
+   signal D_Clk : std_logic := '0';
+
+ 	--Outputs
+   signal D_Vout : std_logic;
+   signal D_Cout : std_logic;
+   signal D_Nout : std_logic;
+   signal D_Zout : std_logic;
+   signal address_out : std_logic_vector(15 downto 0);
+   signal data_out : std_logic_vector(15 downto 0);
+
+   -- Clock period definitions
+   constant D_Clk_period : time := 10 ns;
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: datapath PORT MAP (
+          data_in => data_in,
+          constant_in => constant_in,
+          D_select => D_select,
+          D_Clk => D_Clk,
+          D_Vout => D_Vout,
+          D_Cout => D_Cout,
+          D_Nout => D_Nout,
+          D_Zout => D_Zout,
+          address_out => address_out,
+          data_out => data_out
+        );
+
+   -- Clock process definitions
+   D_Clk_process :process
+   begin
+		D_Clk <= '0';
+		wait for D_Clk_period/2;
+		D_Clk <= '1';
+		wait for D_Clk_period/2;
+   end process;
+ 
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+      data_in <= x"FFFF";
+		constant_in <= x"0000";
+		D_select <= "00000000100000011";
+		
+		wait for 20ns;
+		data_in <= x"AAAA";
+		D_select <= "00000000100000011";
+		
+		wait for 20ns;
+		D_select <= "00000000100110001";
+		
+		wait for 20ns;
+		D_select <= "01001001001000000";
+		
+		
+
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=10cm, height=5cm]{test_data.png}
 \pagebreak
@@ -1268,6 +1360,127 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+
+ 
+ENTITY test_register_file IS
+END test_register_file;
+ 
+ARCHITECTURE behavior OF test_register_file IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT register_file
+    PORT(
+         inA : IN  std_logic_vector(2 downto 0);
+         inB : IN  std_logic_vector(2 downto 0);
+         inD : IN  std_logic_vector(2 downto 0);
+         Clk : IN  std_logic;
+         load_in : IN  std_logic;
+         data : IN  std_logic_vector(15 downto 0);
+         outA : OUT  std_logic_vector(15 downto 0);
+         outB : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal inA : std_logic_vector(2 downto 0) := (others => '0');
+   signal inB : std_logic_vector(2 downto 0) := (others => '0');
+   signal inD : std_logic_vector(2 downto 0) := (others => '0');
+   signal Clk : std_logic := '0';
+   signal load_in : std_logic := '0';
+   signal data : std_logic_vector(15 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal outA : std_logic_vector(15 downto 0);
+   signal outB : std_logic_vector(15 downto 0);
+
+   -- Clock period definitions
+   constant Clk_period : time := 10 ns;
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: register_file PORT MAP (
+          inA => inA,
+          inB => inB,
+          inD => inD,
+          Clk => Clk,
+          load_in => load_in,
+          data => data,
+          outA => outA,
+          outB => outB
+        );
+
+   -- Clock process definitions
+   Clk_process :process
+   begin
+		Clk <= '0';
+		wait for Clk_period/2;
+		Clk <= '1';
+		wait for Clk_period/2;
+   end process;
+ 
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+    load_in <= '1';
+	 inD <= "000";
+	 data <= x"FFFF";
+	 
+	 wait for 10ns;
+	 inD <= "001";
+	 data <= x"EEEE";
+	 
+	 wait for 10ns;
+	 inD <= "010";
+	 data <= x"DDDD";
+	 
+	 wait for 10ns;
+	 inD <= "011";
+	 data <= x"CCCC";
+	 
+	 wait for 10ns;
+	 inD <= "100";
+	 data <= x"BBBB";
+	 
+	 	 wait for 10ns;
+	 inD <= "101";
+	 data <= x"AAAA";
+	 
+	 wait for 10ns;
+	 inD <= "110";
+	 data <= x"9999";
+	 
+	 wait for 10ns;
+	 inD <= "111";
+	 data <= x"8888";
+	 
+	 wait for 10ns;
+	 load_in <= '0';
+	 inA <= "000";
+	 inB <= "111";
+	 
+	 wait for 5ns;
+	 inA <= "001";
+	 inB <= "110";
+	 
+	 wait for 5ns;
+	 inA <= "010";
+	 inB <= "101";
+	 
+	 wait for 5ns;
+	 inA <= "011";
+	 inB <= "100";
+	 
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 
 \includegraphics[width=16cm, height=8cm]{test_register_file.png}
@@ -1277,6 +1490,83 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ 
+ENTITY test_reg8 IS
+END test_reg8;
+ 
+ARCHITECTURE behavior OF test_reg8 IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT reg8
+    PORT(
+         load0 : IN  std_logic;
+         load1 : IN  std_logic;
+         Clk : IN  std_logic;
+         D : IN  std_logic_vector(15 downto 0);
+         Q : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal load0 : std_logic := '0';
+   signal load1 : std_logic := '0';
+   signal Clk : std_logic := '0';
+   signal D : std_logic_vector(15 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal Q : std_logic_vector(15 downto 0);
+
+   -- Clock period definitions
+   constant Clk_period : time := 10 ns;
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: reg8 PORT MAP (
+          load0 => load0,
+          load1 => load1,
+          Clk => Clk,
+          D => D,
+          Q => Q
+        );
+
+   -- Clock process definitions
+   Clk_process :process
+   begin
+		Clk <= '0';
+		wait for Clk_period/2;
+		Clk <= '1';
+		wait for Clk_period/2;
+   end process;
+ 
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+		D <= x"FFFF";
+		load0 <= '1';
+		load1 <= '1';
+		
+		wait for 15ns;
+		D <= x"AAAA";
+		load0 <= '0';
+		
+		wait for 10ns;
+		load1 <= '0';
+		
+		wait for 10ns;
+		load0 <= '1';
+		load1 <= '1';
+
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_reg8.png}
 \pagebreak
@@ -1284,6 +1574,116 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ 
+ENTITY test_decoder_3to8 IS
+END test_decoder_3to8;
+ 
+ARCHITECTURE behavior OF test_decoder_3to8 IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT decoder_3to8
+    PORT(
+         A0 : IN  std_logic;
+         A1 : IN  std_logic;
+         A2 : IN  std_logic;
+         Q0 : OUT  std_logic;
+         Q1 : OUT  std_logic;
+         Q2 : OUT  std_logic;
+         Q3 : OUT  std_logic;
+         Q4 : OUT  std_logic;
+         Q5 : OUT  std_logic;
+         Q6 : OUT  std_logic;
+         Q7 : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal A0 : std_logic := '0';
+   signal A1 : std_logic := '0';
+   signal A2 : std_logic := '0';
+
+ 	--Outputs
+   signal Q0 : std_logic;
+   signal Q1 : std_logic;
+   signal Q2 : std_logic;
+   signal Q3 : std_logic;
+   signal Q4 : std_logic;
+   signal Q5 : std_logic;
+   signal Q6 : std_logic;
+   signal Q7 : std_logic;
+ 
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: decoder_3to8 PORT MAP (
+          A0 => A0,
+          A1 => A1,
+          A2 => A2,
+          Q0 => Q0,
+          Q1 => Q1,
+          Q2 => Q2,
+          Q3 => Q3,
+          Q4 => Q4,
+          Q5 => Q5,
+          Q6 => Q6,
+          Q7 => Q7
+        );
+
+ 
+   stim_proc: process
+   begin		
+     
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '0';
+         A2 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '0';
+         A2 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '1';
+         A2 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '1';
+         A2 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '0';
+         A2 <= '1';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '0';
+         A2 <= '1';
+			
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '1';
+         A2 <= '1';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '1';
+         A2 <= '1';
+		
+		
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_decoder.png}
 
@@ -1293,6 +1693,64 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+
+ 
+ENTITY test_mux3_16bit IS
+END test_mux3_16bit;
+ 
+ARCHITECTURE behavior OF test_mux3_16bit IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT mux3_16bit
+    PORT(
+         s : IN  std_logic;
+         In0 : IN  std_logic_vector(15 downto 0);
+         In1 : IN  std_logic_vector(15 downto 0);
+         Z : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal s : std_logic := '0';
+   signal In0 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In1 : std_logic_vector(15 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal Z : std_logic_vector(15 downto 0);
+   -- No clocks detected in port list. Replace <clock> below with 
+   -- appropriate port name 
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: mux3_16bit PORT MAP (
+          s => s,
+          In0 => In0,
+          In1 => In1,
+          Z => Z
+        );
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+          In0 <= x"FFFF";
+          In1 <= x"AAAA";
+			 
+			 wait for 10ns;
+			 s <= '1';
+			 wait for 10ns;
+			 s <= '0';
+			 wait for 10ns;
+			 s <= '1';
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_mux3.png}
 \pagebreak
@@ -1301,6 +1759,125 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ 
+ENTITY test_mux8_16bit IS
+END test_mux8_16bit;
+ 
+ARCHITECTURE behavior OF test_mux8_16bit IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT mux8_16bit
+    PORT(
+         S0 : IN  std_logic;
+         S1 : IN  std_logic;
+         S2 : IN  std_logic;
+         In0 : IN  std_logic_vector(15 downto 0);
+         In1 : IN  std_logic_vector(15 downto 0);
+         In2 : IN  std_logic_vector(15 downto 0);
+         In3 : IN  std_logic_vector(15 downto 0);
+         In4 : IN  std_logic_vector(15 downto 0);
+         In5 : IN  std_logic_vector(15 downto 0);
+         In6 : IN  std_logic_vector(15 downto 0);
+         In7 : IN  std_logic_vector(15 downto 0);
+         Z : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal S0 : std_logic := '0';
+   signal S1 : std_logic := '0';
+   signal S2 : std_logic := '0';
+   signal In0 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In1 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In2 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In3 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In4 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In5 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In6 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In7 : std_logic_vector(15 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal Z : std_logic_vector(15 downto 0);
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: mux8_16bit PORT MAP (
+          S0 => S0,
+          S1 => S1,
+          S2 => S2,
+          In0 => In0,
+          In1 => In1,
+          In2 => In2,
+          In3 => In3,
+          In4 => In4,
+          In5 => In5,
+          In6 => In6,
+          In7 => In7,
+          Z => Z
+        );
+
+   stim_proc: process
+   begin		
+		In0 <= x"FFFF";
+		In1 <= x"EEEE";
+		In2 <= x"DDDD";
+		In3 <= x"CCCC";
+		In4 <= x"BBBB";
+		In5 <= x"AAAA";
+		In6 <= x"9999";
+		In7 <= x"8888";
+		
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='0';
+       S2 <='0';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='0';
+       S2 <='0';
+		 
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='1';
+       S2 <='0';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='1';
+       S2 <='0';
+		 
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='0';
+       S2 <='1';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='0';
+       S2 <='1';
+		 
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='1';
+       S2 <='1';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='1';
+       S2 <='1';
+		
+		
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_mux8.png}
 \pagebreak
@@ -1310,6 +1887,153 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+
+ 
+ENTITY test_function_unit IS
+END test_function_unit;
+ 
+ARCHITECTURE behavior OF test_function_unit IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT function_unit
+    PORT(
+         F_A : IN  std_logic_vector(15 downto 0);
+         F_B : IN  std_logic_vector(15 downto 0);
+         F_select : IN  std_logic_vector(4 downto 0);
+         F_Vout : OUT  std_logic;
+         F_Cout : OUT  std_logic;
+         F_Nout : OUT  std_logic;
+         F_Zout : OUT  std_logic;
+         F_F : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal F_A : std_logic_vector(15 downto 0) := (others => '0');
+   signal F_B : std_logic_vector(15 downto 0) := (others => '0');
+   signal F_select : std_logic_vector(4 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal F_Vout : std_logic;
+   signal F_Cout : std_logic;
+   signal F_Nout : std_logic;
+   signal F_Zout : std_logic;
+   signal F_F : std_logic_vector(15 downto 0);
+   -- No clocks detected in port list. Replace <clock> below with 
+   -- appropriate port name 
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: function_unit PORT MAP (
+          F_A => F_A,
+          F_B => F_B,
+          F_select => F_select,
+          F_Vout => F_Vout,
+          F_Cout => F_Cout,
+          F_Nout => F_Nout,
+          F_Zout => F_Zout,
+          F_F => F_F
+        );
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+
+		F_A <= x"AAAA";
+		F_B <= x"BBBB";
+		
+		wait for 20ns;
+		F_select <= "00000";
+		
+		wait for 10ns;
+		F_select <= "00001";
+		wait for 10ns;
+		F_select <= "00010";
+		wait for 10ns;
+		F_select <= "00011";
+		wait for 20ns;
+		F_select <= "00100";
+		
+		wait for 20ns;
+		F_select <= "00101";
+		wait for 20ns;
+		F_select <= "00110";
+		
+		wait for 10ns;
+		F_select <= "00111";
+		wait for 10ns;
+		F_select <= "01000";
+		
+		wait for 10ns;
+		F_select <= "01001";
+		wait for 10ns;
+		F_select <= "01010";
+		
+		wait for 10ns;
+		F_select <= "01011";
+		wait for 10ns;
+		F_select <= "01100";
+		
+		
+		wait for 10ns;
+		F_select <= "01101";
+		wait for 10ns;
+		F_select <= "01110";
+		
+		wait for 10ns;
+		F_select <= "01111";
+		wait for 10ns;
+		F_select <= "10000";
+		
+		wait for 10ns;
+		F_select <= "10001";
+		wait for 10ns;
+		F_select <= "10010";
+		
+		
+		wait for 10ns;
+		F_select <= "10011";
+		wait for 10ns;
+		F_select <= "10100";
+		
+		wait for 10ns;
+		F_select <= "10101";
+		wait for 10ns;
+		F_select <= "10110";
+		
+		wait for 10ns;
+		F_select <= "10111";
+		wait for 10ns;
+		F_select <= "11000";
+		
+		
+		wait for 10ns;
+		F_select <= "11001";
+		wait for 10ns;
+		F_select <= "11010";
+		
+		wait for 10ns;
+		F_select <= "11011";
+		wait for 10ns;
+		F_select <= "11100";
+		
+		wait for 10ns;
+		F_select <= "11101";
+		wait for 10ns;
+		F_select <= "11110";
+		wait for 10ns;
+		F_select <= "11111";
+
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_function_unit.png}
 \pagebreak
@@ -1319,6 +2043,66 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+ENTITY test_shifter IS
+END test_shifter;
+ 
+ARCHITECTURE behavior OF test_shifter IS 
+
+    COMPONENT shifter
+    PORT(
+         B : IN  std_logic_vector(15 downto 0);
+         S : IN  std_logic_vector(1 downto 0);
+         IR : IN  std_logic;
+         IL : IN  std_logic;
+         H : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal B : std_logic_vector(15 downto 0) := (others => '0');
+   signal S : std_logic_vector(1 downto 0) := (others => '0');
+   signal IR : std_logic := '0';
+   signal IL : std_logic := '0';
+
+ 	--Outputs
+   signal H : std_logic_vector(15 downto 0);
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: shifter PORT MAP (
+          B => B,
+          S => S,
+          IR => IR,
+          IL => IL,
+          H => H
+        );
+
+   stim_proc: process
+   begin		
+    
+	 wait for 10ns;
+	 B <= x"FFFF";
+	 S <= "00";
+	 
+	 wait for 15ns;
+	 s <= "01";
+	 
+	 wait for 15ns;
+	 B <= H;
+	 
+	 wait for 15ns;
+	 B <= H;
+	 S <= "10";
+
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_shifter.png}
 \pagebreak
@@ -1328,6 +2112,82 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_mux3_1bit IS
+END test_mux3_1bit;
+ 
+ARCHITECTURE behavior OF test_mux3_1bit IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT mux3_1bit
+    PORT(
+         In0 : IN  std_logic;
+         In1 : IN  std_logic;
+         In2 : IN  std_logic;
+         S0 : IN  std_logic;
+         S1 : IN  std_logic;
+         Z : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal In0 : std_logic := '0';
+   signal In1 : std_logic := '0';
+   signal In2 : std_logic := '0';
+   signal S0 : std_logic := '0';
+   signal S1 : std_logic := '0';
+
+ 	--Outputs
+   signal Z : std_logic;
+
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: mux3_1bit PORT MAP (
+          In0 => In0,
+          In1 => In1,
+          In2 => In2,
+          S0 => S0,
+          S1 => S1,
+          Z => Z
+        );
+
+   stim_proc: process
+   begin		
+		wait for 10ns;
+		In0 <= '0';
+      In1 <= '0';
+      In2 <= '0';
+		
+		wait for 10ns;
+		In0 <= '1';
+      In1 <= '0';
+      In2 <= '1';
+		
+		wait for 5ns;
+		S0 <= '0';
+      S1 <= '0';
+		
+		wait for 5ns;
+		S0 <= '0';
+      S1 <= '1';
+		
+		wait for 5ns;
+		S0 <= '1';
+      S1 <= '0';
+      
+		wait for 5ns;
+		S0 <= '1';
+      S1 <= '1';
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_mux1.png}
 \pagebreak
@@ -1339,6 +2199,106 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_alu IS
+END test_alu;
+ 
+ARCHITECTURE behavior OF test_alu IS 
+
+    COMPONENT arithmetic_logic_unit
+    PORT(
+         ALU_A : IN  std_logic_vector(15 downto 0);
+         ALU_B : IN  std_logic_vector(15 downto 0);
+         ALU_select : IN  std_logic_vector(3 downto 0);
+         ALU_Cout : OUT  std_logic;
+         ALU_Vout : OUT  std_logic;
+         ALU_G : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal ALU_A : std_logic_vector(15 downto 0) := (others => '0');
+   signal ALU_B : std_logic_vector(15 downto 0) := (others => '0');
+   signal ALU_select : std_logic_vector(3 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal ALU_Cout : std_logic;
+   signal ALU_Vout : std_logic;
+   signal ALU_G : std_logic_vector(15 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: arithmetic_logic_unit PORT MAP (
+          ALU_A => ALU_A,
+          ALU_B => ALU_B,
+          ALU_select => ALU_select,
+          ALU_Cout => ALU_Cout,
+          ALU_Vout => ALU_Vout,
+          ALU_G => ALU_G
+        );
+
+   stim_proc: process
+   begin		
+    ALU_A <= x"FFAA";
+	 ALU_B <= x"000F";
+	 ALU_select <= "0000";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0000";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0001";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0010";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0011";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0100";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0101";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0110";
+	 
+	 wait for 10ns;
+	 ALU_select <= "0111";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1000";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1001";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1010";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1011";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1100";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1101";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1110";
+	 
+	 wait for 10ns;
+	 ALU_select <= "1111";
+	 
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_alu.png}
 \pagebreak
@@ -1348,6 +2308,63 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_logic IS
+END test_logic;
+ 
+ARCHITECTURE behavior OF test_logic IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT logic_circuit
+    PORT(
+         A : IN  std_logic_vector(15 downto 0);
+         B : IN  std_logic_vector(15 downto 0);
+         Cin : IN  std_logic_vector(1 downto 0);
+         Cout : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal A : std_logic_vector(15 downto 0) := (others => '0');
+   signal B : std_logic_vector(15 downto 0) := (others => '0');
+   signal Cin : std_logic_vector(1 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal Cout : std_logic_vector(15 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: logic_circuit PORT MAP (
+          A => A,
+          B => B,
+          Cin => Cin,
+          Cout => Cout
+        );
+
+   stim_proc: process
+   begin		
+		wait for 10ns;
+		 A <= x"FFFF";
+       B <= x"9999";
+       Cin <= "00";
+		 
+		 wait for 10ns;
+       Cin <= "01";
+		 
+		 wait for 10ns;
+       Cin <= "10";
+		 
+		 wait for 10ns;
+       Cin <= "11";
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_logic.png}
 \pagebreak
@@ -1357,6 +2374,57 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_Blogic IS
+END test_Blogic;
+ 
+ARCHITECTURE behavior OF test_Blogic IS 
+
+    COMPONENT B_input_logic
+    PORT(
+         B : IN  std_logic_vector(15 downto 0);
+         S : IN  std_logic_vector(1 downto 0);
+         Y : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal B : std_logic_vector(15 downto 0) := (others => '0');
+   signal S : std_logic_vector(1 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal Y : std_logic_vector(15 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: B_input_logic PORT MAP (
+          B => B,
+          S => S,
+          Y => Y
+        );
+
+   stim_proc: process
+   begin		
+     B <=x"AAAA";
+     S <= "00";
+
+		wait for 5ns;
+		S <= "00";
+		wait for 5ns;
+		S <= "01";
+		wait for 5ns;
+		S <= "10";
+		wait for 5ns;
+		S <= "11";
+		
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_Blogic.png}
 \pagebreak
@@ -1367,6 +2435,56 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_mux2_1bit IS
+END test_mux2_1bit;
+ 
+ARCHITECTURE behavior OF test_mux2_1bit IS 
+
+    COMPONENT mux2_1bit
+    PORT(
+         S0 : IN  std_logic;
+         S1 : IN  std_logic;
+         Cin : IN  std_logic;
+         Res : OUT  std_logic
+        );
+    END COMPONENT;
+    
+   --Inputs
+   signal S0 : std_logic := '0';
+   signal S1 : std_logic := '0';
+   signal Cin : std_logic := '0';
+
+ 	--Outputs
+   signal Res : std_logic;
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: mux2_1bit PORT MAP (
+          S0 => S0,
+          S1 => S1,
+          Cin => Cin,
+          Res => Res
+        );
+
+   stim_proc: process
+   begin		
+       S0 <= '1';
+       S1 <=  '0';
+		 
+		 wait for 10ns;
+		 Cin <= '1';
+		 
+		 wait for 10ns;
+		 Cin <= '0';
+
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_mux2.png}
 \pagebreak
@@ -1376,6 +2494,64 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_ripple IS
+END test_ripple;
+ 
+ARCHITECTURE behavior OF test_ripple IS 
+ 
+    COMPONENT ripple_adder
+    PORT(
+         A : IN  std_logic_vector(15 downto 0);
+         B : IN  std_logic_vector(15 downto 0);
+         Cin : IN  std_logic;
+         Cout : OUT  std_logic;
+         Gout : OUT  std_logic_vector(15 downto 0);
+         Vout : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal A : std_logic_vector(15 downto 0) := (others => '0');
+   signal B : std_logic_vector(15 downto 0) := (others => '0');
+   signal Cin : std_logic := '0';
+
+ 	--Outputs
+   signal Cout : std_logic;
+   signal Gout : std_logic_vector(15 downto 0);
+   signal Vout : std_logic;
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: ripple_adder PORT MAP (
+          A => A,
+          B => B,
+          Cin => Cin,
+          Cout => Cout,
+          Gout => Gout,
+          Vout => Vout
+        );
+
+   stim_proc: process
+   begin		
+	
+	 A <=x"AAAA";
+    B <=x"FBAA";
+    Cin <= '1';
+     
+	  wait for 10ns;
+	  A <=x"FFFF";
+    B <=x"0000";
+    Cin <= '1';
+	  
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_ripple.png}
 \pagebreak
@@ -1385,6 +2561,74 @@ end Behavioral;
 
 \begin{lstlisting}
 
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_full_adder IS
+END test_full_adder;
+ 
+ARCHITECTURE behavior OF test_full_adder IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT full_adder
+    PORT(
+         X : IN  std_logic;
+         Y : IN  std_logic;
+         S : OUT  std_logic;
+         Cin : IN  std_logic;
+         Cout : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal X : std_logic := '0';
+   signal Y : std_logic := '0';
+   signal Cin : std_logic := '0';
+
+ 	--Outputs
+   signal S : std_logic;
+   signal Cout : std_logic;
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: full_adder PORT MAP (
+          X => X,
+          Y => Y,
+          S => S,
+          Cin => Cin,
+          Cout => Cout
+        );
+
+   stim_proc: process
+   begin		
+	
+		wait for 10ns;
+		 X <= '0';
+       Y <= '0';
+      
+		wait for 10ns;
+		 X <= '0';
+       Y <= '1';
+
+		wait for 10ns;
+		 X <= '1';
+       Y <= '0';
+      
+		wait for 10ns;
+		 X <= '1';
+       Y <= '1';
+		 
+		wait for 10ns;
+		 Cin <= '1';
+  
+
+      wait;
+   end process;
+
+END;
 \end{lstlisting}
 \includegraphics[width=16cm, height=8cm]{test_full.png}
 \pagebreak
