@@ -1,33 +1,6 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   12:01:00 02/15/2016
--- Design Name:   
--- Module Name:   C:/Users/owner/Desktop/VHDL/LAB1/test_reg8.vhd
--- Project Name:  LAB1
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: reg8
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+---------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
 
  
 ENTITY test_reg8 IS
@@ -39,7 +12,8 @@ ARCHITECTURE behavior OF test_reg8 IS
  
     COMPONENT reg8
     PORT(
-         load : IN  std_logic;
+         load0 : IN  std_logic;
+         load1 : IN  std_logic;
          Clk : IN  std_logic;
          D : IN  std_logic_vector(15 downto 0);
          Q : OUT  std_logic_vector(15 downto 0)
@@ -48,7 +22,8 @@ ARCHITECTURE behavior OF test_reg8 IS
     
 
    --Inputs
-   signal load : std_logic := '0';
+   signal load0 : std_logic := '0';
+   signal load1 : std_logic := '0';
    signal Clk : std_logic := '0';
    signal D : std_logic_vector(15 downto 0) := (others => '0');
 
@@ -62,7 +37,8 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: reg8 PORT MAP (
-          load => load,
+          load0 => load0,
+          load1 => load1,
           Clk => Clk,
           D => D,
           Q => Q
@@ -81,20 +57,22 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-	wait for 10ns;
-	D <= x"AAAA";
-	load <= '1';
-	
-	wait for 10ns;
-	load <= '0';
-	
-	wait for 10ns;
-	D<= x"FFFF";
-	load <= '1';
-	
-      
-   wait for 10ns;
-	load <= '0';
-	
+		D <= x"FFFF";
+		load0 <= '1';
+		load1 <= '1';
+		
+		wait for 15ns;
+		D <= x"AAAA";
+		load0 <= '0';
+		
+		wait for 10ns;
+		load1 <= '0';
+		
+		wait for 10ns;
+		load0 <= '1';
+		load1 <= '1';
+
+      wait;
    end process;
+
 END;
