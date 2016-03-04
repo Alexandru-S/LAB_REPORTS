@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-03-03T21:49:57</DateModified>
+  <DateModified>2016-03-04T20:02:25</DateModified>
   <ModuleName>datapath</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>C:/Users/owner/Desktop/VHDL/LAB2/iseconfig/datapath.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/owner/Desktop/VHDL/LAB2</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/Users/owner/Desktop/VHDL/LAB2\</ImplementationReportsDirectory>
   <DateInitialized>2016-03-03T21:49:51</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

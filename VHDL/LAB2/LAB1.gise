@@ -80,8 +80,8 @@
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="mux3_16bit.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="mux3_16bit.xst"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="netgen"/>
-    <file xil_pn:branch="PostSynthSim" xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/datapath_synthesis.nlf"/>
-    <file xil_pn:branch="PostSynthSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/datapath_synthesis.vhd"/>
+    <file xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/datapath_synthesis.nlf"/>
+    <file xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/datapath_synthesis.vhd"/>
     <file xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/register_file_synthesis.nlf"/>
     <file xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/register_file_synthesis.vhd"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="reg8.spl"/>
@@ -117,20 +117,40 @@
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="ripple_adder.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_VHDL_INSTTEMPLATE" xil_pn:name="ripple_adder.vhi"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="ripple_adder.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_Blogic_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_Blogic_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_alu_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_alu_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_datapath_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_datapath_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_decoder_3to8_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_decoder_3to8_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_full_adder_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_full_adder_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_function_unit_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_function_unit_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_logic_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_logic_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mux2_1bit_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_mux2_1bit_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="test_mux2_1bit_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mux2_1bit_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_mux3_16bit_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mux3_16bit_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_mux3_1bit_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mux3_1bit_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_mux8_16bit_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mux8_16bit_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_reg8_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_reg8_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="test_reg8_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_reg8_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_register_file_2_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_register_file_2_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_register_file_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_register_file_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_ripple_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_ripple_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_shifter_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_shifter_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
@@ -138,17 +158,17 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1457109560" xil_pn:name="TRANEXT_compLibraries_FPGA" xil_pn:prop_ck="6722788503651541364" xil_pn:start_ts="1457109560">
+      <status xil_pn:value="FailedRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
     <transform xil_pn:end_ts="1455537658" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1455537658">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1457048662" xil_pn:in_ck="-6892866802892407335" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1457048662">
+    <transform xil_pn:end_ts="1457129353" xil_pn:in_ck="2263692869984406972" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1457129353">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="B_input_logic.vhd"/>
       <outfile xil_pn:name="arithmetic_logic_unit.vhd"/>
       <outfile xil_pn:name="datapath.vhd"/>
@@ -161,22 +181,30 @@
       <outfile xil_pn:name="mux3_1bit.vhd"/>
       <outfile xil_pn:name="mux8_16bit.vhd"/>
       <outfile xil_pn:name="reg8.vhd"/>
-      <outfile xil_pn:name="reg8_test.vhd"/>
       <outfile xil_pn:name="register_file.vhd"/>
       <outfile xil_pn:name="ripple_adder.vhd"/>
       <outfile xil_pn:name="shifter.vhd"/>
+      <outfile xil_pn:name="test_Blogic.vhd"/>
+      <outfile xil_pn:name="test_alu.vhd"/>
+      <outfile xil_pn:name="test_datapath.vhd"/>
       <outfile xil_pn:name="test_decoder_3to8.vhd"/>
+      <outfile xil_pn:name="test_full_adder.vhd"/>
+      <outfile xil_pn:name="test_function_unit.vhd"/>
+      <outfile xil_pn:name="test_logic.vhd"/>
+      <outfile xil_pn:name="test_mux2_1bit.vhd"/>
       <outfile xil_pn:name="test_mux3_16bit.vhd"/>
+      <outfile xil_pn:name="test_mux3_1bit.vhd"/>
       <outfile xil_pn:name="test_mux8_16bit.vhd"/>
       <outfile xil_pn:name="test_reg8.vhd"/>
       <outfile xil_pn:name="test_register_file.vhd"/>
-      <outfile xil_pn:name="test_register_file_2.vhd"/>
+      <outfile xil_pn:name="test_ripple.vhd"/>
+      <outfile xil_pn:name="test_shifter.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1457047983" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-518725559421734119" xil_pn:start_ts="1457047983">
+    <transform xil_pn:end_ts="1457129385" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1535206014619055728" xil_pn:start_ts="1457129385">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1457047983" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="7112040595595886081" xil_pn:start_ts="1457047983">
+    <transform xil_pn:end_ts="1457129385" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="4725577132856772664" xil_pn:start_ts="1457129385">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -184,14 +212,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1457048666" xil_pn:in_ck="-6892866802892407335" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1457048666">
+    <transform xil_pn:end_ts="1457129385" xil_pn:in_ck="2263692869984406972" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1457129385">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="B_input_logic.vhd"/>
       <outfile xil_pn:name="arithmetic_logic_unit.vhd"/>
       <outfile xil_pn:name="datapath.vhd"/>
@@ -204,43 +227,45 @@
       <outfile xil_pn:name="mux3_1bit.vhd"/>
       <outfile xil_pn:name="mux8_16bit.vhd"/>
       <outfile xil_pn:name="reg8.vhd"/>
-      <outfile xil_pn:name="reg8_test.vhd"/>
       <outfile xil_pn:name="register_file.vhd"/>
       <outfile xil_pn:name="ripple_adder.vhd"/>
       <outfile xil_pn:name="shifter.vhd"/>
+      <outfile xil_pn:name="test_Blogic.vhd"/>
+      <outfile xil_pn:name="test_alu.vhd"/>
+      <outfile xil_pn:name="test_datapath.vhd"/>
       <outfile xil_pn:name="test_decoder_3to8.vhd"/>
+      <outfile xil_pn:name="test_full_adder.vhd"/>
+      <outfile xil_pn:name="test_function_unit.vhd"/>
+      <outfile xil_pn:name="test_logic.vhd"/>
+      <outfile xil_pn:name="test_mux2_1bit.vhd"/>
       <outfile xil_pn:name="test_mux3_16bit.vhd"/>
+      <outfile xil_pn:name="test_mux3_1bit.vhd"/>
       <outfile xil_pn:name="test_mux8_16bit.vhd"/>
       <outfile xil_pn:name="test_reg8.vhd"/>
       <outfile xil_pn:name="test_register_file.vhd"/>
-      <outfile xil_pn:name="test_register_file_2.vhd"/>
+      <outfile xil_pn:name="test_ripple.vhd"/>
+      <outfile xil_pn:name="test_shifter.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1457048672" xil_pn:in_ck="-6892866802892407335" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-6280577557680528413" xil_pn:start_ts="1457048666">
+    <transform xil_pn:end_ts="1457129390" xil_pn:in_ck="2263692869984406972" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-1839849195181078850" xil_pn:start_ts="1457129385">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="reg8_beh.prj"/>
-      <outfile xil_pn:name="reg8_isim_beh.exe"/>
+      <outfile xil_pn:name="test_mux2_1bit_beh.prj"/>
+      <outfile xil_pn:name="test_mux2_1bit_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1457048672" xil_pn:in_ck="8332311456938587481" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="4239968950348871760" xil_pn:start_ts="1457048672">
+    <transform xil_pn:end_ts="1457129391" xil_pn:in_ck="8076260397942036731" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5722502885389735285" xil_pn:start_ts="1457129390">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="reg8_isim_beh.wdb"/>
+      <outfile xil_pn:name="test_mux2_1bit_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1455469989" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1455469989">
       <status xil_pn:value="SuccessfullyRun"/>

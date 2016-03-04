@@ -1,36 +1,7 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   12:42:30 02/15/2016
--- Design Name:   
--- Module Name:   C:/Users/owner/Desktop/VHDL/LAB1/test_mux8_16bit.vhd
--- Project Name:  LAB1
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: mux8_16bit
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+--------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
+
  
 ENTITY test_mux8_16bit IS
 END test_mux8_16bit;
@@ -72,7 +43,7 @@ ARCHITECTURE behavior OF test_mux8_16bit IS
 
  	--Outputs
    signal Z : std_logic_vector(15 downto 0);
-  
+ 
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
@@ -91,59 +62,59 @@ BEGIN
           Z => Z
         );
 
- 
-   -- Stimulus process
    stim_proc: process
    begin		
-	
 		In0 <= x"FFFF";
-		In0 <= x"EEEE";
-		In0 <= x"DDDD";
-		In0 <= x"CCCC";
-		In0 <= x"BBBB";
-		In0 <= x"AAAA";
-		In0 <= x"9999";
-		In0 <= x"0000";
-     
-		wait for 10ns;
-		S0 <= '0';
-		S1 <= '0';
-		S2 <= '0';
+		In1 <= x"EEEE";
+		In2 <= x"DDDD";
+		In3 <= x"CCCC";
+		In4 <= x"BBBB";
+		In5 <= x"AAAA";
+		In6 <= x"9999";
+		In7 <= x"8888";
 		
 		wait for 10ns;
-		S0 <= '0';
-		S1 <= '0';
-		S2 <= '1';
-		
+		 S0 <='0';
+       S1 <='0';
+       S2 <='0';
+		 
 		wait for 10ns;
-		S0 <= '0';
-		S1 <= '1';
-		S2 <= '0';
-		
+		 S0 <='1';
+       S1 <='0';
+       S2 <='0';
+		 
 		wait for 10ns;
-		S0 <= '0';
-		S1 <= '1';
-		S2 <= '1';
-		
+		 S0 <='0';
+       S1 <='1';
+       S2 <='0';
+		 
 		wait for 10ns;
-		S0 <= '1';
-		S1 <= '0';
-		S2 <= '0';
-		
+		 S0 <='1';
+       S1 <='1';
+       S2 <='0';
+		 
 		wait for 10ns;
-		S0 <= '1';
-		S1 <= '0';
-		S2 <= '1';
-		
+		 S0 <='0';
+       S1 <='0';
+       S2 <='1';
+		 
 		wait for 10ns;
-		S0 <= '1';
-		S1 <= '1';
-		S2 <= '0';
-		
+		 S0 <='1';
+       S1 <='0';
+       S2 <='1';
+		 
 		wait for 10ns;
-		S0 <= '1';
-		S1 <= '1';
-		S2 <= '1';
+		 S0 <='0';
+       S1 <='1';
+       S2 <='1';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='1';
+       S2 <='1';
+		
+		
+      wait;
    end process;
 
 END;
