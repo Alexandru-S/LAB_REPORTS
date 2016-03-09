@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.25)  4 MAR 2016 23:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.25)  5 MAR 2016 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -745,114 +745,119 @@ File: adder.png Graphic file (type png)
  <use adder.png>
 Package pdftex.def Info: adder.png used on input line 1254.
 (pdftex.def)             Requested size: 170.71962pt x 227.63101pt.
- [28 <./adder.png>] <test_data.png, id=1313, 631.60968pt x 389.95688pt>
+ [28 <./adder.png>] [29] <test_data.png, id=1371, 631.60968pt x 389.95688pt>
 File: test_data.png Graphic file (type png)
 
 <use test_data.png>
-Package pdftex.def Info: test_data.png used on input line 1264.
+Package pdftex.def Info: test_data.png used on input line 1356.
 (pdftex.def)             Requested size: 284.53014pt x 142.26465pt.
- [29 <./test_data.png>]
-<test_register_file.png, id=1320, 630.85687pt x 389.95688pt>
+ [30 <./test_data.png>] [31] [32]
+<test_register_file.png, id=1539, 630.85687pt x 389.95688pt>
 File: test_register_file.png Graphic file (type png)
 
 <use test_register_file.png>
-Package pdftex.def Info: test_register_file.png used on input line 1273.
+Package pdftex.def Info: test_register_file.png used on input line 1486.
 (pdftex.def)             Requested size: 455.2466pt x 227.62105pt.
 
-Overfull \hbox (0.49158pt too wide) in paragraph at lines 1273--1275
+Overfull \hbox (0.49158pt too wide) in paragraph at lines 1486--1488
 [][]
  []
 
-[30 <./test_register_file.png>]
-<test_reg8.png, id=1327, 630.10406pt x 390.70969pt>
+[33 <./test_register_file.png>] [34]
+<test_reg8.png, id=1615, 630.10406pt x 390.70969pt>
 File: test_reg8.png Graphic file (type png)
  <use test_reg8.png>
-Package pdftex.def Info: test_reg8.png used on input line 1281.
+Package pdftex.def Info: test_reg8.png used on input line 1571.
 (pdftex.def)             Requested size: 455.24176pt x 227.62526pt.
 
-[31 <./test_reg8.png>] <test_decoder.png, id=1333, 631.60968pt x 390.70969pt>
+[35 <./test_reg8.png>] [36] [37]
+<test_decoder.png, id=1766, 631.60968pt x 390.70969pt>
 File: test_decoder.png Graphic file (type png)
-
-<use test_decoder.png>
-Package pdftex.def Info: test_decoder.png used on input line 1288.
+ <use test_decoder.png>
+Package pdftex.def Info: test_decoder.png used on input line 1688.
 (pdftex.def)             Requested size: 455.25014pt x 227.62526pt.
- [32 <./test_decoder.png>]
-<test_mux3.png, id=1339, 630.10406pt x 389.20406pt>
+
+[38 <./test_decoder.png>] [39]
+<test_mux3.png, id=1831, 630.10406pt x 389.20406pt>
 File: test_mux3.png Graphic file (type png)
  <use test_mux3.png>
-Package pdftex.def Info: test_mux3.png used on input line 1297.
+Package pdftex.def Info: test_mux3.png used on input line 1755.
 (pdftex.def)             Requested size: 455.24176pt x 227.62703pt.
 
-[33 <./test_mux3.png>] <test_mux8.png, id=1345, 630.85687pt x 389.95688pt>
+[40 <./test_mux3.png>] [41] [42]
+<test_mux8.png, id=1963, 630.85687pt x 389.95688pt>
 File: test_mux8.png Graphic file (type png)
-
-<use test_mux8.png>
-Package pdftex.def Info: test_mux8.png used on input line 1305.
+ <use test_mux8.png>
+Package pdftex.def Info: test_mux8.png used on input line 1882.
 (pdftex.def)             Requested size: 455.2466pt x 227.62105pt.
- [34 <./test_mux8.png>]
-<test_function_unit.png, id=1351, 630.85687pt x 389.95688pt>
+
+[43 <./test_mux8.png>] [44] [45]
+<test_function_unit.png, id=2098, 630.85687pt x 389.95688pt>
 File: test_function_unit.png Graphic file (type png)
 
 <use test_function_unit.png>
-Package pdftex.def Info: test_function_unit.png used on input line 1314.
+Package pdftex.def Info: test_function_unit.png used on input line 2038.
 (pdftex.def)             Requested size: 455.2466pt x 227.62105pt.
- [35 <./test_function_unit.png>]
-<test_shifter.png, id=1358, 630.85687pt x 390.70969pt>
+ [46] [47 <./test_function_unit.png>] [48]
+<test_shifter.png, id=2206, 630.85687pt x 390.70969pt>
 File: test_shifter.png Graphic file (type png)
  <use test_shifter.png>
-Package pdftex.def Info: test_shifter.png used on input line 1323.
+Package pdftex.def Info: test_shifter.png used on input line 2107.
 (pdftex.def)             Requested size: 455.2466pt x 227.62526pt.
 
-[36 <./test_shifter.png>] <test_mux1.png, id=1364, 630.10406pt x 389.20406pt>
+[49 <./test_shifter.png>] [50]
+<test_mux1.png, id=2278, 630.10406pt x 389.20406pt>
 File: test_mux1.png Graphic file (type png)
-
-<use test_mux1.png>
-Package pdftex.def Info: test_mux1.png used on input line 1332.
+ <use test_mux1.png>
+Package pdftex.def Info: test_mux1.png used on input line 2192.
 (pdftex.def)             Requested size: 455.24176pt x 227.62703pt.
- [37 <./test_mux1.png>]
-<test_alu.png, id=1370, 631.60968pt x 389.20406pt>
+
+[51 <./test_mux1.png>] [52] <test_alu.png, id=2366, 631.60968pt x 389.20406pt>
 File: test_alu.png Graphic file (type png)
- <use test_alu.png>
-Package pdftex.def Info: test_alu.png used on input line 1343.
+
+<use test_alu.png>
+Package pdftex.def Info: test_alu.png used on input line 2303.
 (pdftex.def)             Requested size: 455.25014pt x 227.62703pt.
- [38 <./test_alu.png>] <test_logic.png, id=1376, 630.85687pt x 390.70969pt>
+ [53] [54 <./test_alu.png>] [55]
+<test_logic.png, id=2483, 630.85687pt x 390.70969pt>
 File: test_logic.png Graphic file (type png)
-
-<use test_logic.png>
-Package pdftex.def Info: test_logic.png used on input line 1352.
+ <use test_logic.png>
+Package pdftex.def Info: test_logic.png used on input line 2369.
 (pdftex.def)             Requested size: 455.2466pt x 227.62526pt.
- [39 <./test_logic.png>]
-<test_Blogic.png, id=1382, 630.85687pt x 390.70969pt>
+
+[56 <./test_logic.png>] <test_Blogic.png, id=2492, 630.85687pt x 390.70969pt>
 File: test_Blogic.png Graphic file (type png)
- <use test_Blogic.png>
-Package pdftex.def Info: test_Blogic.png used on input line 1361.
+
+<use test_Blogic.png>
+Package pdftex.def Info: test_Blogic.png used on input line 2429.
 (pdftex.def)             Requested size: 455.2466pt x 227.62526pt.
-
-[40 <./test_Blogic.png>] <test_mux2.png, id=1388, 631.60968pt x 390.70969pt>
+ [57] [58 <./test_Blogic.png>]
+<test_mux2.png, id=2554, 631.60968pt x 390.70969pt>
 File: test_mux2.png Graphic file (type png)
-
-<use test_mux2.png>
-Package pdftex.def Info: test_mux2.png used on input line 1371.
+ <use test_mux2.png>
+Package pdftex.def Info: test_mux2.png used on input line 2489.
 (pdftex.def)             Requested size: 455.25014pt x 227.62526pt.
- [41 <./test_mux2.png>]
-<test_ripple.png, id=1395, 630.85687pt x 390.70969pt>
+
+[59] [60 <./test_mux2.png>] [61]
+<test_ripple.png, id=2677, 630.85687pt x 390.70969pt>
 File: test_ripple.png Graphic file (type png)
  <use test_ripple.png>
-Package pdftex.def Info: test_ripple.png used on input line 1380.
+Package pdftex.def Info: test_ripple.png used on input line 2556.
 (pdftex.def)             Requested size: 455.2466pt x 227.62526pt.
 
-[42 <./test_ripple.png>] <test_full.png, id=1401, 631.60968pt x 390.70969pt>
+[62 <./test_ripple.png>] [63]
+<test_full.png, id=2746, 631.60968pt x 390.70969pt>
 File: test_full.png Graphic file (type png)
-
-<use test_full.png>
-Package pdftex.def Info: test_full.png used on input line 1389.
+ <use test_full.png>
+Package pdftex.def Info: test_full.png used on input line 2633.
 (pdftex.def)             Requested size: 455.25014pt x 227.62526pt.
- [43 <./test_full.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1392.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1392.
+
+[64 <./test_full.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2636.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2636.
  (./PROJ2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1392.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1392.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2636.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2636.
 
 Package rerunfilecheck Info: File `PROJ2.out' has not changed.
 (rerunfilecheck)             Checksum: A3DF6E4295D3C29269E4BC85CFAE3B42;2032.
@@ -860,13 +865,13 @@ Package rerunfilecheck Info: File `PROJ2.out' has not changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1392.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2636.
  ) 
 Here is how much of TeX's memory you used:
- 10056 strings out of 494985
- 143412 string characters out of 6180356
- 391307 words of memory out of 5000000
- 12055 multiletter control sequences out of 15000+600000
+ 11359 strings out of 494985
+ 164060 string characters out of 6180356
+ 393307 words of memory out of 5000000
+ 12078 multiletter control sequences out of 15000+600000
  9434 words of font info for 36 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  29i,12n,43p,235b,1798s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -875,10 +880,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on PROJ2.pdf (45 pages, 488774 bytes).
+Output written on PROJ2.pdf (66 pages, 538599 bytes).
 PDF statistics:
- 1648 PDF objects out of 1728 (max. 8388607)
- 1544 compressed objects within 16 object streams
- 1080 named destinations out of 1200 (max. 500000)
+ 3268 PDF objects out of 3580 (max. 8388607)
+ 3127 compressed objects within 32 object streams
+ 2360 named destinations out of 2487 (max. 500000)
  432 words of extra memory for PDF output out of 10000 (max. 10000000)
 

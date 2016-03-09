@@ -16,17 +16,17 @@
 \contentsline {subsubsection}{\numberline {1.5.4}FULL ADDER}{28}{subsubsection.1.5.4}
 \contentsline {section}{\numberline {2}TESTBENCHES}{29}{section.2}
 \contentsline {subsection}{\numberline {2.1}DATA PATH}{29}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}REGISTER FILE}{30}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}REG8}{31}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}DECODER}{32}{subsubsection.2.2.2}
-\contentsline {subsubsection}{\numberline {2.2.3}MUX3 TO 16BIT}{33}{subsubsection.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.4}MUX8 TO 16BIT}{34}{subsubsection.2.2.4}
-\contentsline {subsection}{\numberline {2.3}FUNCTION UNIT}{35}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}SHIFTER}{36}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}MUX3 TO 1BIT}{37}{subsubsection.2.4.1}
-\contentsline {subsection}{\numberline {2.5}ALU}{38}{subsection.2.5}
-\contentsline {subsubsection}{\numberline {2.5.1}LOGIC}{39}{subsubsection.2.5.1}
-\contentsline {subsubsection}{\numberline {2.5.2}B LOGIC}{40}{subsubsection.2.5.2}
-\contentsline {subsubsection}{\numberline {2.5.3}MUX2 TO 1BIT}{41}{subsubsection.2.5.3}
-\contentsline {subsubsection}{\numberline {2.5.4}RIPPLE}{42}{subsubsection.2.5.4}
-\contentsline {subsubsection}{\numberline {2.5.5}FULL ADDER}{43}{subsubsection.2.5.5}
+\contentsline {subsection}{\numberline {2.2}REGISTER FILE}{31}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}REG8}{34}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}DECODER}{36}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}MUX3 TO 16BIT}{39}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}MUX8 TO 16BIT}{41}{subsubsection.2.2.4}
+\contentsline {subsection}{\numberline {2.3}FUNCTION UNIT}{44}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}SHIFTER}{48}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}MUX3 TO 1BIT}{50}{subsubsection.2.4.1}
+\contentsline {subsection}{\numberline {2.5}ALU}{52}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}LOGIC}{55}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}B LOGIC}{57}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.3}MUX2 TO 1BIT}{59}{subsubsection.2.5.3}
+\contentsline {subsubsection}{\numberline {2.5.4}RIPPLE}{61}{subsubsection.2.5.4}
+\contentsline {subsubsection}{\numberline {2.5.5}FULL ADDER}{63}{subsubsection.2.5.5}
