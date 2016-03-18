@@ -12,7 +12,7 @@ void* producer(void *ptr)
 	int i;
 	for (i = 1; i <= MAX; i++) 
 	{
-		/* lock buffer */
+		/* lock mutex */
 		pthread_mutex_lock(&the_mutex);
 		/* wait if buffer not 0*/
 		while (buffer != 0)	
@@ -27,7 +27,7 @@ void* producer(void *ptr)
     		printf("%i", i);
     		/* wake up consumer */
     		pthread_cond_signal(&condc);	
-    		/* unlock buffer */
+    		/* unlock mutex */
     		pthread_mutex_unlock(&the_mutex);	
     		sleep(2);
   	}
@@ -41,7 +41,7 @@ void* consumer(void *ptr)
 
 	for (i = 1; i <= MAX; i++)
 	{
-  		/* lock buffer */
+  		/* lock mutex */
     		pthread_mutex_lock(&the_mutex);	
     		/* If there is nothing in the buffer then wait */
     		while (buffer == 0)
@@ -55,7 +55,7 @@ void* consumer(void *ptr)
     		buffer = 0;
     		/* wake up consumer */
     		pthread_cond_signal(&condp);	
-    		/* unlock buffer */
+    		/* unlock mutex */
    	 	pthread_mutex_unlock(&the_mutex);
    	 	sleep(2);	
   	}

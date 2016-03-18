@@ -1,0 +1,79 @@
+import re
+import httplib
+import string
+import sys
+import socket
+import os
+import errno
+import webbrowser
+
+from socket import *
+from urlparse import urlparse
+
+proxyServerPort = 8000
+
+proxyServerSocket = socket(AF_INET,SOCK_STREAM)
+proxyServerSocket.bind(('localhost', proxyServerPort))
+proxyServerSocket.listen(1)
+print 'The proxy server is ready to receive'
+
+#create file#
+#def write():
+	#print ('Creating data file')
+	#name = raw_input('Enter name of text file: ')+'.txt'
+	
+	#try:
+		#file = open(name, 'w')
+		#file.close()
+		#print ('File has been created')
+	#except:
+		#print('Error in creating file')
+		#sys.exit(0)
+		
+#write()
+print ('The proxy server has file to save data into')
+
+#proxy#
+while 1:
+        connectionSocket, addr = proxyServerSocket.accept()
+        requestData = connectionSocket.recv(1024)
+	#print requestData
+
+	# Match Regular Expression
+	url = re.search("(?P<url>http?://[^\s]+)", requestData).group("url")
+	#print url
+	print url
+	#dir = os.path.dirname(url)
+	#file = open(name, 'a')
+	#file.write(url+'\n')
+	#file.close()
+	
+	
+	
+	print ('file has been writen to')
+
+	# Parse HTTP Request
+	output = urlparse(url)
+
+	# Pass on HTTP Request to real web server
+	conn = httplib.HTTPConnection(output.netloc)
+	conn.request("GET", output.path)
+	r1 = conn.getresponse()
+	#print(r1.status, r1.reason)
+
+	data1 = r1.read()
+	#print data1
+	for x in range(0, 100):
+		y=str(x)
+		path = url
+		if not os.path.exists(path):
+    			os.makedirs(path)
+		filename = y + '.txt'
+		with open(os.path.join(path, filename), 'a') as temp_file:
+    			temp_file.write(data1)
+		temp_file.close()
+	
+	connectionSocket.send(data1)
+
+        connectionSocket.close()
+        print 'Connection has ended'

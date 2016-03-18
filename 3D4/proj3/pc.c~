@@ -10,7 +10,6 @@ int buffer = 0;
 void* producer(void *ptr)
 {
 	int i;
-
 	for (i = 1; i <= MAX; i++) 
 	{
 		/* lock buffer */
@@ -33,6 +32,7 @@ void* producer(void *ptr)
     		sleep(2);
   	}
   	pthread_exit(0);
+  	/*otherwise deadlock*/
 }
 
 void* consumer(void *ptr)
@@ -60,6 +60,7 @@ void* consumer(void *ptr)
    	 	sleep(2);	
   	}
   	pthread_exit(0);
+  	/*otherwise deadlock*/
 }
 
 int main(int argc, char **argv) {

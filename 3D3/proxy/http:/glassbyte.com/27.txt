@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>GlassByte Software</title>   
+
+<meta name="description" content="Insert Your Site Description" /> 
+
+<!-- Mobile Specifics -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="320"/>   
+
+<!-- Mobile Internet Explorer ClearType Technology -->
+<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+<!-- Bootstrap -->
+<link href="_include/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Main Style -->
+<link href="_include/css/main.css" rel="stylesheet">
+
+<!-- Supersized -->
+<link href="_include/css/supersized.css" rel="stylesheet">
+<link href="_include/css/supersized.shutter.css" rel="stylesheet">
+
+<!-- FancyBox -->
+<link href="_include/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+
+<!-- Font Icons -->
+<link href="_include/css/fonts.css" rel="stylesheet">
+
+<!-- Responsive -->
+<link href="_include/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="_include/css/responsive.css" rel="stylesheet">
+
+<!-- Supersized -->
+<link href="_include/css/supersized.css" rel="stylesheet">
+<link href="_include/css/supersized.shutter.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+
+<!-- Fav Icon -->
+<link rel="shortcut icon" href="#">
+
+<link rel="apple-touch-icon" href="#">
+<link rel="apple-touch-icon" sizes="114x114" href="#">
+<link rel="apple-touch-icon" sizes="72x72" href="#">
+<link rel="apple-touch-icon" sizes="144x144" href="#">
+
+<!-- Modernizr -->
+<script src="_include/js/modernizr.js"></script>
+
+<!-- Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'Insert Your Code']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End Analytics -->
+
+</head>
+
+
+<body>
+
+<!-- This section is for Splash Screen -->
+<div class="ole">
+<section id="jSplash">
+	<div id="circle"></div>
+</section>
+</div>
+<!-- End of Splash Screen -->
+
+<!-- Homepage Slider -->
+<div id="home-slider">	
+    <div class="overlay"></div>
+
+    <div class="slider-text">
+    	<div id="slidecaption"></div>
+    </div>   
+	
+	<div class="control-nav">
+        <a id="prevslide" class="load-item"><i class="font-icon-arrow-simple-left"></i></a>
+        <a id="nextslide" class="load-item"><i class="font-icon-arrow-simple-right"></i></a>
+        <ul id="slide-list"></ul>
+        
+        <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
+    </div>
+</div>
+<!-- End Homepage Slider -->
+
+<!-- Header -->
+<header>
+    <div class="sticky-nav">
+    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        
+        <nav id="menu">
+        	<ul id="menu-nav">
+            	<li class="current"><a href="#home-slider">Home</a></li>
+                <li><a href="#work">Projects</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+</header>
+<!-- End Header -->
+
+<!-- Our Work Section -->
+<div id="work" class="page">
+	<div class="container">
+    	<!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title">Projects</h2>
+                    <h3 class="title-description">Check out our stuff on <a href="https://play.google.com/store/apps/developer?id=GlassByte&hl=en">Google Play</a>.</h3>
+                </div>
+            </div>
+        </div>
+        <!-- End Title Page -->
+        
+        <!-- Portfolio Projects -->
+        <div class="row">
+        	<div class="span3">
+            	<!-- Filter -->
+                <nav id="options" class="work-nav">
+                    <ul id="filters" class="option-set" data-option-key="filter">
+                    	<li class="type-work">Current Projects</li>
+                        <li><a href="#filter" data-option-value="*" class="selected">All Projects</a></li>
+                        <li><a href="#filter" data-option-value=".appdev">App Development</a></li>
+                        <li><a href="#filter" data-option-value=".webdev">Web Development</a></li>
+                        <li><a href="#filter" data-option-value=".systems">Systems Solutions</a></li>
+                        <li><a href="#filter" data-option-value=".hardware">Hardware Solutions</a></li>
+                    </ul>
+                </nav>
+                <!-- End Filter -->
+            </div>
+            
+            <div class="span9">
+            	<div class="row">
+                	<section id="projects">
+                    	<ul id="thumbs">
+                        
+							<!-- Drink Tracker -->
+                        	<li class="item-thumbs span3 appdev">
+                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Drink Tracker" href="_include/img/work/full/image-01-full.jpg">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="_include/img/work/thumbs/drink_tracker.jpg" alt="<b>Drink Tracker</b> helps you to monitor how much alcohol you’re drinking and act as a sober friend in your pocket. Say goodbye to over-drinking, hangovers, blackouts and ruined nights out. Drink Tracker is your guide to real-time awareness, where warnings let you know in due time when enough is enough.<br>
+Be warned beforehand when things are getting out of hand and provides warnings accordingly personalised to your profile to let you know in due time. Statistics and graphs are provided to help you educate yourself about the effects of how much you drink and provide meaningful and useful information to change your lifestyle to what you want.">
+                            </li>
+                        	<!-- End Item Project -->
+
+				<!-- iompar -->
+                        	<li class="item-thumbs span3 appdev">
+                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="iompar" href="_include/img/work/full/image-02-full.jpg">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="_include/img/work/thumbs/iompar.jpg" alt="iompar is an intelligent real-time transportation and expenditure tracking app that works to inform you of the next departure and to save you money on your everyday commute. Track your transit from the palm of your hand, add and track expenditures, and monitor your Leap card balance to let you know your expenses and if you can pay for that next journey without topping up.
+iompar is currently only functional with the Luas transportation network, but there are plans to expand to other networks in the near future, including Dublin Bus, Bus Éireann, and DART & rail services in order to provide a centralised app for all of Irish transport.">
+                            </li>
+                        	<!-- End Item Project -->
+                            
+							<!-- Understand Irish -->
+                        	<li class="item-thumbs span3 appdev">
+                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Understand Irish" href="_include/img/work/full/image-03-full.jpg">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="_include/img/work/thumbs/understand_irish.png" alt="Learn and understand Irish grammar for any learner level. Learn through English in a logical and interesting way of analysing your own first language. Coming soon to Android.">
+                            </li>
+                        	<!-- End Item Project -->
+                            
+							
+                        </ul>
+                    </section>
+                    
+            	</div>
+            </div>
+        </div>
+        <!-- End Portfolio Projects -->
+    </div>
+</div>
+<!-- End Our Work Section -->
+
+<!-- About Section -->
+<div id="about" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">About Us</h2>
+                <h4 class="title-description">GlassByte is a software development start-up company headquartered in Dublin, Ireland. Our small, ambitious team strives to create innovative and useful software for computing platforms. We are responsive, visionary, and <b>bold</b>.</h4>
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    <!-- People -->
+    <div class="row">
+    	
+        <!-- Start Profile -->
+    	<div class="span4 profile">
+        	<div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">CEO/Founder</span>
+                </div>
+                <img src="_include/img/profile/profile-01.jpg" alt="John Doe">
+            </div>
+            <h3 class="profile-name">Alexandru Sulea</h3>
+            <p class="profile-description">Co-founder and developer at GlassByte.</p>
+            	
+            <div class="social">
+            	<ul class="social-icons">
+                	<li><a href="http://www.twitter.com/glassbyte"><i class="font-icon-social-twitter"></i></a></li>
+                    <li><a href="mailto:alexandru.sulea@glassbyte.com"><i class="font-icon-social-email"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Profile -->
+
+        <!-- Start Profile -->
+    	<div class="span4 profile">
+        	<div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">CPO/Founder</span>
+                </div>
+                <img src="_include/img/profile/profile-03.jpg" alt="Joshua Insanus">
+            </div>
+            <h3 class="profile-name">Edmond O' Flynn</h3>
+            <p class="profile-description">Co-founder and developer at GlassByte.</p>
+            	
+            <div class="social">
+            	<ul class="social-icons">
+                	<li><a href="http://www.twitter.com/glassbyte"><i class="font-icon-social-twitter"></i></a></li>
+                    <li><a href="mailto:edmond.oflynn@glassbyte.com"><i class="font-icon-social-email"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Profile -->
+        
+        <!-- Start Profile -->
+    	<div class="span4 profile">
+        	<div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">CTO/Founder</span>
+                </div>
+                <img src="_include/img/profile/profile-02.jpg" alt="Jane Helf">
+            </div>
+            <h3 class="profile-name">Maciej Grabowski</h3>
+            <p class="profile-description">Co-founder and developer at GlassByte.</p>
+            	
+            <div class="social">
+            	<ul class="social-icons">
+                	<li><a href="http://www.twitter.com/glassbyte"><i class="font-icon-social-twitter"></i></a></li>
+                    <li><a href="mailto:maciej.grabowski@glassbyte.com"><i class="font-icon-social-email"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Profile -->
+    </div>
+    <!-- End People -->
+</div>
+</div>
+<!-- End About Section -->
+
+
+<!-- Contact Section -->
+<div id="contact" class="page">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">Get in Touch</h2>
+                <h3 class="title-description">We’re currently accepting new client projects. We look forward to developing your innovative ideas.</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    <!-- Contact Form -->
+    <div class="row">
+    	<div class="span9">
+        
+        	<form id="contact-form" class="contact-form" action="contact.php" method="post">
+            	<p class="contact-name">
+            		<input id="contact_name" type="text" placeholder="Full Name" value="" name="name" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Email Address" value="" name="email" />
+                </p>
+                <p class="contact-message">
+                	<textarea id="contact_message" placeholder="Your Message" name="message" rows="15" cols="40"></textarea>
+                </p>
+                <p class="contact-submit">
+                	<a id="contact-submit" class="submit" href="../_include/php/contact.php">Send</a>
+                </p>
+                
+                <div id="response">
+                
+                </div>
+            </form>
+         
+        </div>
+        
+        <div class="span3">
+        	<div class="contact-details">
+        		<h3>Contact Details</h3>
+                <ul>
+                    <li>
+                        For any queries, please contact us on:
+                    </li>
+                    <li><a href="mailto:contact@glassbyte.com">contact@glassbyte.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Form -->
+</div>
+</div>
+<!-- End Contact Section -->
+
+
+<!-- Socialize -->
+<div id="social-area" class="page-alternate">
+	<div class="container">
+    	<div class="row">
+            <div class="span12">
+                <nav id="social">
+                    <ul>
+                        <li><a href="https://www.twitter.com/glassbyte" title="Follow Us on Twitter" target="_blank"><span class="font-icon-social-twitter"></span></a></li>
+                        <li><a href="https://www.facebook.com/glassbyte" title="Follow Us on Facebook" target="_blank"><span class="font-icon-social-facebook"></span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Socialize -->
+
+<!-- Footer -->
+<footer>
+	<p class="credits">&copy;2015 GlassByte Limited.</p>
+</footer>
+<!-- End Footer -->
+
+<!-- Back To Top -->
+<a id="back-to-top" href="#">
+	<i class="font-icon-arrow-simple-up"></i>
+</a>
+<!-- End Back to Top -->
+
+
+<!-- Js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+<script src="_include/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+<script src="_include/js/supersized.3.2.7.min.js"></script> <!-- Slider -->
+<script src="_include/js/waypoints.js"></script> <!-- WayPoints -->
+<script src="_include/js/waypoints-sticky.js"></script> <!-- Waypoints for Header -->
+<script src="_include/js/jquery.isotope.js"></script> <!-- Isotope Filter -->
+<script src="_include/js/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+<script src="_include/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+<script src="_include/js/jquery.tweet.js"></script> <!-- Tweet -->
+<script src="_include/js/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+<script src="_include/js/main.js"></script> <!-- Default JS -->
+<!-- End Js -->
+
+</body>
+</html>
+
+<!-- Hosting24 Analytics Code -->
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->
