@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/owner/Desktop/LAB_REPORTS/VHDL/LAB3/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/owner/Desktop/LAB_REPORTS/VHDL/LAB3/xst"
+elaborate
+-ifn zero_fill.prj
+-ifmt mixed

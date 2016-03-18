@@ -1,0 +1,29 @@
+Command line:
+   test_Blogic_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49701
+
+Fri Mar 04 21:58:20 2016
+
+
+ Elaboration Time: 0.0468 sec
+
+ Current Memory Usage: 667.558 Meg
+
+ Total Signals          : 70
+ Total Nets             : 34
+ Total Signal Drivers   : 18
+ Total Blocks           : 19
+ Total Primitive Blocks : 17
+ Total Processes        : 17
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 394
+Total Line Count : 27
+
+ Total Simulation Time: 0.124801 sec
+
+ Current Memory Usage: 982.131 Meg
+
+Fri Mar 04 21:59:16 2016
+
