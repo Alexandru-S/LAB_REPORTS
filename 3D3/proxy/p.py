@@ -17,22 +17,6 @@ proxyServerSocket.bind(('localhost', proxyServerPort))
 proxyServerSocket.listen(1)
 print 'The proxy server is ready to receive'
 
-#create file#
-#def write():
-	#print ('Creating data file')
-	#name = raw_input('Enter name of text file: ')+'.txt'
-	
-	#try:
-		#file = open(name, 'w')
-		#file.close()
-		#print ('File has been created')
-	#except:
-		#print('Error in creating file')
-		#sys.exit(0)
-		
-#write()
-print ('The proxy server has file to save data into')
-
 #proxy#
 while 1:
         connectionSocket, addr = proxyServerSocket.accept()
@@ -43,18 +27,8 @@ while 1:
 	url = re.search("(?P<url>http?://[^\s]+)", requestData).group("url")
 	#print url
 	print url
-	#dir = os.path.dirname(url)
-	#file = open(name, 'a')
-	#file.write(url+'\n')
-	#file.close()
-	
-	
-	
-	print ('file has been writen to')
-
 	# Parse HTTP Request
 	output = urlparse(url)
-
 	# Pass on HTTP Request to real web server
 	conn = httplib.HTTPConnection(output.netloc)
 	conn.request("GET", output.path)
@@ -74,6 +48,6 @@ while 1:
 		temp_file.close()
 	
 	connectionSocket.send(data1)
-
+	print ('---file has been writen to---')
         connectionSocket.close()
         print 'Connection has ended'
