@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  31 JAN 2016 23:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.25)  30 MAR 2016 00:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -404,14 +404,14 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
 Here is how much of TeX's memory you used:
  6408 strings out of 494985
  92450 string characters out of 6180356
- 271529 words of memory out of 5000000
+ 270529 words of memory out of 5000000
  9581 multiletter control sequences out of 15000+600000
  4246 words of font info for 16 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 29i,4n,43p,795b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,4n,43p,679b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on CoverLetter_Alexandru_Sulea.pdf (1 page, 27212 bytes).
+Output written on CoverLetter_Alexandru_Sulea.pdf (1 page, 27415 bytes).
 PDF statistics:
  21 PDF objects out of 1000 (max. 8388607)
  15 compressed objects within 1 object stream

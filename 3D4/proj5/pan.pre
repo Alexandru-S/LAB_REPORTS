@@ -1,0 +1,55 @@
+# 1 "df2.pml"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "df2.pml"
+
+bool forks[4]
+bool eating[4]
+
+active [4] proctype philosophers()
+{
+L1:
+ if
+ ::(_pid%2==0)->
+  atomic{
+   (forks[_pid]==0);
+   forks[_pid]=1;
+  }
+  atomic{
+   (forks[(_pid+1)%4]==0);
+   forks[(_pid+1)%4]=1;
+  }
+ ::(_pid%2 == 1)->
+  atomic{
+   (forks[(_pid+1)%4]==0);
+   forks[(_pid+1)%4] =1;
+  }
+  atomic{
+   (forks[_pid]==0);
+   forks[_pid]=1;
+  }
+ fi;
+ eating[_pid]=1;
+ printf(" %d eating \n", _pid);
+
+ if
+ :: (_pid ==0) -> progress0: skip;
+ :: (_pid ==1) -> progress1: skip;
+ :: (_pid ==2) -> progress2: skip;
+ :: (_pid ==3) -> progress3: skip;
+ :: (_pid ==4) -> progress4: skip;
+ fi;
+
+ eating[_pid] =0;
+ forks[_pid] =0;
+ forks[(_pid+1)%4] =0;
+
+ goto L1;
+}
+active [4] proctype monitor ()
+{
+ assert ((!eating[_pid-4])|| (eating[_pid-4] && forks[_pid-4] && forks[(_pid-4 +1)%4] && !eating[(_pid-4 +1)%4] && !eating[(_pid-4 -1+4)%4]));
+
+}

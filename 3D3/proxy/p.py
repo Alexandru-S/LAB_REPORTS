@@ -6,7 +6,7 @@ import socket
 import os
 import errno
 import webbrowser
-
+from wsgiref.simple_server import make_server
 from socket import *
 from urlparse import urlparse
 
@@ -16,6 +16,15 @@ proxyServerSocket = socket(AF_INET,SOCK_STREAM)
 proxyServerSocket.bind(('localhost', proxyServerPort))
 proxyServerSocket.listen(1)
 print 'The proxy server is ready to receive'
+
+
+def hello_world(environ, start_response):
+	status = '200 ok'
+	headers = [('Content-type ','text/plain ')]
+	start_response(status, headers)
+	
+	return ['Access Restricted']
+	
 
 #proxy#
 while 1:
@@ -37,15 +46,14 @@ while 1:
 
 	data1 = r1.read()
 	#print data1
-	for x in range(0, 100):
-		y=str(x)
-		path = url
-		if not os.path.exists(path):
-    			os.makedirs(path)
-		filename = y + '.txt'
-		with open(os.path.join(path, filename), 'a') as temp_file:
-    			temp_file.write(data1)
-		temp_file.close()
+	path = url
+	img_alt = os.path.basename(img_alt)
+	if not os.path.exists(path):
+    		os.makedirs(path)
+	filename = img_alt + '.txt'
+	with open(os.path.join(path, filename), 'a') as temp_file:
+    		temp_file.write(data1)
+	temp_file.close()
 	
 	connectionSocket.send(data1)
 	print ('---file has been writen to---')
