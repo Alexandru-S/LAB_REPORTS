@@ -8,18 +8,19 @@ chan forks[NUM_PHIL] = [1] of {bit};
 proctype phil(int id){
 	do 
 	::left?fork ->
-		right?fork;
-		printf("%u",id);
-		printf("phil eating...");
-		left!fork; right!fork
-		printf("%u",id);
-		printf("meditating");
+		atomic{
+			right?fork;
+			printf("%u",id);
+			printf("phil eating...");
+			left!fork; right!fork
+			printf("%u",id);
+			printf("meditating");
+		}
 	od
 }
 
 init{
 	byte numphil = NUM_PHIL;
-	atomic{
 		do
 			::numphil>0 ->
 				numphil--
@@ -28,5 +29,4 @@ init{
 			::numphil==0 ->
 				break	
 		od
-	}
 }	

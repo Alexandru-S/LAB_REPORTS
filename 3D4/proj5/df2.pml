@@ -1,49 +1,48 @@
-#define NUM 4
-bool forks[NUM]
-bool eating[NUM]
+#define NUM 5
+bool spoon[NUM]
+bool eat[NUM]
 
-active [NUM] proctype philosophers()
+active [NUM] proctype P()
 {
-L1:
+TOP:
+	/*pick up right fork*/
 	if
-	::(_pid%2==0)->
+	::(_pid%2==1)->
 		atomic{
-			(forks[_pid]==0);
-			forks[_pid]=1;
+			/*_pid is a predefined local read-only variable of type pid, whish stores an instantiation number*/
+			(spoon[_pid]==0);
+			spoon[_pid]=1;
+		}
+		/*usign atomic for spoon*/
+		atomic{
+			(spoon[(_pid+1)%NUM]==0);
+			spoon[(_pid+1)%NUM]=1;
+		}
+	/*pick up left fork*/
+	::(_pid%2 == 0)->
+		atomic{
+			(spoon[(_pid+1)%NUM]==0);
+			spoon[(_pid+1)%NUM] =1;
 		}
 		atomic{
-			(forks[(_pid+1)%NUM]==0);
-			forks[(_pid+1)%NUM]=1;
-		}
-	::(_pid%2 == 1)->
-		atomic{
-			(forks[(_pid+1)%NUM]==0);
-			forks[(_pid+1)%NUM] =1;
-		}
-		atomic{
-			(forks[_pid]==0);
-			forks[_pid]=1;
+			(spoon[_pid]==0);
+			spoon[_pid]=1;
 		}
 	fi;
-	eating[_pid]=1;
-	printf(" %d eating \n", _pid);
-	
-	if
-	:: (_pid ==0) -> progress0: skip;
-	:: (_pid ==1) -> progress1: skip;
-	:: (_pid ==2) -> progress2: skip;
-	:: (_pid ==3) -> progress3: skip;
-	:: (_pid ==4) -> progress4: skip;
-	fi;
-	
-	eating[_pid] =0;
-	forks[_pid] =0;
-	forks[(_pid+1)%NUM] =0;
-	
-	goto L1;
+	eat[_pid]=1;
+	printf(" %d eat \n", _pid);
+	/*release spoon*/
+	eat[_pid] =0;
+	spoon[_pid] =0;
+	spoon[(_pid+1)%NUM] =0;
+	printf(" %d put down f \n", _pid);
+	/*go back to top*/
+	goto TOP;
 }
-active [NUM] proctype monitor ()
+active [NUM] proctype main ()
 {
-	assert ((!eating[_pid-NUM])|| (eating[_pid-NUM] && forks[_pid-NUM] && forks[(_pid-NUM+1)%NUM] && !eating[(_pid-NUM+1)%NUM] && !eating[(_pid-NUM-1+NUM)%NUM]));
+	/*example noteat(2-1=1) or eat( 2-1 =1) and left fork and right fork and not left left fork and not right right fork*/
+	assert ((!eat[_pid-NUM])|| (eat[_pid-NUM] && spoon[_pid-NUM] && spoon[(_pid-NUM+1)%NUM] && !eat[(_pid-NUM+1)%NUM] && !eat[(_pid-NUM-1+NUM)%NUM]));
 
 }
+

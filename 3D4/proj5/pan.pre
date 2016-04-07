@@ -5,51 +5,49 @@
 # 1 "<command-line>" 2
 # 1 "df2.pml"
 
-bool forks[4]
-bool eating[4]
+bool spoon[5]
+bool eat[5]
 
-active [4] proctype philosophers()
+active [5] proctype P()
 {
-L1:
- if
- ::(_pid%2==0)->
-  atomic{
-   (forks[_pid]==0);
-   forks[_pid]=1;
-  }
-  atomic{
-   (forks[(_pid+1)%4]==0);
-   forks[(_pid+1)%4]=1;
-  }
- ::(_pid%2 == 1)->
-  atomic{
-   (forks[(_pid+1)%4]==0);
-   forks[(_pid+1)%4] =1;
-  }
-  atomic{
-   (forks[_pid]==0);
-   forks[_pid]=1;
-  }
- fi;
- eating[_pid]=1;
- printf(" %d eating \n", _pid);
+TOP:
 
  if
- :: (_pid ==0) -> progress0: skip;
- :: (_pid ==1) -> progress1: skip;
- :: (_pid ==2) -> progress2: skip;
- :: (_pid ==3) -> progress3: skip;
- :: (_pid ==4) -> progress4: skip;
+ ::(_pid%2==1)->
+  atomic{
+
+   (spoon[_pid]==0);
+   spoon[_pid]=1;
+  }
+
+  atomic{
+   (spoon[(_pid+1)%5]==0);
+   spoon[(_pid+1)%5]=1;
+  }
+
+ ::(_pid%2 == 0)->
+  atomic{
+   (spoon[(_pid+1)%5]==0);
+   spoon[(_pid+1)%5] =1;
+  }
+  atomic{
+   (spoon[_pid]==0);
+   spoon[_pid]=1;
+  }
  fi;
+ eat[_pid]=1;
+ printf(" %d eat \n", _pid);
 
- eating[_pid] =0;
- forks[_pid] =0;
- forks[(_pid+1)%4] =0;
+ eat[_pid] =0;
+ spoon[_pid] =0;
+ spoon[(_pid+1)%5] =0;
+ printf(" %d put down f \n", _pid);
 
- goto L1;
+ goto TOP;
 }
-active [4] proctype monitor ()
+active [5] proctype main ()
 {
- assert ((!eating[_pid-4])|| (eating[_pid-4] && forks[_pid-4] && forks[(_pid-4 +1)%4] && !eating[(_pid-4 +1)%4] && !eating[(_pid-4 -1+4)%4]));
+
+ assert ((!eat[_pid-5])|| (eat[_pid-5] && spoon[_pid-5] && spoon[(_pid-5 +1)%5] && !eat[(_pid-5 +1)%5] && !eat[(_pid-5 -1+5)%5]));
 
 }
