@@ -1,0 +1,1049 @@
+-------misp-----
+
+-----------------------------------
+
+
+----memory_m -----
+
+
+
+------------micro_prog control --------------
+
+-----------------------------------
+
+
+
+--------CAR--------
+
+
+
+
+
+---------mux8_1bit------
+
+------------------------------------
+
+
+
+
+-----mux2_8bit---------
+
+-------------------------------------------
+
+
+
+-----extend------
+---------------------------------------------
+
+
+
+
+--------IR-------
+
+
+
+
+
+-----------PC-------------
+
+---------------------------------------------
+
+
+---------control_memory--------
+-----------------------------------------------
+
+
+
+--------datapath------------
+
+
+
+-------zero_fill-----
+
+----------------------------------
+
+
+
+--------mux3_16bit----------
+
+-----------------------------------------------------------
+
+
+
+------register_file---------
+
+
+
+-------decoder--------
+
+
+
+
+
+
+
+-----mux8_16bit-----
+
+
+
+
+--------reg8-------
+----------------------------------------------
+
+
+
+------------function_unit--------
+
+
+--------------------------------------------------------------
+
+
+------------mux3_16bit----------
+
+
+-----------------------------------------------------------
+
+
+
+
+------shifter-----
+------------------------------------------------------
+
+
+-----mux3_1bit------
+
+
+
+
+-------alu------
+-----------------------------------------------------
+
+
+-------ripple_adder----
+
+
+
+
+-------------full_adder--------
+
+
+
+
+------------logic circuit------
+
+-----------------------------------------------------
+
+
+
+----------logic_input_B------
+
+--------------------------------------------
+
+
+
+
+---------mux2_1bit---------
+
+--------------------------------------------------------
+
+
+
+
+++++++++++++++++++TEST_BENCHES++++++++++++++++
+
+
+
+-----------misp--------
+
+------------------------------------------------
+
+
+----------memory_m------------
+
+-----------------------------------------------
+
+
+
+-----------reg_file-----------
+-----------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+ENTITY test_register_file IS
+END test_register_file;
+ 
+ARCHITECTURE behavior OF test_register_file IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT register_file
+    PORT(
+         inA : IN  std_logic_vector(3 downto 0);
+         inB : IN  std_logic_vector(3 downto 0);
+         inD : IN  std_logic_vector(3 downto 0);
+         Clk : IN  std_logic;
+         load_in : IN  std_logic;
+         data : IN  std_logic_vector(15 downto 0);
+         outA : OUT  std_logic_vector(15 downto 0);
+         outB : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal inA : std_logic_vector(3 downto 0) := (others => '0');
+   signal inB : std_logic_vector(3 downto 0) := (others => '0');
+   signal inD : std_logic_vector(3 downto 0) := (others => '0');
+   signal Clk : std_logic := '0';
+   signal load_in : std_logic := '0';
+   signal data : std_logic_vector(15 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal outA : std_logic_vector(15 downto 0);
+   signal outB : std_logic_vector(15 downto 0);
+
+   -- Clock period definitions
+   constant Clk_period : time := 10 ns;
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: register_file PORT MAP (
+          inA => inA,
+          inB => inB,
+          inD => inD,
+          Clk => Clk,
+          load_in => load_in,
+          data => data,
+          outA => outA,
+          outB => outB
+        );
+
+   -- Clock process definitions
+   Clk_process :process
+   begin
+		Clk <= '0';
+		wait for Clk_period/2;
+		Clk <= '1';
+		wait for Clk_period/2;
+   end process;
+ 
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+    load_in <= '1';
+	 inD <= "0000";
+	 data <= x"FFFF";
+	 
+	 wait for 10ns;
+	 inD <= "0001";
+	 data <= x"EEEE";
+	 
+	 wait for 10ns;
+	 inD <= "0010";
+	 data <= x"DDDD";
+	 
+	 wait for 10ns;
+	 inD <= "0011";
+	 data <= x"CCCC";
+	 
+	 wait for 10ns;
+	 inD <= "0100";
+	 data <= x"BBBB";
+	 
+	 	 wait for 10ns;
+	 inD <= "0101";
+	 data <= x"AAAA";
+	 
+	 wait for 10ns;
+	 inD <= "0110";
+	 data <= x"9999";
+	 
+	 wait for 10ns;
+	 inD <= "0111";
+	 data <= x"8888";
+	 
+	 wait for 10ns;
+	 load_in <= '0';
+	 inA <= "0000";
+	 inB <= "0111";
+	 
+	 wait for 5ns;
+	 inA <= "0001";
+	 inB <= "0110";
+	 
+	 wait for 5ns;
+	 inA <= "0010";
+	 inB <= "0101";
+	 
+	 wait for 5ns;
+	 inA <= "0011";
+	 inB <= "0100";
+	 
+      wait;
+   end process;
+
+END;
+
+
+-----------zero_fill-----------
+
+---------------------------------------------
+
+
+
+--------decoder------
+--------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ 
+ENTITY test_decoder_3to8 IS
+END test_decoder_3to8;
+ 
+ARCHITECTURE behavior OF test_decoder_3to8 IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT decoder_3to8
+    PORT(
+         A0 : IN  std_logic;
+         A1 : IN  std_logic;
+         A2 : IN  std_logic;
+			A3 : IN  std_logic;
+         Q0 : OUT  std_logic;
+         Q1 : OUT  std_logic;
+         Q2 : OUT  std_logic;
+         Q3 : OUT  std_logic;
+         Q4 : OUT  std_logic;
+         Q5 : OUT  std_logic;
+         Q6 : OUT  std_logic;
+         Q7 : OUT  std_logic;
+			Q8 : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal A0 : std_logic := '0';
+   signal A1 : std_logic := '0';
+   signal A2 : std_logic := '0';
+	signal A3 : std_logic := '0';
+
+ 	--Outputs
+   signal Q0 : std_logic;
+   signal Q1 : std_logic;
+   signal Q2 : std_logic;
+   signal Q3 : std_logic;
+   signal Q4 : std_logic;
+   signal Q5 : std_logic;
+   signal Q6 : std_logic;
+   signal Q7 : std_logic;
+	signal Q8 : std_logic;
+ 
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: decoder_3to8 PORT MAP (
+          A0 => A0,
+          A1 => A1,
+          A2 => A2,
+			 A3 => A3,
+          Q0 => Q0,
+          Q1 => Q1,
+          Q2 => Q2,
+          Q3 => Q3,
+          Q4 => Q4,
+          Q5 => Q5,
+          Q6 => Q6,
+          Q7 => Q7,
+			 Q8 => Q8
+        );
+
+ 
+   stim_proc: process
+   begin		
+     
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '0';
+         A2 <= '0';
+			A3 <= '1';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '0';
+         A2 <= '0';
+			 A3 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '1';
+         A2 <= '0';
+			 A3 <= '1';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '1';
+         A2 <= '0';
+			 A3 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '0';
+         A2 <= '1';
+			 A3 <= '1';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '0';
+         A2 <= '1';
+			 A3 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '0';
+			A1 <= '1';
+         A2 <= '1';
+			 A3 <= '0';
+			
+		wait for 5ns;
+		   A0 <= '1';
+			A1 <= '1';
+         A2 <= '1';
+			 A3 <= '0';
+		
+      wait;
+   end process;
+
+END;
+
+
+-----------mux8_16bit---------
+
+
+--------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ 
+ENTITY test_mux8_16bit IS
+END test_mux8_16bit;
+ 
+ARCHITECTURE behavior OF test_mux8_16bit IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT mux8_16bit
+    PORT(
+         S0 : IN  std_logic;
+         S1 : IN  std_logic;
+         S2 : IN  std_logic;
+			S3 : IN  std_logic;
+         In0 : IN  std_logic_vector(15 downto 0);
+         In1 : IN  std_logic_vector(15 downto 0);
+         In2 : IN  std_logic_vector(15 downto 0);
+         In3 : IN  std_logic_vector(15 downto 0);
+         In4 : IN  std_logic_vector(15 downto 0);
+         In5 : IN  std_logic_vector(15 downto 0);
+         In6 : IN  std_logic_vector(15 downto 0);
+         In7 : IN  std_logic_vector(15 downto 0);
+         In8 : IN  std_logic_vector(15 downto 0);
+			Z : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal S0 : std_logic := '0';
+   signal S1 : std_logic := '0';
+   signal S2 : std_logic := '0';
+	 signal S3 : std_logic := '0';
+   signal In0 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In1 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In2 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In3 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In4 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In5 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In6 : std_logic_vector(15 downto 0) := (others => '0');
+   signal In7 : std_logic_vector(15 downto 0) := (others => '0');
+	signal In8 : std_logic_vector(15 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal Z : std_logic_vector(15 downto 0);
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: mux8_16bit PORT MAP (
+          S0 => S0,
+          S1 => S1,
+          S2 => S2,
+			  S3 => S3,
+          In0 => In0,
+          In1 => In1,
+          In2 => In2,
+          In3 => In3,
+          In4 => In4,
+          In5 => In5,
+          In6 => In6,
+          In7 => In7,
+			 In8 => In8,
+          Z => Z
+        );
+
+   stim_proc: process
+   begin		
+		In0 <= x"FFFF";
+		In1 <= x"EEEE";
+		In2 <= x"DDDD";
+		In3 <= x"CCCC";
+		In4 <= x"BBBB";
+		In5 <= x"AAAA";
+		In6 <= x"9999";
+		In7 <= x"8888";
+		In8 <= x"7777";
+		
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='0';
+       S2 <='0';
+		 S3 <='0';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='0';
+       S2 <='0';
+		 S3 <='1';
+		 
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='1';
+       S2 <='0';
+		 S3 <='0';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='1';
+       S2 <='0';
+		 S3 <='1';
+		 
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='0';
+       S2 <='1';
+		 S3 <='0';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='0';
+       S2 <='1';
+		 S3 <='0';
+		 
+		wait for 10ns;
+		 S0 <='0';
+       S1 <='1';
+       S2 <='1';
+		 S3 <='0';
+		 
+		wait for 10ns;
+		 S0 <='1';
+       S1 <='1';
+       S2 <='1';
+		S3 <='0';
+		
+      wait;
+   end process;
+
+END;
+
+
+---------control_meory-------
+
+
+----------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_control_memory IS
+END test_control_memory;
+ 
+ARCHITECTURE behavior OF test_control_memory IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT control_memory
+    PORT(
+         car_in : IN  std_logic_vector(7 downto 0);
+         NA : OUT  std_logic_vector(7 downto 0);
+         MSout : OUT  std_logic_vector(2 downto 0);
+         MC : OUT  std_logic;
+         IL : OUT  std_logic;
+         PI : OUT  std_logic;
+         PL : OUT  std_logic;
+         TD : OUT  std_logic;
+         TA : OUT  std_logic;
+         TB : OUT  std_logic;
+         MB : OUT  std_logic;
+         FSout : OUT  std_logic_vector(4 downto 0);
+         MD : OUT  std_logic;
+         RW : OUT  std_logic;
+         MM : OUT  std_logic;
+         MW : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal car_in : std_logic_vector(7 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal NA : std_logic_vector(7 downto 0);
+   signal MSout : std_logic_vector(2 downto 0);
+   signal MC : std_logic;
+   signal IL : std_logic;
+   signal PI : std_logic;
+   signal PL : std_logic;
+   signal TD : std_logic;
+   signal TA : std_logic;
+   signal TB : std_logic;
+   signal MB : std_logic;
+   signal FSout : std_logic_vector(4 downto 0);
+   signal MD : std_logic;
+   signal RW : std_logic;
+   signal MM : std_logic;
+   signal MW : std_logic;
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: control_memory PORT MAP (
+          car_in => car_in,
+          NA => NA,
+          MSout => MSout,
+          MC => MC,
+          IL => IL,
+          PI => PI,
+          PL => PL,
+          TD => TD,
+          TA => TA,
+          TB => TB,
+          MB => MB,
+          FSout => FSout,
+          MD => MD,
+          RW => RW,
+          MM => MM,
+          MW => MW
+        );
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+		wait for 10ns;
+		car_in <=x"00";
+		
+		wait for 10ns;
+		car_in <=x"0A";
+
+		wait for 10ns;
+		car_in <=x"F0";
+	  wait;
+   end process;
+
+END;
+
+
+
+
+-----------mux2_8bit-------
+
+
+------------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+ENTITY test_mux2_8bit IS
+END test_mux2_8bit;
+ 
+ARCHITECTURE behavior OF test_mux2_8bit IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT mux2_8bit
+    PORT(
+         in_0 : IN  std_logic_vector(7 downto 0);
+         in_1 : IN  std_logic_vector(7 downto 0);
+         in_MC : IN  std_logic;
+         MUXC_out : OUT  std_logic_vector(7 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal in_0 : std_logic_vector(7 downto 0) := (others => '0');
+   signal in_1 : std_logic_vector(7 downto 0) := (others => '0');
+   signal in_MC : std_logic := '0';
+
+ 	--Outputs
+   signal MUXC_out : std_logic_vector(7 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: mux2_8bit PORT MAP (
+          in_0 => in_0,
+          in_1 => in_1,
+          in_MC => in_MC,
+          MUXC_out => MUXC_out
+        );
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+		in_0 <= x"FF";
+		in_1 <= x"AA";
+		
+		wait for 10ns;
+		in_MC <= '1';
+	
+      wait;
+   end process;
+
+END;
+
+
+-------mux8_1bit-----
+
+
+
+---------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_mux8_1bit IS
+END test_mux8_1bit;
+ 
+ARCHITECTURE behavior OF test_mux8_1bit IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT mux8_1bit
+    PORT(
+         in_00 : IN  std_logic;
+         in_11 : IN  std_logic;
+         in_C2 : IN  std_logic;
+         in_V3 : IN  std_logic;
+         in_Z4 : IN  std_logic;
+         in_N5 : IN  std_logic;
+         in_C6 : IN  std_logic;
+         in_Z7 : IN  std_logic;
+         in_MS : IN  std_logic_vector(2 downto 0);
+         MUXS_out : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal in_00 : std_logic := '0';
+   signal in_11 : std_logic := '0';
+   signal in_C2 : std_logic := '0';
+   signal in_V3 : std_logic := '0';
+   signal in_Z4 : std_logic := '0';
+   signal in_N5 : std_logic := '0';
+   signal in_C6 : std_logic := '0';
+   signal in_Z7 : std_logic := '0';
+   signal in_MS : std_logic_vector(2 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal MUXS_out : std_logic;
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: mux8_1bit PORT MAP (
+          in_00 => in_00,
+          in_11 => in_11,
+          in_C2 => in_C2,
+          in_V3 => in_V3,
+          in_Z4 => in_Z4,
+          in_N5 => in_N5,
+          in_C6 => in_C6,
+          in_Z7 => in_Z7,
+          in_MS => in_MS,
+          MUXS_out => MUXS_out
+        );
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+      in_11 <= '1';
+      in_C2 <= '1';
+      in_V3 <= '1';
+		in_Z7 <= '1'; 
+		
+		wait for 10 ns;
+		 in_MS <= "000";
+		 
+		 wait for 10 ns;
+		 in_MS <= "001";
+		 
+		 wait for 10 ns;
+		 in_MS <= "010";
+		 
+		 wait for 10 ns;
+		 in_MS <= "011";
+		 
+		 wait for 10 ns;
+		 in_MS <= "100";
+		 
+		 wait for 10 ns;
+		 in_MS <= "001";
+		 
+		 wait for 10 ns;
+		 in_MS <= "010";
+		 
+		 wait for 10 ns;
+		 in_MS <= "111";
+      wait;
+   end process;
+
+END;
+
+------CAR-------
+
+----------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+ENTITY test_CAR IS
+END test_CAR;
+ 
+ARCHITECTURE behavior OF test_CAR IS 
+
+    COMPONENT CAR
+    PORT(
+         car_in : IN  std_logic_vector(7 downto 0);
+         muxs_in : IN  std_logic;
+         res : IN  std_logic;
+         car_out : OUT  std_logic_vector(7 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal car_in : std_logic_vector(7 downto 0) := (others => '0');
+   signal muxs_in : std_logic := '0';
+   signal res : std_logic := '0';
+
+ 	--Outputs
+   signal car_out : std_logic_vector(7 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: CAR PORT MAP (
+          car_in => car_in,
+          muxs_in => muxs_in,
+          res => res,
+          car_out => car_out
+        );
+		  
+   -- Stimulus process
+   stim_proc: process
+   begin		
+    
+	 wait for 10ns;
+	 res <='0';
+	 
+	 wait for 10ns;
+	 res <='1';
+	 
+	 wait for 10ns;
+	 muxs_in <='0';
+	 
+	 wait for 10ns;
+	 muxs_in <='1';
+	 
+      wait;
+   end process;
+
+END;
+
+------------IR-------------
+
+----------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+ENTITY test_IR IS
+END test_IR;
+ 
+ARCHITECTURE behavior OF test_IR IS 
+
+    COMPONENT IR
+    PORT(
+         IR_in : IN  std_logic_vector(15 downto 0);
+         IL : IN  std_logic;
+         opcode : OUT  std_logic_vector(6 downto 0);
+         DR : OUT  std_logic_vector(2 downto 0);
+         SA : OUT  std_logic_vector(2 downto 0);
+         SB : OUT  std_logic_vector(2 downto 0)
+        );
+    END COMPONENT;
+    
+   --Inputs
+   signal IR_in : std_logic_vector(15 downto 0) := (others => '0');
+   signal IL : std_logic := '0';
+
+ 	--Outputs
+   signal opcode : std_logic_vector(6 downto 0);
+   signal DR : std_logic_vector(2 downto 0);
+   signal SA : std_logic_vector(2 downto 0);
+   signal SB : std_logic_vector(2 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: IR PORT MAP (
+          IR_in => IR_in,
+          IL => IL,
+          opcode => opcode,
+          DR => DR,
+          SA => SA,
+          SB => SB );
+
+   -- Stimulus process
+   stim_proc: process
+   begin	
+		wait for 10ns;
+	   IR_in <= "1111000011110101";
+		
+		wait for 5ns;
+	   IL <= '1';
+		
+		wait for 10ns;
+	   IR_in <= "0000000011110101";
+		 IL <= '0'; 
+		 
+		wait for 5ns;
+	   IL <= '1'; 
+      wait;
+   end process;
+
+END;
+----------extend---------
+
+---------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_extend IS
+END test_extend;
+ 
+ARCHITECTURE behavior OF test_extend IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT extend
+    PORT(
+         E_in : IN  std_logic_vector(5 downto 0);
+         E_out : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal E_in : std_logic_vector(5 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal E_out : std_logic_vector(15 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: extend PORT MAP (
+          E_in => E_in,
+          E_out => E_out
+        );
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+		wait for 10 ns;
+		E_in <="010101";
+		wait for 10 ns;
+		E_in <="101010";
+      wait;
+   end process;
+
+END;
+
+
+-----------PC------------
+----------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY test_PC IS
+END test_PC;
+ 
+ARCHITECTURE behavior OF test_PC IS 
+
+    COMPONENT PC
+    PORT(
+         PC_in : IN  std_logic_vector(15 downto 0);
+         PL : IN  std_logic;
+         PI : IN  std_logic;
+         reset : IN  std_logic;
+         PC_out : OUT  std_logic_vector(15 downto 0)
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal PC_in : std_logic_vector(15 downto 0) := (others => '0');
+   signal PL : std_logic := '0';
+   signal PI : std_logic := '0';
+   signal reset : std_logic := '0';
+
+ 	--Outputs
+   signal PC_out : std_logic_vector(15 downto 0);
+
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: PC PORT MAP (
+          PC_in => PC_in,
+          PL => PL,
+          PI => PI,
+          reset => reset,
+          PC_out => PC_out
+        );
+		  
+   -- Stimulus process
+   stim_proc: process
+   begin		
+    wait for 10ns;
+	 reset <= '1';
+	 PC_in <= x"0000";
+	 
+	  wait for 10ns;
+	 reset <= '0';
+	 
+	  wait for 10ns;
+	 PI <= '1';
+	 PC_in <= x"000A";
+	 
+	  wait for 10ns;
+	 reset <= '0';
+	 
+	 wait for 10ns;
+	 PI <= '0';
+	 PL <= '1';
+	 PC_in <= x"FFFF";
+	 
+      wait;
+   end process;
+
+END;

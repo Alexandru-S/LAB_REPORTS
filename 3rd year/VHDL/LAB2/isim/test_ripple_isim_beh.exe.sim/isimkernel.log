@@ -1,0 +1,29 @@
+Command line:
+   test_ripple_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49668
+
+Fri Mar 04 21:45:06 2016
+
+
+ Elaboration Time: 0.062401 sec
+
+ Current Memory Usage: 667.656 Meg
+
+ Total Signals          : 157
+ Total Nets             : 116
+ Total Signal Drivers   : 85
+ Total Blocks           : 21
+ Total Primitive Blocks : 19
+ Total Processes        : 81
+ Total Traceable Variables  : 10
+ Total Scalar Nets and Variables : 494
+Total Line Count : 88
+
+ Total Simulation Time: 0.187201 sec
+
+ Current Memory Usage: 982.229 Meg
+
+Fri Mar 04 21:46:19 2016
+

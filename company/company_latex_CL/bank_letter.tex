@@ -1,0 +1,61 @@
+\documentclass[10pt,stdletter]{newlfm}
+\usepackage{charter}
+
+\widowpenalty=1000
+\clubpenalty=1000
+
+\newsavebox{\Luiuc}
+\sbox{\Luiuc}{%
+	\parbox[b]{1.75in}{%
+		\vspace{0.5in}%
+		\includegraphics[scale=1.0]
+		{image00.eps}%
+	}%
+}%
+\makeletterhead{Uiuc}{\Lheader{\usebox{\Luiuc}}}
+
+\newlfmP{headermarginskip=20pt}
+\newlfmP{sigsize=50pt}
+\newlfmP{dateskipafter=20pt}
+\newlfmP{addrfromphone}
+\newlfmP{addrfromemail}
+\PhrPhone{phone}
+\PhrEmail{email}
+
+\lthUiuc
+
+\namefrom{
+Alexandru Sulea\\
+Secretary, CEO\\
+Glassbyte Limited}
+\addrfrom{%
+	Glassbyte Limited\\
+	10 Dromheath Drive\\
+	Mulhuddart\\
+	Dublin 15\\
+	Ireland
+}
+\phonefrom{00353 877 568 056}
+\emailfrom{administrator@glassbyte.com}
+
+\addrto{%
+Bank of Ireland\\
+College Green\\
+Dublin 2\\
+Ireland}
+
+\greetto{To Whom It May Concern,}
+\closeline{Sincerely,}
+\begin{document}
+\begin{newlfm}
+
+I am writing to you in regards with the change of address for the company account in your system.\ldots{}
+
+We are in the possition of transitioning to a new office but in the mean time we have changed the address to my home address as the current landlord is selling his property sooner than expected. The address has already been changed with the CRO so this is the last step of the process. The new adress is as stated above to be, 10 Dromheath Drive, Mulhuddart, Dublin 15, Rep. of Ireland.
+
+Thank you for your consideration.  I look forward to
+hearing back from you.
+
+
+\end{newlfm}
+\end{document}

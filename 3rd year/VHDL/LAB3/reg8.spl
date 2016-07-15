@@ -1,0 +1,8 @@
+[Inputs]
+load0
+load1
+Clk
+=D[15:0]=
+[Outputs]
+=Q[15:0]=
+[BiDir]

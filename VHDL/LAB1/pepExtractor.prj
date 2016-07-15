@@ -1,5 +1,0 @@
-work	"decoder_3to8.vhd"
-work	"mux3_16bit.vhd"
-work	"mux8_16bit.vhd"
-work	"reg8.vhd"
-work	"register_file.vhd"

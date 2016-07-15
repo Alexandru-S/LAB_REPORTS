@@ -1,0 +1,9 @@
+[Inputs]
+=ALU_A[15:0]=
+=ALU_B[15:0]=
+=ALU_select[3:0]=
+[Outputs]
+ALU_Cout
+ALU_Vout
+=ALU_G[15:0]=
+[BiDir]

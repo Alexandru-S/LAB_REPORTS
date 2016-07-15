@@ -1,0 +1,14 @@
+\contentsline {section}{List of Tables}{1}{section*.2}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Theory}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}A. MOS Transistor Characteristics}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}B. Restively Loaded MOS Transistor Inverter}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}C. The CMOS Inverter}{2}{subsection.2.3}
+\contentsline {section}{\numberline {3}Results}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}A. MOS Transistor Characteristics}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}B. Resistevely Loaded MOS Transistor Inverter}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}C. The MOS Inverter}{5}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}C.1 Static Characteristics}{5}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}C.2 Dynamic Performance}{5}{subsubsection.3.3.2}
+\contentsline {section}{\numberline {4}Discussion}{7}{section.4}
+\contentsline {section}{\numberline {5}Conclusion}{8}{section.5}

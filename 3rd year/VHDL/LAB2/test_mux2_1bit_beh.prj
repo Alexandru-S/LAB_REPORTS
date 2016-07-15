@@ -1,0 +1,2 @@
+vhdl work "mux2_1bit.vhd"
+vhdl work "test_mux2_1bit.vhd"

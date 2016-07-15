@@ -1,5 +1,0 @@
-set -tmpdir "C:/Users/owner/Desktop/LAB_REPORTS/VHDL/LAB3/xst/projnav.tmp"
-set -xsthdpdir "C:/Users/owner/Desktop/LAB_REPORTS/VHDL/LAB3/xst"
-elaborate
--ifn mux8_16bit.prj
--ifmt mixed

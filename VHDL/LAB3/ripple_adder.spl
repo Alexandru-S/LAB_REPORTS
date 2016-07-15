@@ -1,9 +1,0 @@
-[Inputs]
-Cin
-=A[15:0]=
-=B[15:0]=
-[Outputs]
-Cout
-Vout
-=Gout[15:0]=
-[BiDir]

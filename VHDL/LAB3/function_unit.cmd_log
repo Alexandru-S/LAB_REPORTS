@@ -1,2 +1,0 @@
-vhdtdtfi -lib work mux2_1bit.vhd -lib work full_adder.vhd -lib work ripple_adder.vhd -lib work mux3_1bit.vhd -lib work mux3_16bit.vhd -lib work logic_circuit.vhd -lib work B_input_logic.vhd -lib work shifter.vhd -lib work arithmetic_logic_unit.vhd -lib work function_unit.vhd -prj LAB1 -o function_unit.spl -module function_unit -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3a function_unit.spl C:/Users/owner/Desktop/VHDL/LAB2/function_unit.sym 

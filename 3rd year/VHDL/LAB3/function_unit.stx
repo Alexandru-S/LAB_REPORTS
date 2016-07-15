@@ -1,0 +1,52 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/owner/Desktop/VHDL/LAB2/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/owner/Desktop/VHDL/LAB2/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/mux2_1bit.vhd" in Library work.
+Architecture behavioral of Entity mux2_1bit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/full_adder.vhd" in Library work.
+Architecture behavioral of Entity full_adder is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/mux3_1bit.vhd" in Library work.
+Architecture behavioral of Entity mux3_1bit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/ripple_adder.vhd" in Library work.
+Architecture behavioral of Entity ripple_adder is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/mux3_16bit.vhd" in Library work.
+Architecture behavioral of Entity mux3_16bit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/B_input_logic.vhd" in Library work.
+Architecture behavioral of Entity b_input_logic is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/logic_circuit.vhd" in Library work.
+Architecture behavioral of Entity logic_circuit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/arithmetic_logic_unit.vhd" in Library work.
+Architecture behavioral of Entity arithmetic_logic_unit is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/shifter.vhd" in Library work.
+Architecture behavioral of Entity shifter is up to date.
+Compiling vhdl file "C:/Users/owner/Desktop/VHDL/LAB2/function_unit.vhd" in Library work.
+Architecture behavioral of Entity function_unit is up to date.
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.31 secs
+ 
+--> 
+
+Total memory usage is 214892 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -1,7 +1,0 @@
-[Inputs]
-s
-=In0[15:0]=
-=In1[15:0]=
-[Outputs]
-=Z[15:0]=
-[BiDir]

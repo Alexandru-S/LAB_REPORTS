@@ -1,7 +1,0 @@
-vhdl work "mux2_1bit.vhd"
-vhdl work "full_adder.vhd"
-vhdl work "ripple_adder.vhd"
-vhdl work "mux3_16bit.vhd"
-vhdl work "logic_circuit.vhd"
-vhdl work "B_input_logic.vhd"
-vhdl work "arithmetic_logic_unit.vhd"

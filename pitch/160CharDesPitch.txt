@@ -1,1 +1,0 @@
-Neurobranch is a big data platform and app targeted for academia and medium bio research companies to increase the accuracy of clinical and behavioural trials

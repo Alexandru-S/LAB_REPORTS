@@ -1,0 +1,53 @@
+# 1 "df2.pml"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "df2.pml"
+
+bool spoon[5]
+bool eat[5]
+
+active [5] proctype P()
+{
+TOP:
+
+ if
+ ::(_pid%2==1)->
+  atomic{
+
+   (spoon[_pid]==0);
+   spoon[_pid]=1;
+  }
+
+  atomic{
+   (spoon[(_pid+1)%5]==0);
+   spoon[(_pid+1)%5]=1;
+  }
+
+ ::(_pid%2 == 0)->
+  atomic{
+   (spoon[(_pid+1)%5]==0);
+   spoon[(_pid+1)%5] =1;
+  }
+  atomic{
+   (spoon[_pid]==0);
+   spoon[_pid]=1;
+  }
+ fi;
+ eat[_pid]=1;
+ printf(" %d eat \n", _pid);
+
+ eat[_pid] =0;
+ spoon[_pid] =0;
+ spoon[(_pid+1)%5] =0;
+ printf(" %d put down f \n", _pid);
+
+ goto TOP;
+}
+active [5] proctype main ()
+{
+
+ assert ((!eat[_pid-5])|| (eat[_pid-5] && spoon[_pid-5] && spoon[(_pid-5 +1)%5] && !eat[(_pid-5 +1)%5] && !eat[(_pid-5 -1+5)%5]));
+
+}

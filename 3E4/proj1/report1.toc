@@ -1,3 +1,0 @@
-\select@language {english}
-\contentsline {section}{List of Tables}{1}{section*.2}
-\contentsline {section}{\numberline {1}COMING UP WITH AN IDEA - Brainstorming report }{1}{section.1}

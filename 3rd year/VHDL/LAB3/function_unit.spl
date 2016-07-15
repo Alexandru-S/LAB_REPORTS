@@ -1,0 +1,11 @@
+[Inputs]
+=F_A[15:0]=
+=F_B[15:0]=
+=F_select[4:0]=
+[Outputs]
+F_Vout
+F_Cout
+F_Nout
+F_Zout
+=F_F[15:0]=
+[BiDir]
