@@ -1,0 +1,29 @@
+#import <iostream>
+#import <iomanip>
+
+using namespace std;
+int main()
+{
+	int g = 256;
+	int p()
+	{
+		int k;
+		k=i+j;
+		return(k<<2)-1;
+	}
+	int q(int i)
+	{
+		return p(g,-i);
+	}
+	int f(int n)
+	{
+		if(n>0)
+		{
+			return n*f(n-1);
+		}
+		else{
+			return 1;
+
+		}		
+	}
+}

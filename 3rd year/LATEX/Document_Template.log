@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  10 NOV 2015 23:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.11)  11 SEP 2016 21:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Document_Template.tex
 (./Document_Template.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 4 languages loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -24,14 +24,14 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
-Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count87
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
@@ -59,18 +59,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks15
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -392,137 +392,187 @@ LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic1.PNG' not found on
 input line 102.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic1.PNG, id=142, 1254.18562pt x 522.45187p
-t>
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic1.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic1.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic1.PNG used on in
-put line 102.
-(pdftex.def)             Requested size: 520.47734pt x 216.81pt.
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic1.PNG' 
+not found.
 
-Overfull \hbox (50.72232pt too wide) in paragraph at lines 102--103
- [] 
- []
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 ...me/owner/Desktop/LAB REPORTS/D1/Pic1.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic2.PNG' not found on 
 input line 136.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic2.PNG, id=146, 873.2625pt x 525.46312pt>
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic2.PNG Graphic file (type png)
-<use /home/owner/Desktop/LAB REPORTS/D1/Pic2.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic2.PNG used on in
-put line 136.
-(pdftex.def)             Requested size: 360.3185pt x 216.81pt.
- [2 </home/owner/Desktop/LAB REPORTS/D1/Pic1.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic2.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 ...me/owner/Desktop/LAB REPORTS/D1/Pic2.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[2]
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/pic3.PNG' not found on 
 input line 155.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/pic3.PNG, id=152, 872.50969pt x 523.20468pt
->
-File: /home/owner/Desktop/LAB REPORTS/D1/pic3.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/pic3.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/pic3.PNG used on in
-put line 155.
-(pdftex.def)             Requested size: 361.55225pt x 216.81pt.
- [3 </home/owner/Desktop/LAB REPORTS/D1/Pic2.PNG> </home/owner/Desktop/LAB REPO
-RTS/D1/pic3.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/pic3.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.155 ...me/owner/Desktop/LAB REPORTS/D1/pic3.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[3]
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic4.PNG' not found on 
 input line 169.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic4.PNG, id=160, 791.95876pt x 366.61969pt
->
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic4.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic4.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic4.PNG used on in
-put line 169.
-(pdftex.def)             Requested size: 468.35129pt x 216.81pt.
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic4.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.169 ...me/owner/Desktop/LAB REPORTS/D1/Pic4.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic5.PNG' not found on 
 input line 188.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic5.PNG, id=161, 1431.84938pt x 682.04813p
-t>
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic5.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic5.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic5.PNG used on in
-put line 188.
-(pdftex.def)             Requested size: 455.16426pt x 216.81pt.
- [4 </home/owner/Desktop/LAB REPORTS/D1/Pic4.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic5.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 ...me/owner/Desktop/LAB REPORTS/D1/Pic5.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[4]
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic6.PNG' not found on 
 input line 195.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic6.PNG, id=167, 607.51968pt x 330.48468pt
->
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic6.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic6.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic6.PNG used on in
-put line 195.
-(pdftex.def)             Requested size: 398.57257pt x 216.81pt.
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic6.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 ...me/owner/Desktop/LAB REPORTS/D1/Pic6.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic7.PNG' not found on 
 input line 214.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic7.PNG, id=168, 1431.84938pt x 682.04813p
-t>
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic7.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic7.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic7.PNG used on in
-put line 214.
-(pdftex.def)             Requested size: 455.16426pt x 216.81pt.
- [5 </home/owner/Desktop/LAB REPORTS/D1/Pic5.PNG> </home/owner/Desktop/LAB REPO
-RTS/D1/Pic6.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic7.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.214 ...me/owner/Desktop/LAB REPORTS/D1/Pic7.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[5]
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic8.PNG' not found on 
 input line 224.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic8.PNG, id=176, 730.98094pt x 434.37282pt
->
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic8.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic8.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic8.PNG used on in
-put line 224.
-(pdftex.def)             Requested size: 364.86496pt x 216.81pt.
- [6 </home/owner/Desktop/LAB REPORTS/D1/Pic7.PNG> </home/owner/Desktop/LAB REPO
-RTS/D1/Pic8.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic8.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.224 ...me/owner/Desktop/LAB REPORTS/D1/Pic8.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[6]
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic9.PNG' not found on 
 input line 258.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic9.PNG, id=183, 871.00406pt x 519.44063pt
->
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic9.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic9.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic9.PNG used on in
-put line 258.
-(pdftex.def)             Requested size: 363.54655pt x 216.81pt.
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic9.PNG' 
+not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.258 ...me/owner/Desktop/LAB REPORTS/D1/Pic9.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic10.PNG' not found on
  input line 267.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic10.PNG, id=184, 871.75688pt x 521.69907p
-t>
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic10.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic10.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic10.PNG used on i
-nput line 267.
-(pdftex.def)             Requested size: 362.29114pt x 216.81pt.
- [7 </home/owner/Desktop/LAB REPORTS/D1/Pic9.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic10.PNG'
+ not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.267 ...e/owner/Desktop/LAB REPORTS/D1/Pic10.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
@@ -547,7 +597,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 294--295
 
  []
 
-[8 </home/owner/Desktop/LAB REPORTS/D1/Pic10.PNG>]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
@@ -607,27 +657,39 @@ LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic11.PNG' not found on
  input line 353.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic11.PNG, id=206, 872.50969pt x 523.9575pt
->
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic11.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic11.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic11.PNG used on i
-nput line 353.
-(pdftex.def)             Requested size: 361.03302pt x 216.81pt.
- [10 </home/owner/Desktop/LAB REPORTS/D1/Pic11.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic11.PNG'
+ not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.353 ...e/owner/Desktop/LAB REPORTS/D1/Pic11.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[10]
 
 LaTeX Warning: File `/home/owner/Desktop/LAB REPORTS/D1/Pic12.PNG' not found on
  input line 381.
 
 
-</home/owner/Desktop/LAB REPORTS/D1/Pic12.PNG, id=212, 873.2625pt x 520.94624pt
->
-File: /home/owner/Desktop/LAB REPORTS/D1/Pic12.PNG Graphic file (type png)
- <use /home/owner/Desktop/LAB REPORTS/D1/Pic12.PNG>
-Package pdftex.def Info: /home/owner/Desktop/LAB REPORTS/D1/Pic12.PNG used on i
-nput line 381.
-(pdftex.def)             Requested size: 363.43652pt x 216.81pt.
- [11 </home/owner/Desktop/LAB REPORTS/D1/Pic12.PNG>]
+! Package pdftex.def Error: File `/home/owner/Desktop/LAB REPORTS/D1/Pic12.PNG'
+ not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.381 ...e/owner/Desktop/LAB REPORTS/D1/Pic12.PNG}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[11]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¢ in font cmr10!
@@ -651,11 +713,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 442.
  ) 
 Here is how much of TeX's memory you used:
- 5995 strings out of 494985
- 89449 string characters out of 6180356
- 268003 words of memory out of 5000000
- 9114 multiletter control sequences out of 15000+600000
- 7269 words of font info for 26 fonts, out of 8000000 for 9000
+ 5961 strings out of 494910
+ 87270 string characters out of 6179836
+ 277791 words of memory out of 5000000
+ 9154 multiletter control sequences out of 15000+600000
+ 7437 words of font info for 27 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  29i,11n,43p,634b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -668,11 +730,12 @@ s/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb>
-Output written on Document_Template.pdf (15 pages, 449921 bytes).
+sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b>
+Output written on Document_Template.pdf (15 pages, 163168 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
+ 264 PDF objects out of 1000 (max. 8388607)
+ 232 compressed objects within 3 object streams
  58 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 
