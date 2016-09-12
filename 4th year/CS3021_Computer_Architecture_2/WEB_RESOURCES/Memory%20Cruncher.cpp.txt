@@ -1,0 +1,113 @@
+//
+// memory cruncher.cpp
+//
+// Copyright © 2012 jones@scss.tcd.ie
+//
+// 18/10/12 first version
+//
+
+#include "stdafx.h"             //
+#include "limits.h"             // UINT_MAX
+#include "malloc.h"             //
+#include "conio.h"              // _getchar
+#include "time.h"               // time
+#include <iostream>             // cout
+#include <iomanip>              // setprecision
+
+using namespace std;            // cout
+
+#define MB (1024*1024)          //
+#define GB (1024*MB)            //
+
+#ifdef _WIN64
+#define INITMAXSZ (16ULL*GB)    // ULL unsigned 64bit - set experimentally
+#else
+#define INITMAXSZ 0xfffff000    // 4GB
+#endif
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+    clock_t t = clock();
+
+    //
+    // get time and date
+    //
+    time_t now;
+    struct tm tm;
+    char tbuf[80];
+    time(&now);
+    localtime_s(&tm, &now);
+    strftime(tbuf, sizeof(tbuf), "%H:%M:%S %d-%b-%Y", &tm);
+    
+    //
+    // get physical memorysize (RAM)
+    //
+    ULONGLONG ramSz;                            // 
+    GetPhysicallyInstalledSystemMemory(&ramSz); // NB: returns KB
+    ramSz *= 1024;                              // now bytes
+
+    //
+    // get page size
+    //
+    SYSTEM_INFO systemInfo;
+    GetSystemInfo(&systemInfo);
+    size_t pageSz = systemInfo.dwPageSize;
+#ifdef _WIN64
+    cout << "memory cruncher 64bit " << tbuf << endl;
+#else
+    cout << "memory cruncher 32bit " << tbuf << endl;
+#endif
+    cout << "RAM = " << ramSz / GB << "GB" << endl;
+    cout << "pageSz = " << pageSz << "B" << endl;
+    cout << "min app virtual address = 0x" << systemInfo.lpMinimumApplicationAddress << endl;
+    cout << "max app virtual address = 0x" << systemInfo.lpMaximumApplicationAddress << endl;
+    size_t sz = (size_t) systemInfo.lpMaximumApplicationAddress - (size_t) systemInfo.lpMinimumApplicationAddress;
+#ifdef _WIN64
+    cout << "size app virtual address space = " << sz / GB << "GB" << endl;
+#else
+    cout << "size app virtual address space = " << sz / MB << "MB" << endl;
+#endif
+    cout << endl;
+
+    //
+    // allocate as much contiguous memory as possble
+    //
+    sz = INITMAXSZ & ~(pageSz - 1); // size_t 64bit in x64 and 32bit IA32
+
+    char *p = 0;
+    while (1) {
+        p = (char*) malloc(sz);
+        if (p)
+            break;
+        sz -= pageSz;
+    }
+#ifdef _WIN64
+    cout << "malloc(" << sz / GB << "GB)" << endl;
+#else
+    cout << "malloc(" << sz / MB << "MB)" << endl;
+#endif
+
+    //
+    // allocate physical memory to process
+    //
+    cout << "starting..." << endl;
+    cout << "allocated";
+    for (size_t i = 0; i < sz / pageSz; i++, p += pageSz) {
+        *p = 0;     //zero first location in each page
+        if (i && (i % (GB/pageSz) == 0))
+            cout << " " << i / (GB / pageSz) << "GB";
+    }
+    t = clock() - t;
+
+    cout << endl;
+    cout << sz / MB << "MB of physical memory now allocated [check with task manager]" << endl;
+    cout << "finished" << endl;
+    cout << "runtime = " << fixed << setprecision(2) << (double) t / CLOCKS_PER_SEC << "s" << endl;
+
+    _getch();
+
+    return 0;
+
+}
+
+// eof
