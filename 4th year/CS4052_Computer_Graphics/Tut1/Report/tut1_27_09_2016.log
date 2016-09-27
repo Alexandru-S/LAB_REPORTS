@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.11)  27 SEP 2016 20:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.11)  27 SEP 2016 23:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -327,6 +327,15 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip47
 \f@ncyO@elh=\skip48
@@ -467,52 +476,57 @@ Package pdftex.def Info: logo.png used on input line 60.
 <triangle.PNG, id=25, 603.0028pt x 451.6875pt>
 File: triangle.PNG Graphic file (type png)
  <use triangle.PNG>
-Package pdftex.def Info: triangle.PNG used on input line 104.
+Package pdftex.def Info: triangle.PNG used on input line 116.
 (pdftex.def)             Requested size: 168.83963pt x 126.47249pt.
 
 <triangle_5.PNG, id=27, 606.01407pt x 453.94594pt>
 File: triangle_5.PNG Graphic file (type png)
  <use triangle_5.PNG>
-Package pdftex.def Info: triangle_5.PNG used on input line 111.
+Package pdftex.def Info: triangle_5.PNG used on input line 127.
 (pdftex.def)             Requested size: 168.8413pt x 126.47249pt.
-
-<square.PNG, id=28, 605.26125pt x 466.74374pt>
-File: square.PNG Graphic file (type png)
- <use square.PNG>
-Package pdftex.def Info: square.PNG used on input line 117.
-(pdftex.def)             Requested size: 164.00455pt x 126.47249pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.121 
-       [1
+l.129 \section
+              {Making a red and yello square} [1
 
- <./triangle.PNG> <./triangle_5.PNG> <./square.PNG>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
+ <./triangle.PNG> <./triangle_5.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 130--134
 
-(./tut1_27_09_2016.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
+ []
+
+<square.PNG, id=53, 605.26125pt x 466.74374pt>
+File: square.PNG Graphic file (type png)
+ <use square.PNG>
+Package pdftex.def Info: square.PNG used on input line 156.
+(pdftex.def)             Requested size: 164.00455pt x 126.47249pt.
+ [2 <./square.PNG>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 162.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 162.
+ (./tut1_27_09_2016.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 162.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 162.
 Package rerunfilecheck Info: File `tut1_27_09_2016.out' has not changed.
 (rerunfilecheck)             Checksum: 20A180394C4AE23A9B5E3A2DA1F22805;194.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 162.
  ) 
 Here is how much of TeX's memory you used:
- 8479 strings out of 494910
- 120621 string characters out of 6179836
- 337261 words of memory out of 5000000
- 11669 multiletter control sequences out of 15000+600000
- 8055 words of font info for 31 fonts, out of 8000000 for 9000
+ 8693 strings out of 494910
+ 123340 string characters out of 6179836
+ 378187 words of memory out of 5000000
+ 11838 multiletter control sequences out of 15000+600000
+ 8521 words of font info for 33 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 29i,11n,43p,245b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,11n,58p,245b,1117s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-Output written on tut1_27_09_2016.pdf (2 pages, 421623 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on tut1_27_09_2016.pdf (3 pages, 455523 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
+ 103 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
+ 42 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
