@@ -1,5 +1,0 @@
-1.C++ Game
-2.Pytho server
-3.Open cv stuff
-4. Study
-5. KALI LINUX

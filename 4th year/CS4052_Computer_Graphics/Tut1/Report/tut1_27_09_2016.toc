@@ -1,0 +1,4 @@
+\contentsline {section}{List of Tables}{1}{section*.2}
+\contentsline {section}{\numberline {1}Making a Coloured Triangle}{1}{section.1}
+\contentsline {section}{\numberline {2}Making the triangle twice as small}{1}{section.2}
+\contentsline {section}{\numberline {3}Making a red and yello square}{1}{section.3}

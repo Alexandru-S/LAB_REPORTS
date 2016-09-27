@@ -1,2 +1,0 @@
-Design Characteristics of Honeypots - with an Aim to Study Botnets
-This project will investigate the design of honeypots and the available information of botnets and develop a design for a honeypot that will allow the gathering and evaluation of information about the distribution and design botnets such as their size, use, etc. As a means to study these botnets, a honeypot or set of honeypots should attract the attention of botnets, collect samples of the communication of these networks and provide an analysis of the collected traffic.
