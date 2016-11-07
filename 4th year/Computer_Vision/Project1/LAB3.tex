@@ -111,7 +111,7 @@
 \pagebreak
 \section{RED PIXEL DETECTION}
 \subsection{Intro}\label{sec:intro}
-In this section I outline my procedure and results for detecting red pixels. For this part of the assignment the lecture notes, recommended reading and online openCV recources to plan an adequate procedure for completing the assignment.\\
+In this section the procedures and results for detecting red pixels are outlined. For this part of the assignment the lecture notes, recommended reading and online openCV recources were used to plan an adequate procedure for completing the assignment.\\
 \begin{lstlisting}
 
 
@@ -121,8 +121,9 @@ In this section I outline my procedure and results for detecting red pixels. For
 \subsection{Procedure}\label{sec:intro}
 Taking notes of what was discussed and shown in class together with online forms and the opencv page, I chose to plan out my procedure based on a histogram and backprojection detection model.
 To use the histogram though, red samples were needed to, in essence teach the opencv program what red is, and more specifically what type of red was required to be recognised for the assignment.\\
-A histogram could not be constructed out out of the unaltered sample picture provided due to the program not understanding what it was required to look for.\\
-
+The histogram could not be constructed out out of the unaltered sample picture provided due to the program not understanding what it was required to look for.A histogram needs to be instructed what type of data to look for.\\
+A histogram is a collected count of data, the data is not limited to color hue, the data can be anything from intensity values to gradients and directions. The histogram for this tutorial was chosen to only count the hue. This decision was taken due to the objective of the assignment was to find different road signs, all of which had a red contour. Thus the easiest way to find red is to search for all the ranges of the red hue included in road 
+signs.
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=0.9\linewidth, height=5cm]{ROADSIGN_samplered.png} 
@@ -137,8 +138,7 @@ A histogram could not be constructed out out of the unaltered sample picture pro
 \caption{Figure of constructed red sample images}
 \label{fig:image2}
 \end{figure}
-Thus, a new sample red image had to be created to make a histogram which would only contain the red present in road signs. To make the red sample image I used the photoshop program gimp to make a simple grid in which different red hues were stored. The red hue samples were taken from the sample road signs image. The images road signs were sampled at different points so as to get an even, accurate representation of the color red.
-The biggest problem with sampling the sample road signs image was the fact that a lot of the road signs had two, three or even more layers of shadowing on them. This created a problem which was only noticed when I started to paint in the various squares. I would, to my knowledge pick a red point in a sign only to discover that this point looked oddly brown or purple when transferred to my sample red image that was inserted into the histogram. These brown and purple points also caused a problem further down the road when dark bits of the background were identified as red due to those brownish squares.\\
+Thus, a new sample red image had to be created to make a histogram which would only contain the red present in road signs. To make the red sample image  the photoshop program gimp was used to make a simple grid in which different red hues were stored. The red hue samples were taken from the sample road signs image. The images road signs were sampled at different points so as to get an even, accurate representation of the red color used in the road signs.\\
 Once the new sample red image had been created using different points on road signs in the sample road signs image the code could finally be written in.\\
 The first step is to load in the images and check that the correct images have been loaded by the program without any exceptions or errors being thrown. That is where this part of the code comes in.
 \begin{lstlisting}
@@ -164,23 +164,23 @@ Next the image is converted to HSV or Hue Saturation Value so that we can separa
 		Mat histImg = Mat::zeros(w, h, CV_8UC3);
 		for (int i = 0; i < bins; i++)
 		{
-			rectangle(histImg, Point(i*bin_w, h), Point((i + 1)*bin_w, h - cvRound(hist_red.at<float>(i)*h / 255.0)), Scalar(0, 0, 255), -1);
-		}
+			rectangle(histImg, Point(i*bin_w, h), Point((i + 1)*bin_w, h - cvRound(hist_red.at<float>(i)*h / 255.0)), Scalar(0, 0, 255), -1);}
 		calcBackProject(&hue_test, 1, 0, hist_red, backproj, &ranges, 1, true);	
 		threshold(backproj, thresh_backproj, 8, 255, CV_THRESH_BINARY);
 		dilate(thresh_backproj, dil_thresh_backproj, Mat(), Point(-1, -1), 2, 1, 1);
 \end{lstlisting}
-The above code shows how the red samples image was then loaded in, converted to HSV, then split up so that only the HSV would be used and finally used to make up the histogram.\\
-Once the histogram had been set up all that remained was to back project the test image with the histogram. However the test image could only be back projected if it also had been converted to a hsv format and then had only its hue used. Once the two images were successfully back projected together a third image was created. This third image represented where the opencv program found red, thus the back projection. Red being the sample reds which were given to it. \\
-For this project I conducted multiple tests with different and increasingly detailed red sample images due to the inaccuracy in my earliest back projected images. I found that the more red samples were given to the histogram the more accurate the histogram would become. This process has its limitations however, for example there could be red samples present in the test image that were not present in the sample image or vice versa. Thus 100 percent accuracy can never truly be achieved. \\
-Once the image was back projected, it needed to be thresholded to remove any patches the program believed had a low probability of being red, such as orange brick. I then chose to dilate the pixels on the image so as to fill in empty spots in images and try to make them more accurate. I used dilate in an effort to also close the traffic sign circles so as they are later recognised as circles by floodfill. This process however had minimal success.\\
-Morphology was also used in an effort to try and close the back projected round road signs. Morphology was better at closing holes and gaps, but for a best result process, I chose to use it in conjunction with dilate.\\
+The above code shows how the red samples image was then loaded in, converted to HSV, then split up so that only the hue would be used and finally used to make up the histogram.\\
+Once the histogram had been set up all that remained was to back project the test image with the histogram. However the test image could only be back projected if it also had been converted to a hsv format and then had only its hue used.\\ 
+Once the two images were successfully back projected together a third image was created. This third image represented where the opencv program found red, thus the back projection. Red being the sample reds which were given to it. \\
+For this project multiple tests were conducted with different and increasingly detailed red sample images due to the inaccuracy of the earliest back projected images. The more red samples were given to the histogram the more accurate the histogram would become. This process has its limitations however, for example there could be red samples present in the test image that were not present in the sample image or vice versa, creating false positives and false negeatives. Thus 100 percent accuracy can never truly be achieved. \\
+Once the image was back projected, it needed to be thresholded to remove any patches the program believed had a low probability of being red, such as orange brick. Dilate was used on the image so as to fill in empty spots in images and try to make them more accurate. Dilate was also used in an effort to close the road sign circles so as they are later recognised as circles by floodfill. This process however had minimal success.\\
+Morphology was also used in an effort to try and close the back projected round road signs. Morphology was better at closing holes and gaps, but for a best result process, dilate was used in conjunction with dilate.\\
 
 
-Despite my best efforts, I could not close the back projected circles due to the back projected image not recognising the red hue in some road signs. This did not affect the red samples but it did have a huge impact on the black and white pixel detection as floodfill only works on closed shapes, never opened ones, thus in effect any shape that was not closed would be lost in the process along with my accuracy.\\
+Despite best efforts, the back projected circles could not be closed due to the back projected image not recognising the red hue in some road signs. This did not affect the red samples significantly, but it did have a noticible impact on the black and white pixel detection. Floodfill only works on closed shapes, never opened ones, thus in effect any shape that was not closed would be lost in the process along with accuracy and precision.\\
 
 
-To preserve the traffic sign shapes in my image throughout the contour hierarchy process I had to alter my final red pixel detection image to allow for the black and white pixel detection later on.\\
+To preserve the traffic sign shapes in the image throughout the contour hierarchy process the final red pixel detection process was altered to allow for the black and white pixel detection later on.\\
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=0.9\linewidth, height=5cm]{N_DIL_THRESH_BKPROJ.PNG} 
@@ -188,7 +188,7 @@ To preserve the traffic sign shapes in my image throughout the contour hierarchy
 \label{fig:subim1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-$+   $
+
 \includegraphics[width=0.9\linewidth, height=5cm]{N_MORPH_DIL_INRNG.PNG}
 \caption{The inRange thresholded image}
 \label{fig:subim2}
@@ -219,7 +219,7 @@ $+   $
 		morphologyEx(band_rng_bkprj, band_rng_bkprj, MORPH_TOPHAT, element, Point(-1, -1), 50);
 		bitwise_and(roadsign_test,roadsign_test,redcrop, band_rng_bkprj);
 \end{lstlisting}
-The code above shows how I used inRange to get a similar but different thresholded image which has fuller contour of the road sign pictures but also a lot of other shapes in it. The thresholded image was also somewhat inaccurate, but by merging the two pictures  together using AND a much clearer and more accurate representation of the red pixels in the image would be achieved. The image was then dilated and closed to help with remaining holes and breaks in the shapes. Finally the resulting image was used as a mask to construct a composite image to show how much of the red pixels from the original image were captured.
+The code above shows how inRange was used to get a similar but different thresholded image which has fuller contour of the road sign pictures but also a lot of other false positive shapes. The thresholded image was also somewhat inaccurate, but by merging the two pictures  together using AND a much clearer and more accurate representation of the red pixels in the image would be achieved. The image was then dilated and closed to help with remaining holes and breaks in the shapes. Finally the resulting image was used as a mask to construct a composite image to show how much of the red pixels from the original image were captured.
 
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
@@ -242,7 +242,7 @@ The code above shows how I used inRange to get a similar but different threshold
 \begin{lstlisting}
 CompareRecognitionResults(band_rng_bkprj, ground_red);
 \end{lstlisting}
-The above code shows the use of the function CompareRecognitionResults to compare the example thresholded red pixel image with the thresholded ground pixel image to achieve a score for the performance of my method. \\
+The above code shows the use of the function CompareRecognitionResults to compare the example thresholded red pixel image with the thresholded ground pixel image to achieve a score for the performance method. \\
 The ground image is converted to HLS and then used inRange on it as discussed before. The only difference to this is that the ground image has only one overall value for each color present, making it very easy to threshold out the colors. Thus the following code was used to get the ground thresholded images of the three colors.
 \begin{lstlisting}
 	inRange(hls_ground, Scalar(0, 0, 255), Scalar(0, 0, 255), ground_white);
@@ -257,11 +257,14 @@ The ground image is converted to HLS and then used inRange on it as discussed be
 
 \subsection{Performance}\label{sec:intro}
 The performance of the thresholded image was tested using the function provided in the practice tutorial. As seen in the picture and table, the precision for the color red is lower than that of black or white pixels. This is due in part to the difficulty in constructing a red sample image for the histogram. The innacuracy is also due to the dilation used on the shapes to connect the circles. The methadology helped in improving black and white pixel detection but at the cost of decreasing red pixel detection precison.\\
+As per the accepted definitions of accuracy and precision. The two are independent of each other. Thus a method can be neither precise nor acurate, precise and not accurate, accurate and not precise or for best results, accurate and precise.\\
+Accuracy defines how close and measurement is to the standard or known value, thus the red sample values to the accepted red values. Precision defines how close  a measurement is to another measurement. Thus how close the red sample values were to the ground sample values.\\
+Looking at the score for precision it is clear that this methadology was accurate but not very precise in determining the red pixels.\\
 
 \begin{figure}[H]
 \center
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{N_RED_STAT.PNG} 
+\includegraphics[width=0.9\linewidth, height=4cm]{N_RED_STAT.PNG} 
 \caption{The image shows the scoring achieved for the red pixels}
 \label{fig:subim2}
 \end{subfigure}
@@ -286,24 +289,25 @@ Accuracy   & 0.931088    \\ \bottomrule
 \subsection{Discussion}\label{sec:intro}
 One of the earliest problems noticed with hand sampling the red from the road signs was that the quality of the pictures was quite low. The pictures were also taken at an angle and with different cameras, thus the sharpness of the image also varied from picture to picture. \\
 
+The biggest problem with sampling the sample road signs image was the fact that a lot of the road signs had two, three or even more layers of shadowing on them. This created a problem which was only noticed when the process of constructing the sample image by busket fill in the various squares. I would, to my knowledge pick a red point in a sign only to discover that this point looked oddly brown or purple when transferred to my sample red image that was inserted into the histogram. These brown and purple points also caused a problem further down the road when dark bits of the background were identified as red due to those brownish squares.\\
+
 
 The performance for red pixels detection is high although it could have been higher. One major obstacle in a more precise detection algorythm is the quality of the pictures themselfes. Another being the background of the picture. While performing this assignment I have found it quite diffucult to separate a red road sign from its red brick background. Should even more red objects had been present in the picture, a more advanced form of Canny would have to be used to separate the objects and only then perhaps perform back projection.\\
 
 
-By observing the threshold images provided for red pixel detection it can be clearly noticed that the picture has false positives, where it recognized parts of the background building as parts of the road sign. It also contains false negatives where, for some reason it did not recognize parts of the red borders in the road signs. These errors, which were due to the factors previously discussed, posed the biggest challenge to making an accurate road sign detecting opencv program.\\
+By observing the threshold images provided for red pixel detection it can be clearly noticed that the picture has false positives, where it recognized parts of the background building as parts of the road sign due to the closeness in hue. It also contains false negatives where, it did not recognize parts of the red borders in the road signs, possibly due to the color being altered by a shadow to a hue outside the target zone. These errors, which were due to the factors previously discussed, posed the biggest challenge to making an accurate and precise road sign detecting opencv program.\\
 
 
 
 \pagebreak
 \section{BLACK AND WHITE PIXEL DETECTION}
 \subsection{Intro}\label{sec:intro}
-In this section I outline my procedure and results for detecting black and white pixels.\\
+In this section the procedure and results for detecting black and white pixels is outlined. The white and black pixels could not be thresholded like the red pixels for a number of reasons. White could not be thresholded due to it composing the majority of the background onto which all the sample road sign images were placed. The innacuracy would have been to great. Black could not be thresholded due to it again existing in other places than the inside of the road signs, again such a process would have induced too many false positives. Thus a contour hiararchy process had to be implemented.\\
 
 
 \subsection{Procedure}\label{sec:intro}
-To get the thresholded image of the white and black pixels a contour hierarchy process needs to be used. The white and black pixels cannot be back projected unfortunately due to the pictures being copy pasted on a white background, thus giving false positives for white pixels. The black pixels can not also be detected using black pixels due to the shadows and dark shapes present in the images, thus again, introducing false positives.
-Due to the extra work being done for red pixels, the thresholded red pixel image has closed shapes. Thus by using floodfilll, the inner space can be cropped away. Floodfill works by filling the inside of only closed border shapes in the red pixel thresholded image and then XORing the original red pixel thresholded image with the new flood filled image. The combination of these two images creates a composite which only has the inner space of the borders of the shapes in the thresholded red pixel image.\\
-The problem now is that this image will encompass the white and black pixels inside the red border of the traffic sign. \\
+To get the thresholded image of the white and black pixels a contour hierarchy process was used. Due to the previous red pixel detection process being altered, the thresholded red pixel road sign contours were closed shapes. Thus by using floodfilll, the inner space can be cropped away. Floodfill works by filling the inside of only closed border shapes in the red pixel thresholded image and then XORing the original red pixel thresholded image with the new flood filled inner image. The combination of these two images creates a composite which only has the inner space of the borders of the road signs in the thresholded red pixel image.\\
+The problem now is that this image will encompass the white and black pixels inside the red border of the road sign. \\
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=0.9\linewidth, height=5cm]{N_BIT_AND.PNG} 
@@ -311,7 +315,6 @@ The problem now is that this image will encompass the white and black pixels ins
 \label{fig:subim1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-$XOR   $
 \includegraphics[width=0.9\linewidth, height=5cm]{N_WHITE_INV.PNG}
 \caption{The floodfilled image}
 \label{fig:subim2}
@@ -324,7 +327,7 @@ $XOR   $
 \center
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=0.9\linewidth, height=5cm]{N_BLACK+WHITE_CROP.PNG} 
-\caption{The two images above ANDed and thenm used as a mask on the original color image give this result}
+\caption{The two images above show the process of the contour hiararchy. (b) is then used as a mask on the original color image to construct this new composite image}
 \label{fig:subim1}
 \end{subfigure}
 \caption{The figure shows how the contour hierarchy works}
@@ -351,9 +354,9 @@ To separate black from white the new image needs to be ANDed with the original c
 \label{fig:subim1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-$XOR   $
+
 \includegraphics[width=0.9\linewidth, height=5cm]{N_WHITE_CROP3.PNG}
-\caption{The image in $($a$)$ used as a mask on the original color image to show how much of the wite pixels can be detected}
+\caption{The image in $($a$)$ used as a mask on the original color image to show how much of the white pixels can be detected}
 \label{fig:subim2}
 \end{subfigure}
 \caption{The figure shows how contour hierarchy can be used to section off the white pixels.}
@@ -361,7 +364,7 @@ $XOR   $
 \end{figure}
 
 
-The inner thresholded image is grayscaled to help with the thresholding but also to convert it to the appropriate $CV_8UC1$ format. If the image is not grayscaled the image matrix will be a different size than those of the ground image and thus will not be possible to be accurately compared, or as I found early on, to be even successfully inputted into the function.\\
+The inner thresholded image is grayscaled to help with the thresholding but also to convert it to the appropriate CV\underline{ }8UC1 format. If the image is not grayscaled the image matrix will be a different size than those of the ground image and thus will not be possible to be accurately compared, or as I found early on, to be even successfully inputted into the function.\\
 \begin{lstlisting}
 		Mat blk_ff = cropp_white.clone();
 		floodFill(blk_ff, cv::Point(0, 0), Scalar(0,0,0));
@@ -371,8 +374,8 @@ The inner thresholded image is grayscaled to help with the thresholding but also
 		cvtColor(blk_trsh, blk_trsh, CV_BGR2GRAY);
 		threshold(blk_trsh, blk_trsh, 0, 255, CV_THRESH_BINARY);
 \end{lstlisting}
-To get a thresholded image of the black pixels the same process used to get white pixels is used again. \\
-Thus the white pixel thresholded image is XORed with the original black and white thresholded image, or a floodfilled white pixel thresholded image, they are the same thing, resulting in a composite image which has only the black road sign pixels sectioned off. This is then ANDed with the original color image, grayscaled so it has the appropriate format and thresholded again so that it can be inputted into the precision function.\\
+To get a thresholded image of the black pixels the same process was repeated again. \\
+Thus the white pixel thresholded image is XORed with the original black and white thresholded image, resulting in a composite image which has only the black road sign pixels sectioned off. This is then ANDed with the original color image, grayscaled so it has the appropriate format and thresholded again so that it can be inputted into the precision function.\\
 
 
 
@@ -398,9 +401,10 @@ Thus the white pixel thresholded image is XORed with the original black and whit
 \end{lstlisting}
 The above code shows the last parts of the program in which the example thresholded images for white and black are compared with the thresholded images of the the ground image.
 \subsection{Performance}\label{sec:intro}
-The performance of the white and black pixels was deduced from inserting the thresholded white and black pixels images into the Recognition function previously specified. As can be seen from the tables and images provided the precision on both types of pixels was significantly higher tan that of the red pixels.\\
-The white pixels have the highest precision, this can be due to the fact that white is the easiest color to threshold out. 
-The lower precision in blackpixels can be due to the fact that the thresholding process limitations may have been off, thus loosing some detail present in the process.
+The performance of the white and black pixels was deduced from inserting the thresholded white and black pixels images into the Recognition function previously specified. As can be seen from the tables and images provided the precision on both types of pixels was significantly higher than that of the red pixels.\\
+The white pixels have the highest precision, this can be due to the fact that white is the easiest color to threshold out. The contour hiararchy process has thus proven that it is more accurate. One easy explination for such a high white pixel precision is that the white pixels had the least amount of variance between them. Thus the ground and sample white pixels were closer in hue range than the red pixels. The white pixels have a lower accuracy than the black pixels though. This again can be deducted from the false positives and false negatives present in the thresholded image.\\
+The lower precision in blackpixels can be due to the fact that the thresholding process limitations may have been off, thus loosing some detail present in the process. It could also be due to the fact that the black pixels in the road sign were not pure black, just like the red a white, the black pixels had some lighter parts to them which may have been lost in the contour or thresholding processes. The higher accuracy in black could be due to black being easier to define than white.\\
+In the contour hiararchy process, half a sign was lost, thus immediatelly adding a false negative to all images there after, it is more than probable that the missing sign is responsible for some loss of accuracy and precision. The other factor is that to maintain the rest of the signs through out the contour hiararchy process the contour borders were dilated thus false positives were also introduced in all subsequent images.
 
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
@@ -430,12 +434,12 @@ Accuracy   &      0.964020       &  &    Accuracy         &  0.989448  \\ \cmidr
 \end{tabular}
 \end{table}
 
-
+\pagebreak
 \subsection{Discussion}\label{sec:intro}
 The accuracy of the black and white pixels was somewhat a bit more accurate as there were far less similar background colors. Thus there was less interference and the background could be sectioned off more easily. The hue range to which the black and white pixels extended was also far narrower than that of the red pixels.\\
 By taking a look at the thresholded images provided for black and white pixels it can be seen that many of them contain false negatives. The lower part of a sign had been lost in the tresholding process due to its borders not being fully closed during flood fill. \\
 Lastly, the biggest issue I encountered during this assignment was the values by which to threshold, dilate and erode. Unlike other functions in opencv, these processes require a human opinion. During the thresholding processes I struggled to understand why one lower or higher limit is better than another. My only conclusion from this process is that at the end of the day opencv requires a human to truly define what is useful and what is not. The values therfore that I used for my thresholding process were my personal input for what would make an accurate program.\\
-
+The theme of human assisted detection seems to be constant across all processes, from deceting a simple color to defining what is a border. This may have something to do with the fact that even the world we perceive is subject to our interpretations, thus vision itself can never be binary, in a sense that an answer is right or wrong. It will always lie within a spectrum of accuracy and precision dependent on subjective opinions.
 
 
 

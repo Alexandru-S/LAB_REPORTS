@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  3 NOV 2016 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  4 NOV 2016 08:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -259,12 +259,10 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-</home/owner/Desktop/app/image00.png, id=1, 351.3125pt x 387.4475pt>
-File: /home/owner/Desktop/app/image00.png Graphic file (type png)
-
-<use /home/owner/Desktop/app/image00.png>
-Package pdftex.def Info: /home/owner/Desktop/app/image00.png used on input line
- 118.
+<image00.png, id=1, 351.3125pt x 387.4475pt>
+File: image00.png Graphic file (type png)
+ <use image00.png>
+Package pdftex.def Info: image00.png used on input line 118.
 (pdftex.def)             Requested size: 72.26999pt x 79.69919pt.
 
 (/usr/share/texlive/texmf-dist/tex/latex/gfsdidot/ot1udidot.fd)
@@ -312,22 +310,21 @@ File: utxsyb.fd 2000/12/14 v1.0
 File: upxsyc.fd 2000/12/14 v1.0
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/owner/Desktop/app/im
-age00.png>]
-(./APP.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./image00.png>] (./APP.aux
+) ) 
 Here is how much of TeX's memory you used:
- 4614 strings out of 493029
- 73046 string characters out of 6136233
- 140491 words of memory out of 5000000
+ 4613 strings out of 493029
+ 72926 string characters out of 6136233
+ 140467 words of memory out of 5000000
  8036 multiletter control sequences out of 15000+600000
  25306 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,4n,35p,458b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/gfsdidot/didotec.en
-c}</usr/share/texlive/texmf-dist/fonts/type1/public/gfsdidot/GFSDidot-Bold.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/gfsdidot/GFSDidot-Italic.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/gfsdidot/GFSDidot.pfb>
-Output written on APP.pdf (1 page, 121182 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/gfsdidot/didotec.enc}</usr/sh
+are/texlive/texmf-dist/fonts/type1/public/gfsdidot/GFSDidot-Bold.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/gfsdidot/GFSDidot-Italic.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/gfsdidot/GFSDidot.pfb>
+Output written on APP.pdf (1 page, 120952 bytes).
 PDF statistics:
  24 PDF objects out of 1000 (max. 8388607)
  15 compressed objects within 1 object stream

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  31 OCT 2016 21:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  6 NOV 2016 23:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -702,26 +702,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--125
-
- []
-
 <ROADSIGN_samplered.png, id=78, 602.25pt x 602.25pt>
 File: ROADSIGN_samplered.png Graphic file (type png)
 
 <use ROADSIGN_samplered.png>
-Package pdftex.def Info: ROADSIGN_samplered.png used on input line 128.
+Package pdftex.def Info: ROADSIGN_samplered.png used on input line 129.
 (pdftex.def)             Requested size: 211.38797pt x 142.26393pt.
 
 <ROADSIGN_samplered2.png, id=79, 1204.5pt x 1204.5pt>
 File: ROADSIGN_samplered2.png Graphic file (type png)
 
 <use ROADSIGN_samplered2.png>
-Package pdftex.def Info: ROADSIGN_samplered2.png used on input line 133.
+Package pdftex.def Info: ROADSIGN_samplered2.png used on input line 134.
 (pdftex.def)             Requested size: 211.37878pt x 142.25475pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 127--137
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 128--138
 []$[]$ $[]$ 
  []
 
@@ -733,7 +728,7 @@ l.147 		printf(
                "Cannot open video file: \n"); [1
 
  <./ROADSIGN_samplered.png> <./ROADSIGN_samplered2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 173--178
+Underfull \hbox (badness 10000) in paragraph at lines 172--178
 
  []
 
@@ -765,19 +760,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--198
 
  []
 
-[2] <N_BIT_AND.PNG, id=118, 881.54344pt x 418.56375pt>
+[2] <N_BIT_AND.PNG, id=117, 881.54344pt x 418.56375pt>
 File: N_BIT_AND.PNG Graphic file (type png)
  <use N_BIT_AND.PNG>
 Package pdftex.def Info: N_BIT_AND.PNG used on input line 203.
 (pdftex.def)             Requested size: 211.38643pt x 142.25868pt.
 
-<CROPP.PNG, id=119, 877.02657pt x 417.05812pt>
+<CROPP.PNG, id=118, 877.02657pt x 417.05812pt>
 File: CROPP.PNG Graphic file (type png)
  <use CROPP.PNG>
 Package pdftex.def Info: CROPP.PNG used on input line 226.
 (pdftex.def)             Requested size: 211.38728pt x 142.26244pt.
 
-<N_RED_CROP.PNG, id=120, 880.03781pt x 421.575pt>
+<N_RED_CROP.PNG, id=119, 880.03781pt x 421.575pt>
 File: N_RED_CROP.PNG Graphic file (type png)
  <use N_RED_CROP.PNG>
 Package pdftex.def Info: N_RED_CROP.PNG used on input line 231.
@@ -788,25 +783,20 @@ Overfull \hbox (2.2222pt too wide) in paragraph at lines 225--235
  []
 
 [3 <./N_DIL_THRESH_BKPROJ.PNG> <./N_MORPH_DIL_INRNG.PNG> <./N_BIT_AND.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 259--263
 
  []
 
-<N_RED_STAT.PNG, id=139, 500.62032pt x 249.18094pt>
+<N_RED_STAT.PNG, id=138, 500.62032pt x 249.18094pt>
 File: N_RED_STAT.PNG Graphic file (type png)
  <use N_RED_STAT.PNG>
-Package pdftex.def Info: N_RED_STAT.PNG used on input line 264.
-(pdftex.def)             Requested size: 211.38965pt x 142.26653pt.
+Package pdftex.def Info: N_RED_STAT.PNG used on input line 267.
+(pdftex.def)             Requested size: 211.38965pt x 113.81094pt.
 
 [4 <./CROPP.PNG> <./N_RED_CROP.PNG>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 272.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
- []
+               Default added (so using `tbp') on input line 275.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 290--291
@@ -814,149 +804,143 @@ Underfull \hbox (badness 10000) in paragraph at lines 290--291
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
 
  []
 
 [5 <./N_RED_STAT.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 300--301
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
 
  []
 
 File: N_BIT_AND.PNG Graphic file (type png)
 <use N_BIT_AND.PNG>
-Package pdftex.def Info: N_BIT_AND.PNG used on input line 309.
+Package pdftex.def Info: N_BIT_AND.PNG used on input line 313.
 (pdftex.def)             Requested size: 211.38643pt x 142.25868pt.
- <N_WHITE_INV.PNG, id=161, 879.285pt x 420.06938pt>
+ <N_WHITE_INV.PNG, id=160, 879.285pt x 420.06938pt>
 File: N_WHITE_INV.PNG Graphic file (type png)
 
 <use N_WHITE_INV.PNG>
-Package pdftex.def Info: N_WHITE_INV.PNG used on input line 315.
+Package pdftex.def Info: N_WHITE_INV.PNG used on input line 318.
 (pdftex.def)             Requested size: 211.38155pt x 142.26405pt.
 
-Overfull \hbox (3.37138pt too wide) in paragraph at lines 314--316
-[]$\OML/cmm/m/it/10 XOR$ [] 
- []
-
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 308--319
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 312--322
 []$[]$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--321
+Underfull \hbox (badness 10000) in paragraph at lines 309--324
 
  []
 
-<N_BLACK+WHITE_CROP.PNG, id=162, 880.79062pt x 419.31656pt>
+<N_BLACK+WHITE_CROP.PNG, id=161, 880.79062pt x 419.31656pt>
 File: N_BLACK+WHITE_CROP.PNG Graphic file (type png)
 
 <use N_BLACK+WHITE_CROP.PNG>
-Package pdftex.def Info: N_BLACK+WHITE_CROP.PNG used on input line 326.
+Package pdftex.def Info: N_BLACK+WHITE_CROP.PNG used on input line 329.
 (pdftex.def)             Requested size: 211.38063pt x 142.25862pt.
  [6 <./N_WHITE_INV.PNG>]
-<N_WHT_TRSH3.PNG, id=170, 882.29625pt x 419.31656pt>
+<N_WHT_TRSH3.PNG, id=168, 882.29625pt x 419.31656pt>
 File: N_WHT_TRSH3.PNG Graphic file (type png)
  <use N_WHT_TRSH3.PNG>
-Package pdftex.def Info: N_WHT_TRSH3.PNG used on input line 349.
+Package pdftex.def Info: N_WHT_TRSH3.PNG used on input line 352.
 (pdftex.def)             Requested size: 211.37846pt x 142.25862pt.
 
-<N_WHITE_CROP3.PNG, id=171, 882.29625pt x 419.31656pt>
+<N_WHITE_CROP3.PNG, id=169, 882.29625pt x 419.31656pt>
 File: N_WHITE_CROP3.PNG Graphic file (type png)
  <use N_WHITE_CROP3.PNG>
-Package pdftex.def Info: N_WHITE_CROP3.PNG used on input line 355.
+Package pdftex.def Info: N_WHITE_CROP3.PNG used on input line 358.
 (pdftex.def)             Requested size: 211.37846pt x 142.25862pt.
 
-Overfull \hbox (3.3683pt too wide) in paragraph at lines 354--356
-[]$\OML/cmm/m/it/10 XOR$ [] 
- []
-
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 348--359
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 351--362
 []$[]$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
+Underfull \hbox (badness 10000) in paragraph at lines 367--368
 
  []
 
 [7 <./N_BLACK+WHITE_CROP.PNG> <./N_WHT_TRSH3.PNG> <./N_WHITE_CROP3.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 374--376
+Underfull \hbox (badness 10000) in paragraph at lines 377--379
 
  []
 
-<N_BLK_TRSH.PNG, id=190, 880.79062pt x 420.82219pt>
+<N_BLK_TRSH.PNG, id=187, 880.79062pt x 420.82219pt>
 File: N_BLK_TRSH.PNG Graphic file (type png)
  <use N_BLK_TRSH.PNG>
-Package pdftex.def Info: N_BLK_TRSH.PNG used on input line 381.
+Package pdftex.def Info: N_BLK_TRSH.PNG used on input line 384.
 (pdftex.def)             Requested size: 211.38063pt x 142.26215pt.
 
-<N_BLK_CROPP.PNG, id=191, 882.29625pt x 416.30531pt>
+<N_BLK_CROPP.PNG, id=188, 882.29625pt x 416.30531pt>
 File: N_BLK_CROPP.PNG Graphic file (type png)
  <use N_BLK_CROPP.PNG>
-Package pdftex.def Info: N_BLK_CROPP.PNG used on input line 386.
+Package pdftex.def Info: N_BLK_CROPP.PNG used on input line 389.
 (pdftex.def)             Requested size: 211.37846pt x 142.26608pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 380--390
-[]$[]$ $[]$ 
- []
-
-<N_BLK_STAT.PNG, id=192, 500.62032pt x 246.1697pt>
-File: N_BLK_STAT.PNG Graphic file (type png)
- <use N_BLK_STAT.PNG>
-Package pdftex.def Info: N_BLK_STAT.PNG used on input line 407.
-(pdftex.def)             Requested size: 211.38965pt x 142.26767pt.
-
-<N_WHT_STAT.PNG, id=193, 500.62032pt x 248.42813pt>
-File: N_WHT_STAT.PNG Graphic file (type png)
- <use N_WHT_STAT.PNG>
-Package pdftex.def Info: N_WHT_STAT.PNG used on input line 412.
-(pdftex.def)             Requested size: 211.38965pt x 142.26508pt.
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 406--416
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 383--393
 []$[]$ $[]$ 
  []
 
 [8 <./N_BLK_TRSH.PNG> <./N_BLK_CROPP.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 435--438
+<N_BLK_STAT.PNG, id=207, 500.62032pt x 246.1697pt>
+File: N_BLK_STAT.PNG Graphic file (type png)
+ <use N_BLK_STAT.PNG>
+Package pdftex.def Info: N_BLK_STAT.PNG used on input line 411.
+(pdftex.def)             Requested size: 211.38965pt x 142.26767pt.
 
+<N_WHT_STAT.PNG, id=208, 500.62032pt x 248.42813pt>
+File: N_WHT_STAT.PNG Graphic file (type png)
+ <use N_WHT_STAT.PNG>
+Package pdftex.def Info: N_WHT_STAT.PNG used on input line 416.
+(pdftex.def)             Requested size: 211.38965pt x 142.26508pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 410--420
+[]$[]$ $[]$ 
  []
 
-[9 <./N_BLK_STAT.PNG> <./N_WHT_STAT.PNG>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 444.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 444.
+[9 <./N_BLK_STAT.PNG> <./N_WHT_STAT.PNG>] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 448.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 448.
  (./LAB3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 444.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 444.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 448.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 448.
 Package rerunfilecheck Info: File `LAB3.out' has not changed.
 (rerunfilecheck)             Checksum: 4F5512B4F20DF8E3F73D1A7F45D0631A;634.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 444.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 448.
  ) 
 Here is how much of TeX's memory you used:
  10572 strings out of 493029
- 153664 string characters out of 6136233
+ 153656 string characters out of 6136233
  412091 words of memory out of 5000000
  13855 multiletter control sequences out of 15000+600000
  12343 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,58p,635b,1716s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,58p,661b,1716s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmtt9.pfb>
-Output written on LAB3.pdf (11 pages, 1732219 bytes).
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on LAB3.pdf (12 pages, 1709796 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
+ 264 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
  93 named destinations out of 1000 (max. 500000)
  174 words of extra memory for PDF output out of 10000 (max. 10000000)
 
