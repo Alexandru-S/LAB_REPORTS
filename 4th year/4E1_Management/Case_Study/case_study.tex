@@ -63,7 +63,7 @@
 	
 	\line(1,0){300}\\
 	[0.25in]
-	\huge{\bfseries Title of Case Study}\\
+	\huge{\bfseries Nightingale}\\
 	[2mm]
 	\line(1,0){200}\\
 	[1.5cm]
@@ -79,7 +79,7 @@
 	\textsc{\large Alexandru Sulea\\
 	D Stream\\
 	\#12315152\\
-	8 April 2016\\}
+	13 November 2016\\}
 	\end{flushright}
 	
 \end{titlepage}
@@ -97,16 +97,303 @@
 \setcounter{page}{1}
 
 \pagebreak
-\section{Introduction}
+\section{Nightingale Part A}
+
+\subsection{1.Will the project as planned meet the October 25th deadline?}
+
+It is very unlikely that the project will meet the planned  October 25th deadline. The project is very widespread with large critical modules such as the database module potentially inducing heavy delays into the project deadline. The other reason why it is unlikely that the project will meet the deadline is the inbuilt restrictions inherent in working. If the team were to be placed in another country, preferably a country with less holidays and a culture that accepts working weekends, then the project would be finished on time. However due to the days in which the team isn’t working due to those days being weekends together with holidays and holidays which fall on weekends giving a long weekend the project will be delayed by 30 working days.
 
 
 
+
+\begin{table}[H]
+\centering
+\caption{Original Project Schedule}
+\label{my-label}
+\begin{tabular}{lllllll}
+Activity & Description                   & Duration & Predecessor                 &  & Date Started & Date Ended \\
+1        & Architectural Decisions       & 10       & 0                           &  & 01/04/16     & 01/15/16   \\
+2        & Internal Specifications       & 20       & 1                           &  & 01/18/16     & 02/12/16   \\
+3        & External Specifications       & 18       & 1                           &  & 01/18/16     & 02/10/16   \\
+4        & Feature Specifications        & 15       & 1                           &  & 01/18/16     & 02/05/16   \\
+5        & Voice Recognition             & 5        & 2,3                         &  & 02/15/16     & 02/19/16   \\
+6        & Case                          & 4        & 2,3                         &  & 02/15/16     & 02/18/16   \\
+7        & Screen                        & 2        & 2,3                         &  & 02/15/16     & 02/16/16   \\
+8        & Speaker Output Jacks          & 2        & 2,3                         &  & 02/15/16     & 02/16/16   \\
+9        & Tape Mechanism                & 2        & 2,3                         &  & 02/15/16     & 02/16/16   \\
+10       & Databse                       & 40       & 4                           &  & 02/08/16     & 04/01/16   \\
+11       & Microphone/Soundcard          & 5        & 4                           &  & 02/08/16     & 02/12/16   \\
+12       & Pager                         & 4        & 4                           &  & 02/08/16     & 02/11/16   \\
+13       & Barcode Reader                & 3        & 4                           &  & 02/08/16     & 02/10/16   \\
+14       & Alarm Clock                   & 4        & 4                           &  & 02/08/16     & 02/11/16   \\
+15       & Computer I/O                  & 5        & 4                           &  & 02/08/16     & 02/12/16   \\
+16       & Review Design                 & 10       & 5,6,7,8,9,10,11,12,13,14,15 &  & 04/04/16     & 04/15/16   \\
+17       & Price Components              & 5        & 5,6,7,8,9,10,11,12,13,14,15 &  & 04/04/16     & 04/08/16   \\
+18       & Integration                   & 15       & 16,17                       &  & 04/18/16     & 05/06/16   \\
+19       & Document Design               & 35       & 16                          &  & 04/18/16     & 06/06/16   \\
+20       & Procure Prototype Components  & 20       & 18                          &  & 05/09/16     & 06/06/16   \\
+21       & Assemble Prototypes           & 10       & 20                          &  & 06/07/16     & 06/20/16   \\
+22       & Lab test Prototypes           & 20       & 21                          &  & 06/21/16     & 07/19/16   \\
+23       & Field Test Prototypes         & 20       & 19,22                       &  & 07/20/16     & 08/16/16   \\
+24       & Adjust Design                 & 20       & 23                          &  & 08/17/16     & 09/14/16   \\
+25       & Order Stock Parts             & 2        & 24                          &  & 09/15/16     & 10/05/16   \\
+26       & Order Custom Parts            & 2        & 24                          &  & 09/15/16     & 09/28/16   \\
+27       & Assemble First Production Uni & 10       & 26FS-13 units, 25 8 units   &  & 10/06/16     & 10/19/16   \\
+28       & Test Unit                     & 10       & 27                          &  & 10/20/16     & 11/02/16   \\
+29       & Produce 30 Units              & 15       & 28                          &  & 11/03/16     & 11/23/16   \\
+30       & Train Sales Representatives   & 10       & 29                          &  & 11/25/16     & 12/08/16  
+\end{tabular}
+\end{table}
+
+\pagebreak
+
+
+\subsection{2. What activities lie on the critical path?}
+
+
+ 
+The first activity on the critical path is the Architectural Decisions. This can be the most important module in the whole project, not only because it is the stem of the gantt chart but also because the decisions outlined in the architectural process will directly affect every facet of the project until it is finalised. A planning mistake in this process can add weeks to the project and cause the deadline to be severely delayed.
+
+
+Branching out from the critical path there are the: 2. Internal Specifications 3.External Specifications 4.Feature Specifications . This is in fact a more verbose and in depth version of the architectural decisions previously talked about. The three modules are critical due to the fact that they outline specific decisions to be taken with respect to the internal , external and feature specifications of a project. Should some of the tasks outlined here be  too long or complex then the project will end up snowballing and again causing massive delays down the production process.
+
+
+The next branch on the production process includes all the modules from 5 to 15. These are again even more broken down tasks of the previous internal, external and feature specifications modules. The project seems to bottleneck somewhat after this module as the next two modules are directly dependent on the previous 15 modules to have been completed so that the project can move forward. The 5-15 modules are also being worked on simultaneously, thus there is very little chance to fix or correct any bugs or mistakes that may appear due to a large team working simultaneously on different interconnecting parts of the project. Should any of these modules be delayed due to technical specifications or due to incompatibility with another module it may seriously affect the possibility of the project being finished. At this step in the process it is highly recommended that the team and team managers increase team and cross-team communications. This step is taken to help everyone know what they themselves are doing and what everyone else thinks they are doing. Poor communication and short deadlines may led to teams assuming different things about their own project and other teams projects leading to delays later on. The delays would be even more crippling than in other modules as these delays would be primarily be related to untangling 10 modules and seeing exactly where the problem or bug first appeared.
+
+
+The following branch encompasses two modules, Review Design and Price Components. These modules are quite critical as a review of the design is necessary to make sure that all setout goals were achieved. A price of the components is also necessary to know how much to charge for the final product in such a way that it will cover the R\&D cost and bring an acceptable profit to the company.
+
+
+The following Integration module connects the previous modules thus finally moving the project one module at a tie since the start of the project.
+
+
+The following three components 19. Document Designs 20.Procure Prototype Components  and 21.Assemble Prototypes are minor and quite straightforward. These modules are minimal due to their simplistic nature and the fact that they do not require a rare special skill to complete.
+
+
+The following three modules 22.Lab Test Prototypes, 23.Field Test Prototypes and 24.Adjust Design modules are related to the testing and adjustments of the product. By this stage if there haven't been any major delays there should be a clear cut process of testing and tweaking. Due to the entire project having been built inhouse by the team, there should be an ease to which modifications are now made due to the team understanding how the project functions.
+
+
+The last branch split in the process takes place at modules 25.Order Stock Parts and 26.Order Custom Parts. There may be some inherent delay and cost in ordering custom parts, but at the advantage of the product being patent protected and harder to copy. Recommendations would be to use only the Stock parts as they not only save on money but also remove any risk of delays in delivery and re-testing. This recommendation is made on the basis that the primary objective of the project is to meet the October 25th deadline. As specified by the team, it is not necessarily the uniqueness of the product that will help it sell, but the fact that it can  the first to market. That being said, custom parts may be needed for some functions of the product. Thus the module may be critical to the finished product and ultimately cannot be removed.
+
+
+The last 4 modules in the product are more to do with quality assurance and training a sales team to sell the finished product. 
+
+
+
+
+\subsection{3. How sensitive is this network?}
+
+
+
+
+The network has some very good redundancies in the network, unfortunately that is only one in the system, where it allows us to chose between stock or outsourced parts.
+This is very worrying , as if anything goes wrong in the production pipeline , the project can be stalled for an unforeseen amount of time. For example if the Computer Engineer gets sick while working on the database, that can significantly delay the module and therefore delay the project as a whole, as the database module is a critically important part to the rest of the project.
+
+
+
+
+There are several obstacles for the project to be completed by the october 25th deadline. The biggest of which will have to be proof of concept. Due to the fact that the product is a medical device which helps with diagnosis, it is required that the medical device not only passes a technical proof of concept but also an ethical proof of concept. The later of which can be tricky to define and can lead to extensive delay.
+
+
+The database is also one of the largest modules in the project. Any delay in the database will be  major roadblock as the majority of the project also depends on the database to be completed for it to work.
+The critical path also has very few redundancies, especially towards the end,  thus if any unforeseen delays take place they will severely decrease the probability of the project being successfully finished on time.
+Review Design and Price Components also seem to be very critical to the project as not only do they depend on every other task being completed for them to be completed but also the entire project then depends on these two modules, both to be completed for the project to reach its deadline. The Review Design and Price Components modules are especially critical, more so than other modules as they require 11 other modules to be completed before they can even be started. Any delay in any of those components can lead to a serious and major delay to propagate throughout all the other modules and affect the chances of the project being finished on time.
+The other problem associated with the project is that it requires a lot of R\&D due to the nature of the product. The Nightingale project is a new type of medical device which seeks to help diagnosis of medical afflictions. The process and technologies developed by the team will not only have to be new and innovative but also kept secret. This undermines the team's ability to outsources some if any workloads. Depending on the perceived probability of being copied by the competition. The team's flexibility in working with others may be seriously restricted. All of this will only put more pressure on the team to finish the product while being insular.
+
+
+As the project currently stands it is going to be finished in 236 working days , assuming no delays but the deadline is in 206 days. Thus it is projected that the product will have a delay of 14.5 percent.
+
+
+
+
+
+
+
+
+
+
+
+\section{Nightingale Part B}
+
+\subsection{1.Is it possible to meet the deadline?}
+
+
+
+The delay is not overly significant.The project is foreseen to be delayed by 30 working days, if certain modules were sped up, and assuming that the project would be majority problem free then it is possible for the project to be finished just on time, the deadline for its completion however is very tight.
+The project was supposed to be completed somewhat under budget, but if the database portion is shortened to 35 days, and a few other steps are taken to reduce other modules then the project can be completed with time to spare.
+It is important to state however that this will only be a projected outcome and will not encompass a lot of variables that may induce delay into the project deadline.
+
+
+
+
+
+
+\subsection{ 2. If so, how would you recommend changing the original schedule (Part A) and why? Assess the relative impact of crashing activities versus introducing lags to shorten project duration. }
+
+
+
+
+The recommendations for shortening the project would be somewhat extensive. A time difference of 30 working days between the deadline and projected finish date is not a large amount of time. To shorten it however will be quite expensive.
+Looking over the first proposal, where the procedure was to shorten the days it took to complete each task it was found that not only would a large sum of money be spent but that also due to the limits modules that would be shortened by this expenditure the overall projected timeline was not going to be decreased significantly enough so that it would meet the October 25th deadline. The only modules that would actually make a difference in spending money on were Database, Procure Prototype Component and Order ustom Parts with the others being not effective due to other modules still being too long to complete.
+
+
+The second option was then implemented. This option theorised that if there were more start to start lags then the project would be completed on time and people would not have to wait on everyone else to finish their work. This option was far more viable and the new projected finish date is now the 26th of September. By just reformatting the network in certain places the project will now be finished a full month ahead of its deadline and at no extra cost.
+
+
+
+
+
+As a result of the network now being re-written the project is predicted to be completed in 202 working days or in 98 percent of the allocated time. This reallocation of modules has decreased 16 percent off the project work time.
+
+
+
+\subsection{3. What would the new schedule look like? }
+
+
+
+
+The new schedule would be very similar in look and function to the old schedule. No new modules have been added and none of the old modules have been removed. The module days have also not been modified. The day reduction modifications were not chosen due to their price increases and also due to their limited effects on shortening the project completion timeline.
+The new schedule would look similar to the old one. The only differences being that this time the Document Design module would begin five days after the start of review design, thus saving 15 days.
+The database was also shortened by 5 days as the old format had the rest of the team wait for nearly 2 months while the computer engineer finished their job.
+ The ordering of stock and custom parts would also begin much sooner and be a lot shorter, this part of the project is not overly complicated and could be done in tandem with other modules, instead of having the whole team wait on the procurement team to finish their job.
+Lastly training was pushed to a much sooner date. This step was again taken do to the fact that it should not be a requirement to only train the sales team when everyone is fully finished. The team thus can be trained while the finishing touches are put on the product.
+The new schedule as more start-to-start lags instead of start to end. Normally in pure technical teams this would not be possible. But due to the work being both technical and marketing and financial in nature, these different teams can work in tandem. This new workflow also ensures that for example: Marketing does not have to wait on engineering to finish their product before they can start training the sales people. 
+Thus the new schedule is a lot more efficient and has only cost \$55,000 of the allocated \$100,000.Thus, again not only being ahead of schedule but also under budget. 
+
+
+
+\begin{table}[H]
+\centering
+\caption{New Project Schedule}
+\label{my-label}
+\begin{tabular}{lllllll}
+Activity & Description                   & Duration & Predecessor                 &  & Date Started & Date Ended \\
+1        & Architectural Decisions       & 10d      & 0                           &  & 01/04/16     & 01/15/16   \\
+2        & Internal Specifications       & 20d      & 1                           &  & 01/18/16     & 02/12/16   \\
+3        & External Specifications       & 18d      & 1                           &  & 01/18/16     & 02/10/16   \\
+4        & Feature Specifications        & 15d      & 1                           &  & 01/18/16     & 02/05/16   \\
+5        & Voice Recognition             & 5d       & 2,3                         &  & 02/15/16     & 02/19/16   \\
+6        & Case                          & 4d       & 2,3                         &  & 02/15/16     & 02/18/16   \\
+7        & Screen                        & 2d       & 2,3                         &  & 02/15/16     & 02/16/16   \\
+8        & Speaker Output Jacks          & 2d       & 2,3                         &  & 02/15/16     & 02/16/16   \\
+9        & Tape Mechanism                & 2d       & 2,3                         &  & 02/15/16     & 02/16/16   \\
+10       & Databse                       & 35d      & 4                           &  & 02/08/16     & 03/25/16   \\
+11       & Microphone/Soundcard          & 5d       & 4                           &  & 02/08/16     & 02/12/16   \\
+12       & Pager                         & 4d       & 4                           &  & 02/08/16     & 02/11/16   \\
+13       & Barcode Reader                & 3d       & 4                           &  & 02/08/16     & 02/10/16   \\
+14       & Alarm Clock                   & 4d       & 4                           &  & 02/08/16     & 02/11/16   \\
+15       & Computer I/O                  & 5d       & 4                           &  & 02/08/16     & 02/12/16   \\
+16       & Review Design                 & 10d      & 5,6,7,8,9,10,11,12,13,14,15 &  & 03/28/16     & 04/08/16   \\
+17       & Price Components              & 5d       & 5,6,7,8,9,10,11,12,13,14,15 &  & 03/28/16     & 04/01/16   \\
+18       & Integration                   & 15d      & 16,17                       &  & 04/11/16     & 04/29/16   \\
+19       & Document Design               & 35d      & 16                          &  & 04/04/16     & 05/20/16   \\
+20       & Procure Prototype Components  & 20d      & 18                          &  & 05/02/16     & 05/27/16   \\
+21       & Assemble Prototypes           & 10d      & 20                          &  & 05/31/16     & 06/13/16   \\
+22       & Lab test Prototypes           & 20d      & 21                          &  & 06/14/16     & 07/12/16   \\
+23       & Field Test Prototypes         & 20d      & 19,22                       &  & 07/13/16     & 08/09/16   \\
+24       & Adjust Design                 & 20d      & 23                          &  & 08/03/16     & 08/30/16   \\
+25       & Order Stock Parts             & 10d      & 24                          &  & 08/10/16     & 08/23/16   \\
+26       & Order Custom Parts            & 10d      & 24                          &  & 08/10/16     & 08/23/16   \\
+27       & Assemble First Production Uni & 10d      & 26FS-13 units, 25 8 units   &  & 08/24/16     & 09/07/16   \\
+28       & Test Unit                     & 10d      & 27                          &  & 09/08/16     & 09/21/16   \\
+29       & Produce 30 Units              & 15d      & 28                          &  & 09/22/16     & 10/12/16   \\
+30       & Train Sales Representatives   & 24d      & 29                          &  & 09/16/16     & 10/19/16  
+\end{tabular}
+\end{table}
+
+
+
+
+
+\subsection{4. What other factors should be considered before finalizing the schedule? }
+
+
+There are always unforeseen events during a project which will risk the project getting completed. These can be classified as internal or external.
+
+
+Unforeseen internal events can be anything to do with the company and team as a whole. One of the most critical is team cohesion and skill. Because the project requires a lot of R\&D work and a very internal insular approach to developing the product the team needs to be cared for. Not only does the team need to be highly skilled, but also highly motivated. The motivation is quite crucial. As the network states, the team has to go from absolutely nothing to a finished innovative, industry leading product in less than 203 working days.
+Team morale can be crucial at attaining the projected deadline. If the team morale is low, people on the team will take longer to complete a task, therefore adding unforeseen delays into the project.
+Team members morale could become so low that many may decide to quit the team and go to another company in the development process. Losing a few low level team members is not as bad, but losing key team members whose skills may be needed down the road to integrate different modules may spell disaster for the project.
+Other team related delays may be to team members becoming ill during a critical phase, or having team members indisposed for a large amount of time due to holidays or maternity leave.
+
+
+The team budget also needs to be fixed and free of any and all company interference. Losing a portion of the budget halfway through development because it is being allocated to other sections in the company may seriously hinder the team. Should an event occur that would significantly delay the team, there won’t be a safety net in the budget to deal with it quickly and efficiently.
+
+
+Management is the last delay that could seriously affect the team. A change in management at a company, especially at the higher level can put a lot of jobs a projects at risk in a company. If the company had been underperforming for quite some time and a management change took place it could mean that there will be a lot of changes induced into the company. These changes can be anything form ow the company is structured to the market it operates and most importantly to what products it is going to release.
+If management decides that the nightingale project is not worth the time or money being allocated to it, then the project may be canceled mid development, which is an event that the team will have no power to change.
+
+
+The second part is external events which may affect the team completing the project. These events are a bit harder to prepare for due to the fact that it could be a wide array of type of delays. It could be anything from the building in which the team is working catching fire, thus adding a relocation cost and delay into the mix. It could also be the market being severely adverse to the type of product the team is making. Thus stopping or severely limiting the profit outcome of the product and thus of the project being decommissioned.
+Outside events could also be competitors. If the company's competitors have somehow heard or seen what the company is working on and have the ability and resources to produce a similar product of their own they may try to make a project of their own. The problem inherent here is that the competitor may allocate more money and resources in developing their product in an effort to beat the nightingale team to the market. Part of the reason upper management agreed on this project was on the condition that it would be finished by the October 25th deadline which would allow nightingale to be the first project of this kind on the market. If the competitors somehow manage to release their product at an expo which may take place in early september then they would have beaten the nightingale team to the market and thus the project would ultimately have failed its primary goal. That is, for the product to be the first of its kind on the market.
+
+
+Legal factors should also be considered before finalizing the schedule. An extensive search should be conducted to ensure that there really aren't any other product on the market already in other countries with the same specifications.
+If this will be a truly unique product, then it also needs to be legally protected through patents, design registrations and possibly even trademarking.
+
+
+
+
+Lastly the best argument is to always underpromise ad overdeliver. This meaning that the best solution for scheduling a project is to first have realistic goals with overestimated completion times. Thus even if an event occurs which risks to delay the project, the delay will fall into the accepted delay expected for that module. It is very rare for every module to face significant delay thus, by avoiding the expected delay as much as possible, the project ends up being completed ahead of schedule.
 
 
 \pagebreak
 
 
-\subsection{ALU}\label{sec:result}
+
+
+
+\subsection{5. Perform a risk analysis on the new project schedule }
+
+
+
+\begin{table}[H]
+\centering
+\caption{Risk Analysis}
+\label{my-label}
+\begin{tabular}{lllll}
+No. & Description                   & Event                                                           & Response                                                             & Contingency                                                           \\
+1        & Architectural Decisions       & Planning is Delayed                                             & Enforce strict timetable                                             & Status review often                                                   \\
+2        & Internal Specifications       & Planning is Delayed                                             & Enforce strict timetable                                             & Status review often                                                   \\
+3        & External Specifications       & Planning is Delayed                                             & Enforce strict timetable                                             & Status review often                                                   \\
+4        & Feature Specifications        & Planning is Delayed                                             & Enforce strict timetable                                             & Status review often                                                   \\
+5        & Voice Recognition             & Parts Delayed                                                   & Order from trusted supplier                     & Have backup supplier                                                  \\
+6        & Case                          & Case Delayed                                                    &Order from trusted supplier                     & Have backup supplier                                                  \\
+7        & Screen                        & Screen Delayed                                                  & Order from trusted supplier                      & Have backup supplier                                                  \\
+8        & Speaker Output Jacks          & Speaker Delayed                                                 &Order from trusted supplier                 & Have backup supplier                                                  \\
+9        & Tape Mechanism                & Tape Delayed                                                    & Order from trusted supplier                    & Have backup supplier                                                  \\
+10       & Databse                       & Database Delayed                                                & Ensured workload for team size                           & Reallocate resources                       \\
+11       & Microphone/Soundcard          & Microphone Delayed                                              & Order from trusted supplier                      & Have backup supplier                                                  \\
+12       & Pager                         & Pager Delayed                                                   & Order from trusted supplier                      & Have backup supplier                                                  \\
+13       & Barcode Reader                & Reader Delayed                                                  &Order from trusted supplier                     & Have backup supplier                                                  \\
+14       & Alarm Clock                   & Clock Delayed                                                   & Order from trusted supplier                     & Have backup supplier                                                  \\
+15       & Computer I/O                  & I/O delayed                                                     & Order from trusted supplier                     & Have backup supplier                                                  \\
+16       & Review Design                 & Review delayed              & Ensure team morale is high           & Company team building activity                                        \\
+17       & Price Components              & Pricing Delayed & Reallocate resources     & use different strategy                                \\
+18       & Integration                   & Integration delayed                    & Set up team meetings                                                 & Team meeting \\
+19       & Document Design               & Slow design                                                     & Speed up design timetable                                            & Reallocate team times                                                 \\
+20       & Buy Prototype Cmpnts  & Slow delivery                                                   & Use trusted vendors                                                  & Use multiple vendors                                                  \\
+21       & Assemble Prototypes           & Assembly problems                                   & Reasses prototype assembly                                           & Use different approach                                      \\
+22       & Lab test Prototypes           & Testing reveals bugs                                         & Fix Bugs                                                             & Reallocate resources         \\
+23       & Field Test Prototypes         & Testing reveals bugs                                         & Fix Bugs                                                             & Reallocate resources                       \\
+24       & Adjust Design                 & Redesign Delayed                                                & Fix Bugs                                                             & Reallocate resources                         \\
+25       & Order Stock Parts             & Stock parts delayed                                             & Use multiple vendors                                                 & Use trusted vendors                                                   \\
+26       & Order Custom Parts            & Parts delayed                                            & Use multiple vendors                                                 & Use trusted vendors                                                   \\
+27       & Assemble Unit & Assembly problems                                    & fix assembly                     & use different strategy              \\
+28       & Test Unit                     & Testing reveals bugs                                         & Fix bugs & testing thoroughly                                         \\
+29       & Produce 30 Units              & Poor quality                            & use trusted vendor                                      & Use multiple suppliers                                                \\
+30       & Train Sales Reps   & Hireing delayed                           & change hireing process         & Hire experienced sales personel               
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
 
 \begin{lstlisting}
 

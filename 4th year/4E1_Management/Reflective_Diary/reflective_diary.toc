@@ -1,4 +1,4 @@
 \contentsline {section}{List of Tables}{1}{section*.2}
 \contentsline {section}{\numberline {1}Simulation C}{1}{section.1}
-\contentsline {section}{\numberline {2}Simulation D}{2}{section.2}
-\contentsline {section}{\numberline {3}Simulation E}{2}{section.3}
+\contentsline {section}{\numberline {2}Simulation D}{3}{section.2}
+\contentsline {section}{\numberline {3}Simulation E}{5}{section.3}

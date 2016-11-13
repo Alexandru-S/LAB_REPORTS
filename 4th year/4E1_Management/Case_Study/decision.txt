@@ -1,0 +1,40 @@
+Decisions History E
+Wk.	Target Scope	Target Cmpltn.	Team Size	Team Skill Level	Outsourcing	Protos.	Meetings	Overtime
+10	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+9	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+8	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+7	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+6	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+5	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+4	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+3	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+2	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+1	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+
+Decisions History D
+Wk.	Target Scope	Target Cmpltn.	Team Size	Team Skill Level	Outsourcing	Protos.	Meetings	Overtime
+10	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+9	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+8	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+7	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+6	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+5	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+4	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+3	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+2	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+1	Multifunction	10	4	Medium-High	None	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+
+
+Decisions History C
+Wk.	Target Scope	Target Cmpltn.	Team Size	Team Skill Level	Outsourcing	Protos.	Meetings	Overtime
+11	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+10	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+9	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+8	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+7	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+6	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+5	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+4	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+3	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+2	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
+1	Multifunction	8	6	Medium-High	Extensive	0	 Coaching: 1 Standup: 1 Status: 1	Encouraged
