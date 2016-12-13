@@ -1,4 +1,0 @@
-*Producer Function
-
-*Global Count with Mutex
-*Consumer Function

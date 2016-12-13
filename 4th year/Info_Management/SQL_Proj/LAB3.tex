@@ -1,0 +1,318 @@
+\documentclass{article}
+
+
+\usepackage{lipsum}
+\usepackage[margin=1in,includefoot]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[english]{babel}
+\usepackage{subcaption}
+
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+% Header and Footer Stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+\lstset{
+ language=C++,
+ aboveskip=3mm,
+ belowskip=3mm,
+ showstringspaces=false,
+ columns=flexible,
+ basicstyle={\small\ttfamily},
+ numbers=none,
+ numberstyle=\tiny\color{gray},
+ keywordstyle=\color{blue},
+ commentstyle=\color{dkgreen},
+ stringstyle=\color{mauve},
+ breaklines=true,
+ breakatwhitespace=true,
+ tabsize=3
+}
+
+
+
+
+\begin{document}
+
+
+\begin{titlepage}
+	\begin{center}
+	\begin{align*}
+	\includegraphics[height=1.75in]{logo.png}
+	\end{align*}
+
+
+
+
+	
+	\line(1,0){300}\\
+	[0.25in]
+	\huge{\bfseries Electronic Health Records}\\
+	[2mm]
+	\line(1,0){200}\\
+	[1.5cm]
+	\textsc{\LARGE Database Assignment}\\
+	[0.75cm]
+	\textsc{\Large CS4D2A Information Management II}\\
+	[7cm]	
+	\end{center}
+	
+	
+	
+	\begin{flushright}
+	\textsc{\large Alexandru Sulea\\
+	D Stream\\
+	\#12315152\\
+	13 December 2016\\}
+	\end{flushright}
+	
+\end{titlepage}
+%Table of Contents Stuff%
+\tableofcontents
+%\listoffigures
+%\addcontentsline{toc}{section}{List of Figures}
+\listoftables
+\addcontentsline{toc}{section}{List of Tables}
+
+
+
+
+\thispagestyle{empty}
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+\pagebreak
+\section{Brief Description}
+The following database project was inspired by the idea of the growing trend of E health in Ireland. The following database is modeled along the lines of a medical clinic such as a GP or dentist office. 
+
+
+While many new offices have already been integrated with cloud systems, many rural and regional offices may have a minimal amount of database applications due to poor internet availability or simply a staff unwillingness to adapt new technologies.
+
+
+
+
+
+
+The following entities were chosen.
+Branch: The branch office which corresponds to a physical building. 
+The branch office has a many-to-many relationship to the equipment entity. This is due to the fact that many types of equipment (heart monitor, thermometer etc.) can be in many buildings. Should a disaster take place or an area become more busy than others, equipment should be able to be moved around between locations.
+The details associated with the branch entity are the address of the branch which can be multi varied and split up into Street, neighbourhood, city. The telephone number, 
+
+
+
+
+
+
+
+
+The link between branch and equipment is equipment which uses the primary keys of equipment and branch, the equiping has a date associated to it so as to be able to quickly know on what date, what components were supplied by whom. Helping with expenses and stock documentation.
+
+
+
+
+
+
+
+
+Equipment entity should be able to be supplied by multiple vendors to multiple branches of the clinic. 
+
+
+The equipment entity simply has the equipment type and supplier id along with a unique id associated with each individual medical product. A serial code of such.
+The equipment  entity is linked to the supplier by the supply verb.
+This supply verb will also have a date associated with it , thus denoting when the order was placed for the equipment.
+
+
+The supplier entity will have the suppliers available for equipping the branch. These suppliers can have their addresses, the telephone numbers, emails and as their primary key we can use the company registration number which is publicly available for all globally registered limited liability companies.
+
+
+
+
+
+
+On the other side of the graph there is the relationship between staff and branches. Normally there would be multiple staff to one branch, but for the interest of work flexibility and the possibility of having staff transfer around to different places the relationship has to be many to many.
+
+
+The verb between branch and staff will have the date at which the certain staff was assigend to a branch, thus the movement of staff to different branches can be tracked by time and or location.
+
+
+The staff entity will have the staff ppsn number as its primary key. The first second and last name of the staff member. Their qualification as a practitioner. Their addresses, telephone numbers and emails. This will also have their salary information.
+
+
+The verb between staff and diagnosis will be work. This again will use the primary keys of diagnosis and staff as well as the date, thus to show at what time did the staff work in the branch. 
+
+
+
+
+
+
+The other entity is the the diagnosis entity. The diagnosis entity corresponds to the diagnosis given to each patient .
+As its primary key, it will use the patient ppsn numbers as a diagnosis is only given to a patient at a time by 1 staff member at a time. Again the diagnosis entity can be administered by only one staff member but staff members can administer many diagnosis .
+The diagnosis entity will have the patient  ppsn, the diagnosis given and the staff member ppsn which performed the diagnosis, the diagnosis name, and the diagnosis details.
+
+
+The visit verb will be the act of patients visiting the gp clinic . This will be used to make the link between a patient visiting a clinic to receive a diagnosis. The visit verb will also have the date attribute attached to it as well as the branch key and patient ppsn. This is a crucial part as it will allow patients to make appointments on certain dates. Thus a patient does not have to be visited on the same day that they come into the clinic.
+A patient can receive many different diagnosis, and many different diagnoses can be made to patients.
+
+
+The last entity in the database is the patient's entity. This entity will store all the relevant patient information. The primary key will be the patient ppsn , other details will be the patient first,second and middle names. The patient's home address. The patient's phone and email details. The patient's age and the clinic that they are regionally associated to. 
+
+
+
+
+
+
+
+\section{Entity Relationship Diagram and a Relational Schema}
+
+\section{Functional dependency diagram}
+
+\section{Explination of semantic constraints}
+
+\section{Examples of database security}
+
+\section{Examples of:}
+\subsection{View creation}
+\subsection{Relational Select}
+\subsection{Update operations}
+\subsection{Triggers}
+\section{Additional Features}
+\section{APPENDIX (Listing of Database Content):}
+\subsection{Listing of data definition commands (create) used to create your database - including integrity constraints, e.g. table checks etc.}
+
+
+\begin{lstlisting}
+
+CREATE database EHealth;
+USE EHealth;
+
+CREATE TABLE supplier(
+comp_reg_no      NUMBER(9) PRIMARY KEY,
+comp_name      VARCHAR2(25) NOT NULL,
+comp_addr        VARCHAR2(25) NOT NULL,
+comp_email        VARCHAR2(25),
+comp_tel        NUMBER(5) NOT NULL,
+comp_web        VARCHAR2(25));
+
+CREATE TABLE equipment(
+equip_no      NUMBER(9) PRIMARY KEY,
+equip_name      VARCHAR2(25) NOT NULL,
+equip_supp        Number(9) NOT NULL,
+equip_desc        VARCHAR2(25));
+
+INSERT INTO supplier(COMP_REG_NO, COMP_NAME,
+ COMP_ADDR, COMP_EMAIL,
+  COMP_TEL, COMP_WEB) VALUES (111111111,
+   'Supplier ONE Health',
+	 'Main Street One', 'one@one.com',
+	  123456789, 'one.com');
+
+
+\end{lstlisting}
+
+\subsection{Listing of database population commands (Insert) used to populate your database}
+
+
+
+
+
+
+
+
+
+
+
+\begin{lstlisting}
+		inRange(hls_test, Scalar(10,10,55), 
+\end{lstlisting}
+
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=5cm]{logo.png} 
+\caption{A previous, less succesfull composite image using the previous $($a$)$ red sample image}
+\label{fig:subim1}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=5cm]{logo.png}
+\caption{The composite image showing the current red mixels detected}
+\label{fig:subim2}
+\end{subfigure}
+\caption{Figure of constructed tresholded images}
+\label{fig:image2}
+\end{figure}
+
+
+
+
+
+\begin{lstlisting}
+
+\end{lstlisting}
+%\includegraphics[height=2in,width=5in]{}
+%\includegraphics[height=2in,width=5in]{}
+
+
+
+
+\begin{figure}[H]
+\center
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=4cm]{logo.png} 
+\caption{The image shows the scoring achieved for the red pixels}
+\label{fig:subim2}
+\end{subfigure}
+\caption{The figure shows the scores for red pixel recognition}
+\label{fig:image2}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{lstlisting}
+		Mat blk_ff = cropp_white.clone();
+	
+\end{lstlisting}
+
+
+\pagebreak
+\end{document}
+
+

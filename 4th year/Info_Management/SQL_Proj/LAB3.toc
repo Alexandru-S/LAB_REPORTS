@@ -1,0 +1,16 @@
+\select@language {english}
+\contentsline {section}{List of Tables}{1}{section*.2}
+\contentsline {section}{\numberline {1}Brief Description}{1}{section.1}
+\contentsline {section}{\numberline {2}Entity Relationship Diagram and a Relational Schema}{2}{section.2}
+\contentsline {section}{\numberline {3}Functional dependency diagram}{2}{section.3}
+\contentsline {section}{\numberline {4}Explination of semantic constraints}{2}{section.4}
+\contentsline {section}{\numberline {5}Examples of database security}{2}{section.5}
+\contentsline {section}{\numberline {6}Examples of:}{2}{section.6}
+\contentsline {subsection}{\numberline {6.1}View creation}{2}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Relational Select}{2}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Update operations}{2}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Triggers}{2}{subsection.6.4}
+\contentsline {section}{\numberline {7}Additional Features}{2}{section.7}
+\contentsline {section}{\numberline {8}APPENDIX (Listing of Database Content):}{2}{section.8}
+\contentsline {subsection}{\numberline {8.1}Listing of data definition commands (create) used to create your database - including integrity constraints, e.g. table checks etc.}{2}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Listing of database population commands (Insert) used to populate your database}{2}{subsection.8.2}
