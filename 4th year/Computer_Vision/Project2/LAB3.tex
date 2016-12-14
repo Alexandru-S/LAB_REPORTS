@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass{article}
 
 
@@ -111,8 +112,8 @@
 \pagebreak
 \section{RED PIXEL DETECTION}
 \subsection{Intro}\label{sec:intro}
-The following lab was based on the procedure of determining when a door is opened and closed in a room given that there is a person walking through the door and that the light in the scene can vary depepnding on the lighting conditions in the room but also from the light propagating in the scene from the hallway.\\
-Unlike the previous lab, this required a mixture of different procedures all acting at the same time so as to not only remove potential error inducing details but to also improve the accuracy of the door opening.\\
+The following lab was based on the procedure of determining when a door is opened and closed in a room given that there is a person walking through the door and that the light in the scene can vary depending on the lighting conditions in the room but also from the light propagating from other sources.\\
+The lab was thus conducted with the objective of detecting a door and identifying when said door closes and opens with respect to time as defined in frames.\\
 
 \begin{lstlisting}
 
@@ -121,132 +122,169 @@ Unlike the previous lab, this required a mixture of different procedures all act
 
 \end{lstlisting}
 \subsection{Procedure}\label{sec:intro}
-Taking notes of what was discussed and shown in class together with the theory and description on the official opencv page, the following procedure was planned out. 
+Taking notes of what was discussed and shown in class together with the theory and description on the official Open CV page, the following procedure was planned out. 
 The scene itself consists of two distinct parts. The first being a man walking from foreground to background and back, the second being that a door opens and closes at arbitrary intervals. The person in the picture serves no real purpose for this lab other than to induce uncertainty of when the door opens and closes. Thus the first operation is to perform a background subtraction on the person and have them removed as much as possible from the scene. This will not only allow us to see the door more clearly, but it will also help clean up the frames and make Hough Lines more accurate later on.\\
 
 
-Once the person is removed from the picture, the door detection must begin.\\ Here a number of already built in opencv procedures can be used such as HoughLines() , HoughLineP() or SNP. Although SNP is somewhat more accurate then HoughLineP(), the later is also more easily custamizable and faster to process. Given how door frame tracking throughout every video frame was not the objective and only opening and closing, HoughLineP was chosen to help with the door detection. \\
-Here whatever lines were detected in the scene by houghlinesP, only the lines that were horizontal or vertical, given 10 degrees of error were accepted as the true vertical and horizontal lines.\\
-After the horizontal and vertical lines were filtered through, their deterinates are calculated and compared to all the other vertical or horizontal lines as to check if the lines form a box at any point. Should the lines intersect, a circle is drawn at the intersection points.
+Once the person is removed from the picture, the door detection must begin.\\ Here a number of already built in Open CV procedures can be used such as HoughLines() , HoughLineP() or Line Segment Detector. Although LSD is somewhat more accurate then HoughLineP(), the later is also more easily customizable and faster to process. Given how door frame tracking throughout every video frame was not the objective and only opening and closing, HoughLineP() was chosen to help with the door detection. \\
+Here whatever lines were detected in the scene by HoughlinesP(), only the lines that were horizontal or vertical, given 10 degrees of error were accepted as the true vertical and horizontal lines.\\
+After the horizontal and vertical lines were filtered through, their determinate is calculated and compared to all the other vertical or horizontal lines as to check if the lines form a box at any point. Should the lines intersect, a circle is drawn at the intersection points.\\
+Then a diagonal line is searched for, its point calculated as well as its determinate. Should the diagonal line intersect one of the points where the horizontal and vertical lines intersect, then this is assumed to top side of the door opening, thus creating an angled line.\\ 
+
+The steps for  creating the solution were as follows:\\
+
+The video file is first loaded in to MOG2 which is a background subtraction method, MOG2 was used over MOG due to MOG2 being more adaptable to changing light conditions and also to covering more of the subject with the mask.\\
+A bit_wise not is then performed on the mask so as to turn it into a foreground subtraction method. This way anything that moves in the foreground is made invisible while the background is largely unaffected The learning rate for the method was chosen at 0.005 . This was found to have the perfect balance between making the subject invisible, while at the same time keeping the moving door as part of the background.\\
 
 
 
 
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{ROADSIGN_samplered.png} 
-\caption{The second last red sample}
+\includegraphics[width=0.5\linewidth, height=5cm]{prof_color.png} 
+\caption{unaltered image}
 \label{fig:subim1}
 \end{subfigure}
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{ROADSIGN_samplered2.png}
-\caption{The red sample image used for the current results}
-\label{fig:subim2}
-\end{subfigure}
-\caption{Figure of constructed red sample images}
+
+\caption{Figure of normal color frame}
 \label{fig:image2}
 \end{figure}
-Thus, a new sample red image had to be created to make a histogram which would only contain the red present in road signs. To make the red sample image  the photoshop program gimp was used to make a simple grid in which different red hues were stored. The red hue samples were taken from the sample road signs image. The images road signs were sampled at different points so as to get an even, accurate representation of the red color used in the road signs.\\
-Once the new sample red image had been created using different points on road signs in the sample road signs image the code could finally be written in.\\
-The first step is to load in the images and check that the correct images have been loaded by the program without any exceptions or errors being thrown. That is where this part of the code comes in.
+
 \begin{lstlisting}
-Mat roadsign_test2 = imread("filename.JPG", CV_LOAD_IMAGE_UNCHANGED);
-if (roadsign_sample.empty()){
-		printf("Cannot open video file: \n");
-		return -1;}
-	else { ...}
+			pMOG2->apply(frame_vid_N, fgMaskMOG2, 0.005);
+bitwise_not(fgMaskMOG2, fgMaskMOG2);
+absdiff(frame_vid_N, fgMaskMOG2, vid_ands);
+//imshow("wvvb", vid_ands);
 \end{lstlisting}
-Next the image is converted to HSV or Hue Saturation Value so that we can separate the hue from the rest of the image. Since we are only interested in the color red and its multiple shades we will only be using hue, thus creating a 1D Red Hue Histogram.
 
+Following this procedure, the image was ready to be converted to be able to accept HoughLinesP(). To produce the desired lines, the image was converted to gray scale, so as to be easier to perform adaptive thresholding Adaptive thresholding was chosen due to its adaptability in varying light conditions. A binary picture was then received which needed to be blurred somewhat to regain some of the lost line continuity. The picture was now ready to be inserted into canny for border detection and then converted back to BGR so as to be able to be combined with other images.
 
 \begin{lstlisting}
-//hue is from 0 to 180
-		float huerange[] = {0, 180};
-		//use only hue value
-		hue_red.create(hsv_sample_red.size(), hsv_sample_red.depth());
-		mixChannels(&hsv_test, 1, &hue_test, 1, ch, 1);
-		/*Calculate and Normalize Hist*/
-		calcHist(&hue_red, 1, ch, Mat(), hist_red, 1, &histSize_red, &ranges, true, false);
-		normalize(hist_red, hist_red, 0, 255, NORM_MINMAX, -1, Mat());
-		//drawing out the red histogram
-		Mat histImg = Mat::zeros(w, h, CV_8UC3);
-		for (int i = 0; i < bins; i++)
-		{
-			rectangle(histImg, Point(i*bin_w, h), Point((i + 1)*bin_w, h - cvRound(hist_red.at<float>(i)*h / 255.0)), Scalar(0, 0, 255), -1);}
-		calcBackProject(&hue_test, 1, 0, hist_red, backproj, &ranges, 1, true);	
-		threshold(backproj, thresh_backproj, 8, 255, CV_THRESH_BINARY);
-		dilate(thresh_backproj, dil_thresh_backproj, Mat(), Point(-1, -1), 2, 1, 1);
+cvtColor(frame_vid_N, frame_grey, CV_BGR2GRAY);
+adaptiveThreshold(frame_grey, frame_g_tresh, 75, ADAPTIVE_THRESH_GAUSSIAN_C, CV_THRESH_BINARY, 13, 4);
+GaussianBlur(frame_g_tresh, frame_blur, Size(5, 5), 1, 1, 1);
+Canny(frame_blur, dst, 50, 200, 3);
+cvtColor(dst, cdst, COLOR_GRAY2BGR);
+
 \end{lstlisting}
 
 
-To preserve the traffic sign shapes in the image throughout the contour hierarchy process the final red pixel detection process was altered to allow for the black and white pixel detection later on.\\
+
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{N_DIL_THRESH_BKPROJ.PNG} 
-\caption{The back projected image}
+\includegraphics[width=2cm\linewidth, height=4cm]{door_mask.PNG} 
+\caption{MOG2}
 \label{fig:subim1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
 
-\includegraphics[width=0.9\linewidth, height=5cm]{N_MORPH_DIL_INRNG.PNG}
-\caption{The inRange thresholded image}
+\includegraphics[width=0.5\linewidth, height=5cm]{door_neg_mask.PNG}
+\caption{bitwise not MOG2 }
 \label{fig:subim2}
 \end{subfigure}
-\caption{Figure of constructed tresholded images}
+\caption{transition}
 \label{fig:image2}
 \end{figure}
 
 \begin{figure}[H]
 \center
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{N_BIT_AND.PNG} 
-\caption{The two images above ANDed give this result}
+\includegraphics[width=0.5\linewidth, height=5cm]{door_back_proj.PNG} 
+\caption{given result of MOG2}
 \label{fig:subim1}
 \end{subfigure}
-\caption{Figure of constructed of the two tresholded images}
+\caption{foreground is now transparent}
 \label{fig:image2}
 \end{figure}
 
 
 \begin{lstlisting}
-		inRange(hls_test, Scalar(10,10,55), Scalar(210, 190, 200), inrange_test);
-		dilate(inrange_test, dil_inrange_test, Mat(), Point(-1, -1), 2, 1, 1);
-		// Two images, back proj and inrange merged together
-		bitwise_and(dil_thresh_backproj, morph_dil_inrange_test, band_rng_bkprj);
-		dilate(band_rng_bkprj, band_rng_bkprj, Mat(), Point(-1, -1), 1, 1, 1);
-		/*Dilate and morphology again to close the remaining gaps*/
-		morphologyEx(band_rng_bkprj, band_rng_bkprj, MORPH_TOPHAT, element, Point(-1, -1), 50);
-		bitwise_and(roadsign_test,roadsign_test,redcrop, band_rng_bkprj);
+	HoughLinesP(dst, lines4, 1, CV_PI / 180, 80+60, 50, 50);
+	int vert_line_count = 0;
+	int hor_line_count = 0;
+	
 \end{lstlisting}
 
 
 \begin{figure}[H]
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{CROPP.PNG} 
-\caption{A previous, less succesfull composite image using the previous $($a$)$ red sample image}
+\includegraphics[width=0.5\linewidth, height=5cm]{door_closed_h_v.PNG} 
+\caption{video 2 door houghlinesp}
 \label{fig:subim1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{N_RED_CROP.PNG}
-\caption{The composite image showing the current red mixels detected}
+\includegraphics[width=0.5\linewidth, height=5cm]{door2_h_v.PNG}
+\caption{video 1 door houghlinesp}
 \label{fig:subim2}
 \end{subfigure}
-\caption{Figure of constructed tresholded images}
+\caption{houghlinep}
 \label{fig:image2}
 \end{figure}
 
 
-
+The rest of the code has to do with simple detection of houghlines given their angles. Thus only the horizontal , vertical and in specific cases, diagonal lines are stored. The code below shows how this was achieved. All code was sourced from basic calculus with the exception of the intersection algorithm which was taken from an opencv online tutorial.
 
 \begin{lstlisting}
-CompareRecognitionResults(band_rng_bkprj, ground_red);
-\end{lstlisting}
-The above code shows the use of the function CompareRecognitionResults to compare the example thresholded red pixel image with the thresholded ground pixel image to achieve a score for the performance method. \\
-The ground image is converted to HLS and then used inRange on it as discussed before. The only difference to this is that the ground image has only one overall value for each color present, making it very easy to threshold out the colors. Thus the following code was used to get the ground thresholded images of the three colors.
-\begin{lstlisting}
-	inRange(hls_ground, Scalar(0, 0, 255), Scalar(0, 0, 255), ground_white);
-	inRange(hls_ground, Scalar(0, 255, 255), Scalar(0, 255, 255), ground_red);
-	inRange(hls_ground, Scalar(0, 0, 0), Scalar(0, 0, 0), ground_black);
+for (size_t i = 0; i < lines4.size(); i++)
+{
+Vec4i l = lines4[i];
+/*get angle of line*/
+double angle = atan2(l[3] - l[1], l[2] - l[0]) * 180 / CV_PI;
+/*horizontal lines*/
+if (angle <5 && angle >= -5 || angle <-175 && angle >= 175)
+{
+hor_line_count++;
+h_l.push_back(l);
+//cout << "HORIZONTAL LINES " <<Point(l[0],l[1])<<Point(l[2],l[3]) <<endl;
+line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 3, CV_AA);
+}
+/*vertical lines */
+if (angle< 95 && angle >= 85 || angle < -85 && angle >= -95)
+{
+vert_line_count++;
+v_l.push_back(l);
+//cout << "VERTICAL LINES " << Point(l[0], l[1]) << Point(l[2], l[3]) << endl;
+line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(255, 0, 0), 3, CV_AA);		
+}
+/*if door not closed*/
+if (angle <-5 && angle >= -25 || angle <175 && angle >= 150 || angle >-175 && angle <= -150)
+{
+if (frame_thresh > frame_count - last_frame) {
+open_close_count++;
+oc_l.push_back(l);
+//cout << "DIAGONAL LINES " << Point(l[0], l[1]) << Point(l[2], l[3]) << "FRAME " << frame_count << endl;
+}
+else {
+last_frame = frame_count;
+diag_line_count++;
+diag_l.push_back(l);
+line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 200,200), 3, CV_AA);
+if (diag_line_count % 2 == 0) {
+cout << "Door Closes on points " << Point(l[0], l[1]) << Point(l[2], l[3]) << " at FRAME " << frame_count << endl;
+}
+else {
+cout << "Door Opens on points " << Point(l[0], l[1]) << Point(l[2], l[3]) << " at FRAME " << frame_count << endl;
+}
+}}}
+/*Draw circle at line intersection*/
+for (int i = 0; i < h_l.size(); i++)
+{
+for (int j = 0; j < v_l.size(); j++)
+{
+Point poi = intersection(Point(h_l[i][0], h_l[i][1]), Point(h_l[i][2], h_l[i][3]), Point(v_l[j][0], v_l[j][1]), Point(v_l[j][2], v_l[j][3]));
+circle(cdst, poi, 6, Scalar(0, 255, 0),  5,  8,0);
+}}
+for (int i = 0; i < h_l.size(); i++)
+{
+for (int j = 0; j < oc_l.size(); j++)
+{
+Point poi = intersection(Point(h_l[i][0], h_l[i][1]), Point(h_l[i][2], h_l[i][3]), Point(oc_l[j][0], oc_l[j][1]), Point(oc_l[j][2], oc_l[j][3]));
+if ( (Point(h_l[i][0], h_l[i][1]) == Point(oc_l[j][0], oc_l[j][1])) || (Point(h_l[i][2], h_l[i][3]) == Point(oc_l[j][2], oc_l[j][3])) || (Point(h_l[i][2], h_l[i][3]) == Point(oc_l[j][0], oc_l[j][1])) || (Point(h_l[i][0], h_l[i][1]) == Point(oc_l[j][2], oc_l[j][3])) )
+{
+line(cdst, Point(oc_l[i][0], oc_l[i][1]), Point(oc_l[i][2], oc_l[j][3]), Scalar(0, 200, 200), 3, CV_AA);
+circle(cdst, poi, 6, Scalar(200, 0, 200), 5, 8, 0);
+}}}
+
 \end{lstlisting}
 %\includegraphics[height=2in,width=5in]{}
 %\includegraphics[height=2in,width=5in]{}
@@ -264,37 +302,74 @@ Given as how the ground truth was provided or this lab in terms of door frame po
 \begin{figure}[H]
 \center
 \begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=4cm]{N_RED_STAT.PNG} 
-\caption{The image shows the scoring achieved for the red pixels}
+\includegraphics[width=0.9\linewidth, height=4cm]{door1_score.PNG} 
+\caption{}
 \label{fig:subim2}
 \end{subfigure}
-\caption{The figure shows the scores for red pixel recognition}
+\caption{Tdoor1 score}
 \label{fig:image2}
 \end{figure}
 
-\begin{table}[]
-\centering
-\caption{RED PIXEL DETECTION VALUES}
-\label{my-label}
-\begin{tabular}{@{}|l|l|@{}}
-\toprule
-{\ul TYPE} & {\ul VALUE} \\ \midrule
-Precision  & 0.716025    \\ \midrule
-Recall     & 0.994828     \\ \midrule
-Accuracy   & 0.931088    \\ \bottomrule
-\end{tabular}
-\end{table}
 
+\begin{figure}[H]
+	\center
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth, height=4cm]{Door2_score.PNG} 
+		\caption{}
+		\label{fig:subim2}
+	\end{subfigure}
+	\caption{Tdoor2 score}
+	\label{fig:image2}
+\end{figure}
+
+
+\begin{figure}[H]
+	\center
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth, height=4cm]{door3_score.PNG} 
+		\caption{}
+		\label{fig:subim2}
+	\end{subfigure}
+	\caption{Tdoor1 score}
+	\label{fig:image2}
+\end{figure}
+
+
+\begin{figure}[H]
+	\center
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth, height=4cm]{door4_score.PNG} 
+		\caption{}
+		\label{fig:subim2}
+	\end{subfigure}
+	\caption{Tdoor2 score}
+	\label{fig:image2}
+\end{figure}
 
 \subsection{Discussion}\label{sec:intro}
 While solving the problems inherent in detecting a door, a number of problems arose. The main being that, even though the solution was designed to fit a wide array of cases, it will fail in many more due to a variety of problems such as:
 
 \begin{enumerate}
-	\item The precision and accuracy of the solution is heavily depepndent of the lighting conditions present and also the color difference of the door as oposed to its background.\\ While doing the lab, the algorythms continuily had problems detecting where the door ended and the door frame ended, due to the fact that the two were very flush and of the same design and color.
-	\item The door shape itself would need to have 4 corners to provide an accurate door representation, any lift doors or star trek/ star wars type doors would not be detected. Thus leading humanity to be vulnerable to attack :)
+	\item The precision and accuracy of the solution is heavily dependent of the lighting conditions present and also the color difference of the door as opposed to its background.\\ While doing the lab, algorithms continually had problems detecting where the door ended and the door frame ended, due to the fact that the two were very flush and of the same design and color.
+	\item The door shape itself would need to have 4 corners to provide an accurate door representation, any lift doors or star trek/ star wars type doors would not be detected. 
+	
+	\item The next group of problems arise once the video is recorded of a viable door opening and closing Assuming that the door conforms to the standard door dimensions and that the video angle is not skewed then the question of lighting comes into effect. Too much or little light, such as when a powerful lamp is turned on or when the lights are off can seriously effect the accuracy of the algorithm. One option to offset this issue is to use infra red enabled cameras so as to get a more light independent picture.
+	
+	\item Even if a door is detected, the continual detection of the door will depend on a clear line of sight from the camera to the door and also a preferably higher definition image for improved accuracy. People or objects existing between the camera and door line of sight can seriously hamper the accuracy. Thus to mitigate this effect, a back projection algorithm is generally advised.
+	
+	
 \end{enumerate}
 
 
+The problems outlined above are just the general outline. There are many more problems which may be case specific. In manual doors for example, a door opening or closing at an uneven rate can also decrease the accuracy and precision of the door detection.\\
+Lastly there are the accuracy errors which were due to false positives and false negatives in the video.\\
+The false positives were mostly due to noise in the original video, which through thresholding and canny promulgated in the HoughLines video. This was easy to fix by adjusting the thresholding of the video to a value at which there was a minimum amount of error but still enough detail for lines to be drawn.\\
+Light reflectance was found to be a major cause of the earliest false positives. As the door is not mat but glossy. This property combined with light shining directly on the door cause the door to somewhat reflect the objects in front of it but behind the camera. Giving the impression that the door may be moving, when in fact it is static.
+
+
+The false negatives were somewhat harder to solve as important details in the video may be lost through canny. Thus a line that existed and was clearly defined in the color, unaltered version of the video may have dissipated. This can be somewhat corrected by extending or merging lines in the HoughLinesP() function, although this does not work for all cases. \\
+
+Lastly, the solution presented does not solve for all cases. One example may be that if a door is continuously rocked back and forth. Such as in a busy hallway where someone may hold the door for many other people. The algorithm will see the back and forth movement of the door as opening and closing. As there is no state of a door being opened. Only that a door is about to be opened or about to eb closed.\\
 
 
 

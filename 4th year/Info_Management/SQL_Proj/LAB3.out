@@ -3,13 +3,12 @@
 \BOOKMARK [1][-]{section.2}{Entity Relationship Diagram and a Relational Schema}{}% 3
 \BOOKMARK [1][-]{section.3}{Functional dependency diagram}{}% 4
 \BOOKMARK [1][-]{section.4}{Explination of semantic constraints}{}% 5
-\BOOKMARK [1][-]{section.5}{Examples of database security}{}% 6
-\BOOKMARK [1][-]{section.6}{Examples of:}{}% 7
-\BOOKMARK [2][-]{subsection.6.1}{View creation}{section.6}% 8
-\BOOKMARK [2][-]{subsection.6.2}{Relational Select}{section.6}% 9
-\BOOKMARK [2][-]{subsection.6.3}{Update operations}{section.6}% 10
-\BOOKMARK [2][-]{subsection.6.4}{Triggers}{section.6}% 11
-\BOOKMARK [1][-]{section.7}{Additional Features}{}% 12
-\BOOKMARK [1][-]{section.8}{APPENDIX \(Listing of Database Content\):}{}% 13
-\BOOKMARK [2][-]{subsection.8.1}{Listing of data definition commands \(create\) used to create your database - including integrity constraints, e.g. table checks etc.}{section.8}% 14
-\BOOKMARK [2][-]{subsection.8.2}{Listing of database population commands \(Insert\) used to populate your database}{section.8}% 15
+\BOOKMARK [1][-]{section.5}{Examples of:}{}% 6
+\BOOKMARK [2][-]{subsection.5.1}{View creation}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{Relational Select}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.3}{Update operations}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.4}{Triggers}{section.5}% 10
+\BOOKMARK [1][-]{section.6}{Additional Features}{}% 11
+\BOOKMARK [1][-]{section.7}{APPENDIX \(Listing of Database Content\):}{}% 12
+\BOOKMARK [2][-]{subsection.7.1}{Listing of data definition commands \(create\) used to create your database - including integrity constraints, e.g. table checks etc.}{section.7}% 13
+\BOOKMARK [2][-]{subsection.7.2}{Listing of database population commands \(Insert\) used to populate your database}{section.7}% 14
