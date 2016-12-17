@@ -66,10 +66,6 @@
 	\begin{align*}
 	\includegraphics[height=1.75in]{logo.png}
 	\end{align*}
-
-
-
-
 	
 	\line(1,0){300}\\
 	[0.25in]
@@ -82,8 +78,6 @@
 	\textsc{\Large CS4053 Computer Vision}\\
 	[7cm]	
 	\end{center}
-	
-	
 	
 	\begin{flushright}
 	\textsc{\large Alexandru Sulea\\
@@ -100,18 +94,13 @@
 \listoftables
 \addcontentsline{toc}{section}{List of Tables}
 
-
-
-
 \thispagestyle{empty}
 \cleardoublepage
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-
 \pagebreak
-\section{RED PIXEL DETECTION}
-\subsection{Intro}\label{sec:intro}
+\section{Intro}\label{sec:intro}
 The following lab was based on the procedure of determining when a door is opened and closed in a room given that there is a person walking through the door and that the light in the scene can vary depending on the lighting conditions in the room but also from the light propagating from other sources.\\
 The lab was thus conducted with the objective of detecting a door and identifying when said door closes and opens with respect to time as defined in frames.\\
 
@@ -121,7 +110,7 @@ The lab was thus conducted with the objective of detecting a door and identifyin
 
 
 \end{lstlisting}
-\subsection{Procedure}\label{sec:intro}
+\section{Procedure}\label{sec:intro}
 Taking notes of what was discussed and shown in class together with the theory and description on the official Open CV page, the following procedure was planned out. 
 The scene itself consists of two distinct parts. The first being a man walking from foreground to background and back, the second being that a door opens and closes at arbitrary intervals. The person in the picture serves no real purpose for this lab other than to induce uncertainty of when the door opens and closes. Thus the first operation is to perform a background subtraction on the person and have them removed as much as possible from the scene. This will not only allow us to see the door more clearly, but it will also help clean up the frames and make Hough Lines more accurate later on.\\
 
@@ -134,7 +123,8 @@ Then a diagonal line is searched for, its point calculated as well as its determ
 The steps for  creating the solution were as follows:\\
 
 The video file is first loaded in to MOG2 which is a background subtraction method, MOG2 was used over MOG due to MOG2 being more adaptable to changing light conditions and also to covering more of the subject with the mask.\\
-A bit_wise not is then performed on the mask so as to turn it into a foreground subtraction method. This way anything that moves in the foreground is made invisible while the background is largely unaffected The learning rate for the method was chosen at 0.005 . This was found to have the perfect balance between making the subject invisible, while at the same time keeping the moving door as part of the background.\\
+
+A bitwise not is then performed on the mask so as to turn it into a foreground subtraction method. This way anything that moves in the foreground is made invisible while the background is largely unaffected The learning rate for the method was chosen at $0.005$ . This was found to have the perfect balance between making the subject invisible, while at the same time keeping the moving door as part of the background.\\
 
 
 
@@ -157,7 +147,7 @@ absdiff(frame_vid_N, fgMaskMOG2, vid_ands);
 //imshow("wvvb", vid_ands);
 \end{lstlisting}
 
-Following this procedure, the image was ready to be converted to be able to accept HoughLinesP(). To produce the desired lines, the image was converted to gray scale, so as to be easier to perform adaptive thresholding Adaptive thresholding was chosen due to its adaptability in varying light conditions. A binary picture was then received which needed to be blurred somewhat to regain some of the lost line continuity. The picture was now ready to be inserted into canny for border detection and then converted back to BGR so as to be able to be combined with other images.
+Following this procedure, the image was ready to be converted to be able to accept HoughLinesP(). To produce the desired lines, the image was converted to gray scale, so as to be easier to perform adaptive thresholding. Adaptive thresholding was chosen due to its adaptability in varying light conditions. A binary picture was then received which needed to be blurred somewhat to regain some of the lost line continuity. The picture was now ready to be inserted into canny for border detection and then converted back to BGR so as to be able to be combined with other images.
 
 \begin{lstlisting}
 cvtColor(frame_vid_N, frame_grey, CV_BGR2GRAY);
@@ -170,21 +160,25 @@ cvtColor(dst, cdst, COLOR_GRAY2BGR);
 
 
 
-\begin{figure}[H]
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=2cm\linewidth, height=4cm]{door_mask.PNG} 
-\caption{MOG2}
-\label{fig:subim1}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}
 
-\includegraphics[width=0.5\linewidth, height=5cm]{door_neg_mask.PNG}
-\caption{bitwise not MOG2 }
-\label{fig:subim2}
-\end{subfigure}
-\caption{transition}
-\label{fig:image2}
+
+
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.5\linewidth, height=5cm]{door_mask.PNG} 
+		\caption{MOG2}
+		\label{fig:subim1}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.5\linewidth, height=5cm]{door_neg_mask.PNG}
+		\caption{bitwise not MOG2}
+		\label{fig:subim2}
+	\end{subfigure}
+	\caption{Masks created from background segregation}
+	\label{fig:image2}
 \end{figure}
+
+
 
 \begin{figure}[H]
 \center
@@ -222,7 +216,7 @@ cvtColor(dst, cdst, COLOR_GRAY2BGR);
 \end{figure}
 
 
-The rest of the code has to do with simple detection of houghlines given their angles. Thus only the horizontal , vertical and in specific cases, diagonal lines are stored. The code below shows how this was achieved. All code was sourced from basic calculus with the exception of the intersection algorithm which was taken from an opencv online tutorial.
+The code below performs a simple detection of houghlinesP given their angles. Thus only the horizontal , vertical and in specific cases, diagonal lines are stored. The code below shows how this was achieved. All code was sourced from basic calculus with the exception of the intersection algorithm which was taken from an opencv online tutorial.
 
 \begin{lstlisting}
 for (size_t i = 0; i < lines4.size(); i++)
@@ -230,6 +224,12 @@ for (size_t i = 0; i < lines4.size(); i++)
 Vec4i l = lines4[i];
 /*get angle of line*/
 double angle = atan2(l[3] - l[1], l[2] - l[0]) * 180 / CV_PI;
+\end{lstlisting}
+Code above runs a loop for every line detected in the frame. with the help of houghlineP detection we know that the number of lines detected is lines4.size(). The angle is then calculated through basic calculus and then converted to degrees as atan2() gives an answer in radians.
+
+
+\begin{lstlisting}
+
 /*horizontal lines*/
 if (angle <5 && angle >= -5 || angle <-175 && angle >= 175)
 {
@@ -246,6 +246,14 @@ v_l.push_back(l);
 //cout << "VERTICAL LINES " << Point(l[0], l[1]) << Point(l[2], l[3]) << endl;
 line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(255, 0, 0), 3, CV_AA);		
 }
+
+\end{lstlisting}
+The code above filters all the lines detected in the frame and only gives the points of the lines which are horizontal or vertical  $\pm{5}$ degrees. This is done in an effort to find the door frames. Since most standard doors have exclusively horizontal and vertical edges, it is then safe to assume that searching for those edges will identify a door, among other objects.\\
+
+
+\begin{lstlisting}
+
+
 /*if door not closed*/
 if (angle <-5 && angle >= -25 || angle <175 && angle >= 150 || angle >-175 && angle <= -150)
 {
@@ -254,6 +262,12 @@ open_close_count++;
 oc_l.push_back(l);
 //cout << "DIAGONAL LINES " << Point(l[0], l[1]) << Point(l[2], l[3]) << "FRAME " << frame_count << endl;
 }
+
+
+\end{lstlisting}
+The above code filters and counts the diagonal lines. These lines will help identify our door as a door. Even tho most objects in the world are square in shape, very few can make a diagonal line with what was once a horizontal one. This phenomenon is exclusive to a plane rotating either to or from the camera, but the edge rotating away from view and the edge rotating towards the view will create a diagonal line. Thus providing a means to identify doors.\\
+\begin{lstlisting}
+
 else {
 last_frame = frame_count;
 diag_line_count++;
@@ -274,6 +288,13 @@ for (int j = 0; j < v_l.size(); j++)
 Point poi = intersection(Point(h_l[i][0], h_l[i][1]), Point(h_l[i][2], h_l[i][3]), Point(v_l[j][0], v_l[j][1]), Point(v_l[j][2], v_l[j][3]));
 circle(cdst, poi, 6, Scalar(0, 255, 0),  5,  8,0);
 }}
+
+\end{lstlisting}
+Once the horizontal, diagonal and vertical lines have been detected the filter in the code above will find the points of intersection from the vertical and horizontal and draw them.\\
+
+\begin{lstlisting}
+
+
 for (int i = 0; i < h_l.size(); i++)
 {
 for (int j = 0; j < oc_l.size(); j++)
@@ -286,67 +307,82 @@ circle(cdst, poi, 6, Scalar(200, 0, 200), 5, 8, 0);
 }}}
 
 \end{lstlisting}
-%\includegraphics[height=2in,width=5in]{}
-%\includegraphics[height=2in,width=5in]{}
+Those intersecting points are then compared with any diagonal line points that may intersect them. This will lead to the horizontal line turning into the diagonal line as discussed above. Once these lines appear, they are stored and counted. Due to watching the video we know that there are 2 sets of door opening and closing. Furthermore we know that a door cant possibly open and close within 50 frames. Thus a count is implemented to accurately detect the diagonal line when it appears but also to filter out any line repeats that may occur due to thresholding induced defects.
 
 
 
 
-\subsection{Performance}\label{sec:intro}
+\section{Performance}\label{sec:intro}
 Given as how the ground truth was provided or this lab in terms of door frame position and opening and closing frames, it was quite simple to compare the achieved results to the ground truth. \\
 
-
-
-
-
-\begin{figure}[H]
-\center
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=4cm]{door1_score.PNG} 
-\caption{}
-\label{fig:subim2}
-\end{subfigure}
-\caption{Tdoor1 score}
-\label{fig:image2}
-\end{figure}
+As can be seen from the scores below, the algorithm performs quite well in detecting when the door opens and closes. The algorithm begins to loose accuracy in the variable light image and also in the larger pictures.\\
+This problem is two fold and its causes are also independent of each other. The inaccuracy from the variable light is due to the light distorting the binary outputs of the MOG2 and also the adaptive thresholding. While it is advertised that adaptive thresholding is adaptive in variable light, this has its limits and is not a complete solution. Too much thresholding can lead to loosing important features, while too little thresholding can lead to unwanted error inducing details.\\
+The larger video is less accurate due to it having a more clear picture of the objects in it. These objects are harder to threshold out during the process and thus will induce errors when processing the video.\\
+The higher the video quality, the higher the pixel density , thus while higher definition videos are generally more preferred, these videos take far longer to process or demand faster and more expensive hardware.\\
 
 
 \begin{figure}[H]
-	\center
 	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth, height=4cm]{Door2_score.PNG} 
-		\caption{}
+		\includegraphics[width=1\linewidth, height=5cm]{door2_score.PNG} 
+		\caption{door video 1 score}
+		\label{fig:subim1}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth, height=5cm]{door1_score.PNG}
+		\caption{door video 2 score}
 		\label{fig:subim2}
 	\end{subfigure}
-	\caption{Tdoor2 score}
+	\caption{Scores for door video 3 and 4}
 	\label{fig:image2}
 \end{figure}
 
 
+
 \begin{figure}[H]
-	\center
 	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth, height=4cm]{door3_score.PNG} 
-		\caption{}
+		\includegraphics[width=1\linewidth, height=5cm]{door3_score.PNG} 
+		\caption{door video 3 score}
+		\label{fig:subim1}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth, height=5cm]{Door44_score.PNG}
+		\caption{door video 4 score}
 		\label{fig:subim2}
 	\end{subfigure}
-	\caption{Tdoor1 score}
+	\caption{Scores for door video 3 and 4}
 	\label{fig:image2}
 \end{figure}
 
+\begin{table}[H]
+	\centering
+	\caption{Recorded Results}
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		Video & 1st Door Open Frame & 1st Door Close Frame & 2nd Door Open Frame & 2nd Door Close Frame     \\ \hline
+		1                     & 104                  & 164            & 378               & 458 \\ \hline
+		2                     & 92                  & 144            & 355             & 410\\ \hline
+		3                     & 89                     & 166                    & 216                     & 286 \\ \hline
+		4                     & 51                     & 107                    & 157                     & 315 \\ \hline
+	\end{tabular}
+\end{table}
 
-\begin{figure}[H]
-	\center
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth, height=4cm]{door4_score.PNG} 
-		\caption{}
-		\label{fig:subim2}
-	\end{subfigure}
-	\caption{Tdoor2 score}
-	\label{fig:image2}
-\end{figure}
+\begin{table}[H]
+	\centering
+	\caption{Ground truth}
+	\label{my-label}
+	\begin{tabular}{|l|l|}
+		\hline
+		First open close & Second open close \\ \hline
+		94-211           & 373-490           \\ \hline
+		71-184           & 339-460           \\ \hline
+		153-251          & 380-492           \\ \hline
+		134-230          & 311-432           \\ \hline
+	\end{tabular}
+\end{table}
 
-\subsection{Discussion}\label{sec:intro}
+
+\section{Discussion}\label{sec:intro}
 While solving the problems inherent in detecting a door, a number of problems arose. The main being that, even though the solution was designed to fit a wide array of cases, it will fail in many more due to a variety of problems such as:
 
 \begin{enumerate}
@@ -369,7 +405,7 @@ Light reflectance was found to be a major cause of the earliest false positives.
 
 The false negatives were somewhat harder to solve as important details in the video may be lost through canny. Thus a line that existed and was clearly defined in the color, unaltered version of the video may have dissipated. This can be somewhat corrected by extending or merging lines in the HoughLinesP() function, although this does not work for all cases. \\
 
-Lastly, the solution presented does not solve for all cases. One example may be that if a door is continuously rocked back and forth. Such as in a busy hallway where someone may hold the door for many other people. The algorithm will see the back and forth movement of the door as opening and closing. As there is no state of a door being opened. Only that a door is about to be opened or about to eb closed.\\
+Lastly, the solution presented does not solve for all cases. One example may be that if a door is continuously rocked back and forth. Such as in a busy hallway where someone may hold the door for many other people. The algorithm will see the back and forth movement of the door as opening and closing. As there is no state of a door being opened. Only that a door is about to be opened or about to be closed.\\
 
 
 

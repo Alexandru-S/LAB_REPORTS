@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.7)  13 DEC 2016 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.7)  14 DEC 2016 23:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -457,13 +457,10 @@ LaTeX Warning: Label `fig:image2' multiply defined.
 LaTeX Warning: Label `sec:intro' multiply defined.
 
 
-LaTeX Warning: Label `fig:subim2' multiply defined.
+LaTeX Warning: Label `fig:subim1' multiply defined.
 
 
-LaTeX Warning: Label `sub@fig:subim2' multiply defined.
-
-
-LaTeX Warning: Label `fig:image2' multiply defined.
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
 
 
 LaTeX Warning: Label `fig:subim2' multiply defined.
@@ -475,13 +472,10 @@ LaTeX Warning: Label `sub@fig:subim2' multiply defined.
 LaTeX Warning: Label `fig:image2' multiply defined.
 
 
-LaTeX Warning: Label `fig:subim2' multiply defined.
+LaTeX Warning: Label `fig:subim1' multiply defined.
 
 
-LaTeX Warning: Label `sub@fig:subim2' multiply defined.
-
-
-LaTeX Warning: Label `fig:image2' multiply defined.
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
 
 
 LaTeX Warning: Label `fig:subim2' multiply defined.
@@ -491,6 +485,9 @@ LaTeX Warning: Label `sub@fig:subim2' multiply defined.
 
 
 LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `my-label' multiply defined.
 
 
 LaTeX Warning: Label `sec:intro' multiply defined.
@@ -608,7 +605,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 66.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<logo.png, id=28, 169.63374pt x 207.77625pt>
+<logo.png, id=24, 169.63374pt x 207.77625pt>
 File: logo.png Graphic file (type png)
  <use logo.png>
 Package pdftex.def Info: logo.png used on input line 68.
@@ -633,204 +630,197 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.107 \cleardoublepage
-                       [1]
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+l.98 \cleardoublepage
+                      [1]
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--127
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--133
+Underfull \hbox (badness 10000) in paragraph at lines 118--122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.137 A bit_
-            wise not is then performed on the mask so as to turn it into a f...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.138 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (1234.5451pt too wide) in paragraph at lines 136--138
-\OT1/cmr/m/n/10 A bit$[]\OML/cmm/m/it/10 isenotisthenperformedonthemasksoastotu
-rnitintoaforegroundsubtractionmethod:Thiswayanythingthatmovesintheforegroundism
-adeinvisiblewhilethebackgroundislargelyunaffectedThelearningrateforthemethodwas
-chosenat\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 005\OML/cmm/m/it/10 
-:Thiswasfoundtohavetheperfectbalancebetweenmakingthesubjectinvisible; whileatth
-esametimekeepingthemovingdooraspartofthebackground:[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--138
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
-<prof_color.png, id=49, 213.79875pt x 350.81062pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+
+ []
+
+<prof_color.png, id=48, 213.79875pt x 350.81062pt>
 File: prof_color.png Graphic file (type png)
  <use prof_color.png>
-Package pdftex.def Info: prof_color.png used on input line 144.
+Package pdftex.def Info: prof_color.png used on input line 134.
 (pdftex.def)             Requested size: 117.43634pt x 142.26486pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.152 
+l.142 
        [1
 
-] <door_mask.PNG, id=57, 213.79875pt x 348.55219pt>
-! Missing number, treated as zero.
-<to be read again> 
-                   \relax 
-l.175 ...2cm\linewidth, height=4cm]{door_mask.PNG}
-                                                  
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \relax 
-l.175 ...2cm\linewidth, height=4cm]{door_mask.PNG}
-                                                  
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
+] <door_mask.PNG, id=55, 213.79875pt x 348.55219pt>
 File: door_mask.PNG Graphic file (type png)
+
 <use door_mask.PNG>
-Package pdftex.def Info: door_mask.PNG used on input line 175.
-(pdftex.def)             Requested size: 56.90433pt x 113.80995pt.
- <door_neg_mask.PNG, id=58, 213.79875pt x 350.81062pt>
+Package pdftex.def Info: door_mask.PNG used on input line 168.
+(pdftex.def)             Requested size: 117.43634pt x 142.26378pt.
+ <door_neg_mask.PNG, id=56, 213.79875pt x 350.81062pt>
 File: door_neg_mask.PNG Graphic file (type png)
 
 <use door_neg_mask.PNG>
-Package pdftex.def Info: door_neg_mask.PNG used on input line 181.
+Package pdftex.def Info: door_neg_mask.PNG used on input line 173.
 (pdftex.def)             Requested size: 117.43634pt x 142.26486pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 174--185
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 167--177
 []$[]$ $[]$ 
  []
 
-<door_back_proj.PNG, id=59, 213.79875pt x 349.305pt>
+<door_back_proj.PNG, id=57, 213.79875pt x 349.305pt>
 File: door_back_proj.PNG Graphic file (type png)
  <use door_back_proj.PNG>
-Package pdftex.def Info: door_back_proj.PNG used on input line 192.
+Package pdftex.def Info: door_back_proj.PNG used on input line 186.
 (pdftex.def)             Requested size: 117.43634pt x 142.2619pt.
 
 [2 <./prof_color.png> <./door_mask.PNG> <./door_neg_mask.PNG>]
-<door_closed_h_v.PNG, id=82, 210.03468pt x 350.81062pt>
+<door_closed_h_v.PNG, id=80, 210.03468pt x 350.81062pt>
 File: door_closed_h_v.PNG Graphic file (type png)
 
 <use door_closed_h_v.PNG>
-Package pdftex.def Info: door_closed_h_v.PNG used on input line 211.
+Package pdftex.def Info: door_closed_h_v.PNG used on input line 205.
 (pdftex.def)             Requested size: 117.43913pt x 142.26486pt.
- <door2_h_v.PNG, id=83, 213.04594pt x 349.305pt>
+ <door2_h_v.PNG, id=81, 213.04594pt x 349.305pt>
 File: door2_h_v.PNG Graphic file (type png)
 
 <use door2_h_v.PNG>
-Package pdftex.def Info: door2_h_v.PNG used on input line 216.
+Package pdftex.def Info: door2_h_v.PNG used on input line 210.
 (pdftex.def)             Requested size: 117.44218pt x 142.2619pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 210--220
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 204--214
 []$[]$ $[]$ 
  []
 
-[3 <./door_back_proj.PNG> <./door_closed_h_v.PNG> <./door2_h_v.PNG>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+[3 <./door_back_proj.PNG> <./door_closed_h_v.PNG> <./door2_h_v.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
 
  []
 
-<door1_score.PNG, id=160, 481.04718pt x 226.59656pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--322
+
+ []
+
+[5] <door2_score.PNG, id=176, 482.55281pt x 228.10219pt>
+File: door2_score.PNG Graphic file (type png)
+ <use door2_score.PNG>
+Package pdftex.def Info: door2_score.PNG used on input line 326.
+(pdftex.def)             Requested size: 234.87723pt x 142.26765pt.
+
+<door1_score.PNG, id=177, 481.04718pt x 226.59656pt>
 File: door1_score.PNG Graphic file (type png)
  <use door1_score.PNG>
-Package pdftex.def Info: door1_score.PNG used on input line 305.
-(pdftex.def)             Requested size: 211.38982pt x 113.80971pt.
+Package pdftex.def Info: door1_score.PNG used on input line 331.
+(pdftex.def)             Requested size: 234.8784pt x 142.26215pt.
 
-<Door2_score.PNG, id=161, 482.55281pt x 228.10219pt>
-File: Door2_score.PNG Graphic file (type png)
- <use Door2_score.PNG>
-Package pdftex.def Info: Door2_score.PNG used on input line 317.
-(pdftex.def)             Requested size: 211.38876pt x 113.81064pt.
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 325--335
+[]$[]$ $[]$ 
+ []
 
-<door3_score.PNG, id=162, 480.29437pt x 225.84375pt>
+<door3_score.PNG, id=178, 480.29437pt x 225.84375pt>
 File: door3_score.PNG Graphic file (type png)
  <use door3_score.PNG>
-Package pdftex.def Info: door3_score.PNG used on input line 329.
-(pdftex.def)             Requested size: 211.3888pt x 113.81412pt.
+Package pdftex.def Info: door3_score.PNG used on input line 343.
+(pdftex.def)             Requested size: 234.87726pt x 142.27196pt.
 
-<door4_score.PNG, id=163, 491.58656pt x 244.66406pt>
-File: door4_score.PNG Graphic file (type png)
- <use door4_score.PNG>
-Package pdftex.def Info: door4_score.PNG used on input line 341.
-(pdftex.def)             Requested size: 211.38559pt x 113.81241pt.
+<Door44_score.PNG, id=179, 481.04718pt x 227.34938pt>
+File: Door44_score.PNG Graphic file (type png)
+ <use Door44_score.PNG>
+Package pdftex.def Info: Door44_score.PNG used on input line 348.
+(pdftex.def)             Requested size: 234.8784pt x 142.26645pt.
 
-[5 <./door1_score.PNG> <./Door2_score.PNG> <./door3_score.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 370--371
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 342--352
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (4.30139pt too wide) in paragraph at lines 360--368
+ [][] 
+ []
+
+[6 <./door2_score.PNG> <./door1_score.PNG> <./door3_score.PNG> <./Door44_score.
+PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
 
  []
 
-[6 <./door4_score.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
 
  []
 
-[7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 383.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 383.
+[7] [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 419.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 419.
  (./LAB3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 383.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 383.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 419.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 419.
 Package rerunfilecheck Info: File `LAB3.out' has not changed.
-(rerunfilecheck)             Checksum: B55CAE9554850C89722E680B75E4CC96;335.
+(rerunfilecheck)             Checksum: A23D67F7956292168AA2356B7489A8C6;225.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 383.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 419.
  ) 
 Here is how much of TeX's memory you used:
- 10470 strings out of 493014
- 152732 string characters out of 6133351
- 464059 words of memory out of 5000000
+ 10480 strings out of 493014
+ 152798 string characters out of 6133351
+ 435059 words of memory out of 5000000
  13761 multiletter control sequences out of 15000+600000
- 9540 words of font info for 37 fonts, out of 8000000 for 9000
+ 8935 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,58p,612b,1716s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,58p,612b,1718s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on LAB3.pdf (9 pages, 351608 bytes).
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on LAB3.pdf (10 pages, 346082 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
- 103 named destinations out of 1000 (max. 500000)
- 104 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 113 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
