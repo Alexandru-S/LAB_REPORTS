@@ -1,0 +1,416 @@
+\documentclass{article}
+
+\usepackage{lipsum}
+\usepackage[margin=1in,includefoot]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+
+% Header and Footer Stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  language=VHDL,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+	\begin{align*}
+	\includegraphics[height=1.75in]{logo.png}
+	\end{align*}
+
+
+	
+	\line(1,0){300}\\
+	[0.25in]
+	\huge{\bfseries Tutorial 6 }\\
+	[2mm]
+	\line(1,0){200}\\
+	[1.5cm]
+	\textsc{\LARGE Caches}\\
+	[0.75cm]
+	\textsc{\Large CS3021 Computer Architecture}\\
+	[7cm]	
+	\end{center}
+	
+	
+	
+	\begin{flushright}
+	\textsc{\large Alexandru Sulea\\
+	D Stream\\
+	\#12315152\\
+	6 January 2017\\}
+	\end{flushright}
+	
+\end{titlepage}
+%Table of Contents Stuff%
+%\tableofcontents
+%\listoffigures
+%\addcontentsline{toc}{section}{List of Figures}
+%\listoftables
+%\addcontentsline{toc}{section}{List of Tables}
+
+
+\thispagestyle{empty}
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\pagebreak
+
+
+
+
+
+
+\section{Q1.}
+\subsection{(i)}
+
+\begin{table}[H]
+	\centering
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		tag & \multicolumn{4}{l|}{4 word 16 bytes} \\ \hline
+	000,220,110,008	&  0000,2200,1100,0080       & 0004,2204,1104,0084         & 0008, 2208,1108,0088        & 000C,220C,110C,008C        \\ \hline
+	001,339	& 0010,3390        & 0014,3394        & 0018,3398        & 001C,339C        \\ \hline
+	002,00A	& 0020,00A0        & 0024,00A4        & 0028,00A8        & 002C,00AC       \\ \hline
+	113,00B	&1130,00B0         & 1134,00B4        & 1138,00B8        & 113C,00BC       \\ \hline
+	004	& 0040        & 0044        & 0048        & 004C       \\ \hline
+	00D	& 00D0        & 00D4        & 00D8        & 00DC       \\ \hline
+	00E, 006	& 00E0,0060        & 00E4,0064        &00E8,0068         &00EC,OO6C        \\ \hline
+	007	& 0070        & 0074        & 0078        & 007C       \\ \hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l}
+		\hline
+		address & set & hit/miss & \\ \hline
+		0000    &  0  &    M     & \\ \hline
+		0004    &  0  &    H     & \\ \hline
+		000c    &  0  &    H     & \\ \hline
+		2200    &  0  &    M     & \\ \hline
+		00d0    &  5  &    M     & \\ \hline
+		00e0    &  6  &    M     & \\ \hline
+		1130    &  3  &    M     & \\ \hline
+		0028    &  2  &    M     & \\ \hline
+		113c    &  3  &    H     & \\ \hline
+		2204    &  0  &    H     & \\ \hline
+		0010    &  1  &    M     & \\ \hline
+		0020    &  2  &    H     & \\ \hline
+		0004    &  0  &    M     & \\ \hline
+		0040    &  4  &    M     & \\ \hline
+		2208    &  0  &    M     & \\ \hline
+		0008    &  0  &    M     & \\ \hline
+		00a0    &  2  &    M     & \\ \hline
+		0004    &  0  &    H     & \\ \hline
+		1104    &  0  &    M     & \\ \hline
+		0028    &  2  &    M     & \\ \hline
+		000c    &  0  &    M     & \\ \hline
+		0084    &  0  &    M     & \\ \hline
+		000c    &  0  &    M     & \\ \hline
+		3390    &  1  &    M     & \\ \hline
+		00b0    &  3  &    M     & \\ \hline
+		1100    &  0  &    M     & \\ \hline
+		0028    &  2  &    H     & \\ \hline
+		0064    &  6  &    M     & \\ \hline
+		0070    &  7  &    M     & \\ \hline
+		00d0    &  5  &    H     & \\ \hline
+		0008    &  0  &    M     & \\ \hline
+		3394    &  1  &    H     & \\ \hline
+	\end{tabular}
+\end{table}
+
+9 HITS, 23 MISSES
+
+\subsection{(ii)}
+
+\begin{table}[H]
+	\centering
+	\caption{128 byte 2-way cache with 16 bytes per line (L = 16, N = 4, K=2)}
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+		\hline
+		tag k=0     & tag k=1 & \multicolumn{4}{l|}{4 word 16 bytes}                                     & \multicolumn{4}{l|}{4 word 16 bytes} \\ \hline
+		000,004,008 & 220 & 0000 & 0044 & 0008 & 000c & 2200 & 2204 & 2208 & 220c  \\
+ &110 &0040 & 0044 & 0048& 004c& & & & \\
+ & &0080 & 0084& 0088&008c &1100 &1104 &1108 &110c\\ \hline
+		00d,339     & 001     &   00d0   &    00d4  & 00d8  &  00dc &  0010    & 0014     &  0018    & 001c \\
+		 & &3390 & 3394& 3398& 339c& & & & \\
+		
+		 \hline
+		00e,00a     & 002,006 &  00e0  &00e4  &  00e8  &00ec  &  0020    &    0024  &    0028  & 002c \\
+
+ & &00a0 &00a4 &00a8 &00ac &0060 &0064 &0068 &006c \\
+ \hline
+		113,007     & 00b     & 1130 &1134 & 1138& 113c  &    00b0  &     00b4 &     00b8 & 00bc \\
+ & &0070 & 0074& 0078& 007c& & & & \\
+ \hline
+	\end{tabular}
+\end{table}
+
+
+
+
+\begin{table}[H]
+	\centering
+	\caption{Address Format}
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l}
+		\hline
+		address & set & hit/miss & hit/c-miss\\ \hline
+		0000    &  0   &  M        & \\ \hline
+		0004    &  0   &  H        & \\ \hline
+		000c    &  0   &   H       & \\ \hline
+		2200    &  0   &   M       & \\ \hline
+		00d0    &   1  &   M       & \\ \hline
+		00e0    &   2  &   M       & \\ \hline
+		1130    &   3  &   M       & \\ \hline
+		0028    &   2  &   M       & \\ \hline
+		113c    &   3  &   H       & \\ \hline
+		2204    &   0  &   H       & \\ \hline
+		0010    &  1   &   M       & \\ \hline
+		0020    & 2    &   H       & \\ \hline
+		0004    &0     &   H       & \\ \hline
+		0040    &    0 &   M       & \\ \hline
+		2208    &   0  &   M       & \\ \hline
+		0008    &  0   &   M       & \\ \hline
+		00a0    & 0    &   M       & \\ \hline
+		0004    &0     &   H       & \\ \hline
+		1104    &     2&   M       & \\ \hline
+		0028    &     0&   H       & \\ \hline
+		000c    &     0&   H       & \\ \hline
+		0084    &     0&   M       & \\ \hline
+		000c    &     0&   H       & \\ \hline
+		3390    &     1&   M       & \\ \hline
+		00b0    &     3&   M       & \\ \hline
+		1100    &     0&   M       & \\ \hline
+		0028    &     2&   H       & \\ \hline
+		0064    &     2&   M       & \\ \hline
+		0070    &     3&   M       & \\ \hline
+		00d0    &    1 &   M       & \\ \hline
+		0008    &   0  &   H       & \\ \hline
+		3394    &  1   &   H       & \\ \hline
+	\end{tabular}
+\end{table}
+
+13 hits
+\pagebreak
+\subsection{(iii)}
+
+
+\begin{table}[H]
+	\centering
+
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|l|l|l|}
+		\hline
+		tag 1 & tag 2 & tag 3 & tag 4 & 4 word 16 bytes & 4 word 16 bytes & 4 word 16 bytes & 4 word 16 bytes \\
+		
+		
+		
+		
+		
+		
+		 \hline
+		&       &       &       &                 &                 &                 &                 \\
+ & & & & & & & \\
+ & & & & & & & \\
+ & & & & & & & \\
+ 
+		
+		
+		
+		\hline
+		&       &       &       &                 &                 &                 &                 \\
+ & & & & & & & \\
+ & & & & & & & \\
+ & & & & & & & \\
+		
+		
+		 \hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\caption{Address Format}
+	\label{my-label}
+	\begin{tabular}{|l|lll|l|}
+		\hline
+		address & set & hit/miss & hits/c-misses\\ \hline
+		0000    &0     &      M    & compulsory\\ \hline
+		0004    & 0    &      H    & compulsory\\ \hline
+		000c    &  0   &      H    &hit \\ \hline
+		2200    &   0  &M          & compulsory\\ \hline
+		00d0    & 1    &M          & compulsory\\ \hline
+		00e0    &  0   &M          & compulsory\\ \hline
+		1130    &  1   &M          &compulsory \\ \hline
+		0028    &  0   &M          & compulsory\\ \hline
+		113c    &  1   &H          & hit \\ \hline
+		2204    &0     &H          & hit \\ \hline
+		0010    &1     & M         & compulsory\\ \hline
+		0020    &  0   &  H        & compulsory\\ \hline
+		0004    &    0 &   H       & compulsory\\ \hline
+		0040    &  0   &M          &compulsory \\ \hline
+		2208    & 0    & H         & hit \\ \hline
+		0008    &   0  &  H        &hit  \\ \hline
+		00a0    &  0   &  M        & compulsory\\ \hline
+		0004    &  0   &   H       &compulsory \\ \hline
+		1104    &  0   &    M      &compulsory \\ \hline
+		0028    &  0   &     M     & conflict\\ \hline
+		000c    & 0    &      H    & hit \\ \hline
+		0084    &  0   &       M   & compulsory\\ \hline
+		000c    &0     &H          &hit  \\ \hline
+		3390    &  1   &M          & compulsory\\ \hline
+		00b0    &   1  &M          & compulsory\\ \hline
+		1100    & 0    &H          & hit \\ \hline
+		0028    &  0   &H          &hit  \\ \hline
+		0064    & 0    &M          &compulsory \\ \hline
+		0070    &1     &M          & compulsory\\ \hline
+		00d0    & 1    &M          &capacity \\ \hline
+		0008    &0     &H          & hit \\ \hline
+		3394    &  1   &H          & hit \\ \hline
+	\end{tabular}
+\end{table}
+
+15 hits
+
+
+\begin{table}[H]
+	\centering
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+		\hline
+		tag1 & tag2 & tag3 & tag4 & tag5 & tag6 & tag7 & tag8 &  &  &  &  &  &  &  &  \\ \hline
+		&      &      &      &      &      &      &      &  &  &  &  &  &  &  &  \\
+		
+		 & & & & & & & & & & & & & & & \\
+		  & & & & & & & & & & & & & & & \\ & & & & & & & & & & & & & & & \\ & & & & & & & & & & & & & & & \\
+		
+		
+		 \hline
+ 
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\caption{Address Format}
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l}
+		\hline
+		address & set & hit/miss & hit/ c-misses\\ \hline
+		0000    &   0  &M        & compulsory  \\ \hline
+		0004    &   0  &H         & hit  \\ \hline
+		000c    &   0  &H         & hit\\ \hline
+		2200    &   0  &M       &  compulsory \\ \hline
+		00d0    &    0 &M         & compulsory  \\ \hline
+		00e0    & 0    &M         &  compulsory \\ \hline
+		1130    &  0   &M        & compulsory  \\ \hline
+		0028    &   0  &M        &  compulsory \\ \hline
+		113c    &  0   &H          &hit \\ \hline
+		2204    &  0   &H          &hit \\ \hline
+		0010    &   1  &M         & compulsory \\ \hline
+		0020    &  0   &H          & hit\\ \hline
+		0004    &  0   &H          & hit \\ \hline
+		0040    &   0  &M          &  compulsory\\ \hline
+		2208    &  0   &H          &  hit\\ \hline
+		0008    & 0    &H          &  hit\\ \hline
+		00a0    & 0    &M          & compulsory\\ \hline
+		0004    & 0    &H          &  hit\\ \hline
+		1104    &0     &M          & compulsory\\ \hline
+		0028    &  0   &H          & hit \\ \hline
+		000c    &   0  &H          & hit \\ \hline
+		0084    &  0   &M          & compulsory\\ \hline
+		000c    &   0  &H          & hit \\ \hline
+		3390    &  0   &M          & compulsory\\ \hline
+		00b0    &  0   &M          & compulsory\\ \hline
+		1100    &   0  &H          & hit \\ \hline
+		0028    &  0   &H          &  hit\\ \hline
+		0064    &  0   &M          & compulsory\\ \hline
+		0070    &  0   &M          & compulsory\\ \hline
+		00d0    &  0   &M          & capacity\\ \hline
+		0008    &   0  &  H        &  hit\\ \hline
+		3394    &  0   & H         &  hit\\ \hline
+	\end{tabular}
+\end{table}
+16 hits
+
+
+
+
+
+\section{Q2.}
+
+Determine the number of compulsory, capacity and conflict misses for each cache
+organization in Q1.
+ done in the q1 tables
+
+\section{Q3.}
+ Write a program (in C, C++, Java, …) to solve Q1. Make sure you can create a generalized
+cache object with parameters L, K and N. Hand in a copy of your source code and evidence
+that your program works.
+
+\section{Q4.}
+ FOR AN EXTRA 5 MARKS modify your program to simulate a pseudo LRU replacement policy. What
+are the hit rates for the cache organizations specified in Q1?
+
+
+
+
+
+
+
+
+
+
+
+
+
+\pagebreak
+
+	
+\end{document}
