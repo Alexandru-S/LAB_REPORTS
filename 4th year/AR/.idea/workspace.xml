@@ -10,10 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ED STUFF/Self/Apps/AppStore" afterPath="$PROJECT_DIR$/../../ED STUFF/Self/Apps/AppStore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ED STUFF/Self/Apps/Tearma" afterPath="$PROJECT_DIR$/../../ED STUFF/Self/Apps/Tearma" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ED STUFF/Self/Apps/iompar" afterPath="$PROJECT_DIR$/../../ED STUFF/Self/Apps/iompar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/AR.iml" afterPath="$PROJECT_DIR$/.idea/AR.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main" afterPath="$PROJECT_DIR$/main" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -268,7 +264,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="526" y="68" width="748" height="691" extended-state="1" />
+    <frame x="526" y="68" width="748" height="691" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2526738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
