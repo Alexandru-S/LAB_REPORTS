@@ -1,0 +1,11 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Theoretical background}{2}{section.2}
+\contentsline {section}{\numberline {3}Implementation}{3}{section.3}
+\contentsline {section}{\numberline {4}Experiments}{4}{section.4}
+\contentsline {section}{\numberline {5}Discussion of Results}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}Part 1}{5}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Part 2}{6}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Part 3}{8}{subsection.5.3}
+\contentsline {section}{\numberline {6}Summary}{10}{section.6}
+\contentsline {section}{\numberline {7}Video}{11}{section.7}
